@@ -16,11 +16,7 @@
   
 		<!-- Header -->
 			<header id="header" class="alt">
-<<<<<<< HEAD
-				<div class="logo"><a href="index.html">CafeRoad </a></div>
-=======
 				<div class="logo"><a href="index.html">Hielo22 <span>by TEMPLATED</span></a></div>
->>>>>>> bgs
 				<a href="#menu">Menu</a>
 			</header>
 
