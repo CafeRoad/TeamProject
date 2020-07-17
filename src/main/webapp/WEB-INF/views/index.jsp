@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>${pageContext.request.contextPath}</title>
+		<title>Cafe Road Main Page</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/main.css" />
@@ -16,7 +16,7 @@
   
 		<!-- Header -->
 			<header id="header" class="alt">
-				<div class="logo"><a href="index.html">Hielo22 <span>by TEMPLATED</span></a></div>
+				<div class="logo"><a href="/cafe/index">Cafe Road <span>by TEAM CafeRoad</span></a></div>
 				<a href="#menu">Menu</a>
 			</header>
 
@@ -36,7 +36,7 @@
 					<div class="inner">
 						<header>
 							<p>A free responsive web site template by <a href="https://templated.co">TEMPLATED</a></p>
-							<h2>Cafe Road</h2>
+							<h2><a href="/cafe/index">Cafe Road</a></h2>
 						</header>
 					</div>
 				</article>

@@ -36,13 +36,15 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
 	<!-- 아이디는 겹치지만 않으면 됨. 패키지마다 매퍼 지정. -->
-	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.sql.cafe.user.UserMapper"/>
+	<bean id="memberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.sql.cafe.member.MemberMapper"/>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
+	<!-- member table로 합치면서 이제 안 쓰는 테이블이라 삭제.
 	<bean id="ownerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.sql.cafe.owner.OwnerMapper"/>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
+	 -->
 </beans>
