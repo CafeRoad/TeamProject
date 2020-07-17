@@ -1,4 +1,4 @@
-package com.sql.cafe.user;
+package com.sql.cafe.member;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.sql.cafe.HomeController;
 
 @Controller
-public class UserController {
+public class MemberController {
 	
 	@Autowired
-	private UserService userService;
+	private MemberService memberService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@RequestMapping(value = "/getUser", method = RequestMethod.GET)
+	@RequestMapping(value = "/getMember", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome getUser! The client locale is {}.", locale);
 		
@@ -30,12 +30,12 @@ public class UserController {
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
 		String formattedDate = dateFormat.format(date);
-		String user_id = "totoro";
+		String id = "totoro";
 		
 		
 		model.addAttribute("serverTime", formattedDate );
-		model.addAttribute("user", userService.getSpecificRow(user_id));
+		model.addAttribute("member", memberService.getSpecificRow(id));
 		
-		return "userTableTest";
+		return "memberTableTest";
 	}
 }
