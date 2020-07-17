@@ -16,7 +16,11 @@
   
 		<!-- Header -->
 			<header id="header" class="alt">
+
+
+
 				<div class="logo"><a href="index.html">CafeRoad </a></div>
+
 				<a href="#menu">Menu</a>
 			</header>
 
