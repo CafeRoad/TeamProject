@@ -16,7 +16,13 @@
   
 		<!-- Header -->
 			<header id="header" class="alt">
+<<<<<<< HEAD
 				<div class="logo"><a href="index.html">Hielo22 <span>by TEMPLATED</span></a></div>
+
+
+
+
+>>>>>>> ac09eb38440e667871a4c5608426204bafd917cc
 				<a href="#menu">Menu</a>
 			</header>
 
