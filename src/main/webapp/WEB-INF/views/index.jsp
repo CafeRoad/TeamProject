@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <!--
-	Hielo by TEMPLATED
 	Hielo by TEMPLATED 
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
@@ -14,11 +13,9 @@
 		<link href="${pageContext.request.contextPath}/resources/assets/css/main.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-
   
 		<!-- Header -->
 			<header id="header" class="alt">
-				<div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div>
 				<div class="logo"><a href="index.html">CafeRoad </a></div>
 				<a href="#menu">Menu</a>
 			</header>
@@ -26,21 +23,19 @@
 		<!-- Nav -->
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
+					<li><a href="index.html">login</a></li>
+					<li><a href="generic.html">Sign up</a></li>
+					<li><a href="elements.html">login check > if</a></li>
 				</ul>
 			</nav>
 
 		<!-- Banner -->
 			<section class="banner full">
 				<article>
-					<img src="${pageContext.request.contextPath}/resources/assets/css/images/slide01.jpg" alt="" />
 					<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe01.jpg" alt="" />
 					<div class="inner">
 						<header>
 							<p>A free responsive web site template by <a href="https://templated.co">TEMPLATED</a></p>
-							<h2>Hielo</h2>
 							<h2>Cafe Road</h2>
 						</header>
 					</div>
