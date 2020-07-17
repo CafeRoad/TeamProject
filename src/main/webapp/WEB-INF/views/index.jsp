@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <!--
 	Hielo by TEMPLATED
+	Hielo by TEMPLATED 
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
@@ -14,9 +15,11 @@
 	</head>
 	<body>
 
+  
 		<!-- Header -->
 			<header id="header" class="alt">
 				<div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div>
+				<div class="logo"><a href="index.html">CafeRoad </a></div>
 				<a href="#menu">Menu</a>
 			</header>
 
@@ -33,10 +36,12 @@
 			<section class="banner full">
 				<article>
 					<img src="${pageContext.request.contextPath}/resources/assets/css/images/slide01.jpg" alt="" />
+					<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe01.jpg" alt="" />
 					<div class="inner">
 						<header>
 							<p>A free responsive web site template by <a href="https://templated.co">TEMPLATED</a></p>
 							<h2>Hielo</h2>
+							<h2>Cafe Road</h2>
 						</header>
 					</div>
 				</article>
