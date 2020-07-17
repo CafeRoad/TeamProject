@@ -16,7 +16,7 @@
 
 		<!-- Header -->
 			<header id="header" class="alt">
-				<div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div>
+				<div class="logo"><a href="index.html">Hielo22 <span>by TEMPLATED</span></a></div>
 				<a href="#menu">Menu</a>
 			</header>
 
