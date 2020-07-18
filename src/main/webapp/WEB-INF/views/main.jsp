@@ -11,8 +11,10 @@
 	<title>Cafe Road Main Page</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/main2.css" />
-	<link href="${pageContext.request.contextPath}/resources/assets/css/main2.css" rel="stylesheet" type="text/css" />
+	<!-- http://localhost:8080/cafe/include -->
+	<!-- css 뒤에 ? ver='숫자'로 값을 주면 바뀐 파일 적용됨.  https://kanu.tistory.com/30  -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/main2.css?ver=2" />
+	<link href="${pageContext.request.contextPath}/resources/assets/css/main2.css?ver=2" rel="stylesheet" type="text/css" />
 
 	<!-- Scripts -->
 	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
