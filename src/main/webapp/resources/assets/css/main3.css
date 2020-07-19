@@ -3100,7 +3100,7 @@
 			/*background-color: #000;*/
 			/*메인 컬러 #ed7d31. 근데 지금 어디서 검은 색이 반쯤 덮고 있음. :before의 background-color: rgba(0, 0, 0, 0.95)가 문제 */
 			/*너무 쨍한가 싶어서 #ef8c48로 일단 수정.*/
-			background-color: #ed7d31;
+			background-color: #ef8c48;
 			color: #bfbfbf;
 			background-image: url(../../images/bg.jpg);
 			background-size: cover;
@@ -3712,7 +3712,7 @@
 
 	#header {
 		/*background: rgba(0, 0, 0, 0.975);*/
-		background: rgba(237,125,49, 0.9);
+		background: rgba(239, 140, 72, 0.9);
 		color: #a6a6a6;
 		cursor: default;
 		height: 3.25em;
@@ -3883,7 +3883,7 @@
 		transition: transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		-webkit-overflow-scrolling: touch;
 		/*background: rgba(0, 0, 0, 0.95);*/
-		background: rgba(237,125,49, 0.9);
+		background: rgba(239, 140, 72, 0.9);
 		box-shadow: none;
 		color: #000;
 		height: 100%;
@@ -4289,7 +4289,7 @@
 	#footer {
 		padding: 4rem 0 2rem 0 ;
 		/*background: #000;*/
-		background: #ed7d31;
+		background: #ef8c48;
 		text-align: center;
 	}
 
