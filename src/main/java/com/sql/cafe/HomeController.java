@@ -22,6 +22,8 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	
+	//현재 view를 확인하기 위한 기능들이 들어가 있음. 수정되면 다른 컨트롤러로 옮겨야 함.
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);

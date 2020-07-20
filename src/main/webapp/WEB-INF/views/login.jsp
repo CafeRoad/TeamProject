@@ -1,14 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<!--
-	Hielo by TEMPLATED 
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Cafe Road Main Page</title>
+	<title>Cafe Road Login Page</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- http://localhost:8080/cafe/index -->
@@ -33,6 +28,9 @@
 
 	<!-- Banner -->
 	<jsp:include page="/WEB-INF/views/include/banner.jsp"></jsp:include>
+
+	<!-- login -->
+	<jsp:include page="/WEB-INF/views/include/loginForm.jsp"></jsp:include>
 
 	<!-- One -->
 	<jsp:include page="/WEB-INF/views/include/one.jsp"></jsp:include>

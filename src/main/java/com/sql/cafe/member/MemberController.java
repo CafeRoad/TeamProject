@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sql.cafe.HomeController;
@@ -27,34 +26,33 @@ import com.sql.cafe.HomeController;
 @Controller
 public class MemberController {
 
+	// 멤버 테이블과 관련된. 회원가입, 로그인 등의 기능이 들어가는 컨트롤러.
+
 	@Autowired
 	private MemberService memberService;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	// 특정 한 유저의 정보를 겟.
+	// 특정 한 유저의 정보를 겟. 내부 기능 수정 필. 아이디를 변수로 받아와서 selelctMemberById의 인자로 넣어야 함. 생각해보니
+	// 얜 그냥 확인용.
 	@RequestMapping(value = "/getMember", method = RequestMethod.GET)
-	public String getmember(Locale locale, Model model) {
-		logger.info("Welcome getUser! The client locale is {}.", locale);
+	public String getmember(Model model) {
+		logger.info("Welcome getMember!");
 
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
 		String id = "totoro";
 
-		model.addAttribute("serverTime", formattedDate);
-		model.addAttribute("member", memberService.SelectMemberById(id));
+		model.addAttribute("member", memberService.selectMemberById(id));
 
 		return "memberTableTest";
 	}
-	
+
 	// 회원가입 폼으로 이동.
 	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
 	public String signUp(Model model) {
 
 		logger.info("signUp called!");
 
+		// VO 만들면서 가입 폼으로.
 		model.addAttribute("signUpMemberVO", new MemberVO());
 
 		return "signUpForm";
@@ -80,9 +78,11 @@ public class MemberController {
 			model.addAttribute("member", memberVO);
 		} else {
 
+			// 에러가 없으면 Authority는 난수로 설정하고 insert.
 			memberService.insertNewMember(memberVO);
 
 			rttr.addFlashAttribute("msg", "가입시 사용한 이메일로 인증해주세요.");
+			// 가입되었고 이메일 인증하라는 폼을 만들어서 수정해야 함.
 			return "redirect:/";
 
 		}
@@ -110,16 +110,40 @@ public class MemberController {
 		return "emailOK";
 
 	}
-	
+
 	// 이하 영운씨꺼 땡겨옴. 수정필.
 
-//	@RequestMapping(value = "/member/login.do")
-//	public String loginView() {
-//		return "/member/login";
-//	}
-//
+	// 로그인 하는 폼으로 이동.
+	@RequestMapping(value = "/login")
+	public String login(Model model) {
+		return "login";
+	}
+
+	// 로그인 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 VO담아서 리턴.
+	@RequestMapping(value = "/loginAction", method = RequestMethod.POST)
+	public String loginAction(@RequestParam("id") String id, @RequestParam("password") String password, Model model,
+			HttpSession session) {
+		logger.info("Welcome loginAction!");
+
+		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
+		session.setAttribute("signedMember", memberService.login(id, password));
+
+		return "main";
+	}
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(MemberVO memberVO, Model model, HttpSession session) {
+
+		// session.setAttribute("signedMember",null); 으로 해줘도 된다.
+		session.invalidate();
+		
+		// 로그아웃 처리를 하고 index 메서드 호출하여 주소창도 바꾸면서 이동.
+		return "redirect:/index";
+	}
+
+//	//로그인 처리.
 //	@RequestMapping(value = "/member/loginpro.do", method = RequestMethod.POST)
-//	public ModelAndView loginPro(@ModelAttribute MemberVO vo, HttpSession session) throws Exception {
+//	public String loginPro(@ModelAttribute MemberVO vo, Model model) throws Exception {
 //		String status = service.loginPro(vo, session);
 //		ModelAndView mav = new ModelAndView();
 //		if (status == null) {
@@ -132,6 +156,13 @@ public class MemberController {
 //			mav.setViewName("adminhome");
 //		}
 //		return mav;
+//	}
+
+//	@RequestMapping("/member/join")
+//	String showJoin(Model model) {
+//		
+//		
+//		return "/member/join";
 //	}
 
 }

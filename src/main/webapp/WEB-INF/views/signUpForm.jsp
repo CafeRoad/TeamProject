@@ -11,9 +11,8 @@
 </head>
 <body>
 
-<c:url var="insertUrl" value="/signUpAction"/>
-
-<sf:form modelAttribute="signUpMemberVO" method="POST" action="${insertUrl }">
+<c:url var="signUpUrl" value="/signUpAction"/>
+<sf:form modelAttribute="signUpMemberVO" method="POST" action="${signUpUrl }">
 	<table width=400 border=1 cellpadding=5>
 		<tr>
 			<td><b>아이디</b></td>

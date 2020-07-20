@@ -14,8 +14,8 @@ public class MemberService {
 	private JavaMailSender mailSender;
 
 	// 로그인 된 아이디의 정보를 받아 옴.
-	public MemberVO SelectMemberById(String id) {
-		return this.memberMapper.SelectMemberById(id);
+	public MemberVO selectMemberById(String id) {
+		return this.memberMapper.selectMemberById(id);
 	}
 
 	// 회원가입 폼에서 받은 정보에 인증키를 추가하여 인서트.
@@ -46,9 +46,8 @@ public class MemberService {
 	// 이메일 인증 키 검증
 	public MemberVO updateToUser(String authkey) throws Exception {
 		MemberVO memberVO = new MemberVO();
-		System.out.println("여기의 뭐리가 안됨");
-		memberVO = memberMapper.SelectMemberByAuthority(authkey);
-		System.out.println("여기까진 되니.");
+		memberVO = memberMapper.selectMemberByAuthority(authkey);
+
 		// null이 아니면, 해당 키를 가진 유저가 있으면. 인증키 값을 'USER'로 바꿈.
 		if (memberVO != null) {
 			try {
@@ -58,5 +57,10 @@ public class MemberService {
 			}
 		}
 		return memberVO;
+	}
+	
+	public MemberVO login(String id, String password) {
+		
+		return memberMapper.login(id, password);
 	}
 }
