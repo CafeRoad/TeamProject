@@ -64,18 +64,4 @@ public class HomeController {
 		return "main";
 	}
 	
-	@RequestMapping(value = "/include2", method = RequestMethod.GET)
-	public String include2(Locale locale, Model model) {
-		logger.info("Welcome include! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "main2";
-	}
-	
 }
