@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MemberMapper {
 
+	// 특정 아이디의 값을 선택하는 쿼리.
 	final String SELECT_BY_ID = "select * from member where id = #{id}";
-	
 	@Select(SELECT_BY_ID)
 	@Results(value = { @Result(property = "id", column = "id"), @Result(property = "password", column = "password"),
 			@Result(property = "email", column = "email"), @Result(property = "create_time", column = "create_time"),
