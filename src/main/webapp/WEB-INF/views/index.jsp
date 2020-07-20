@@ -41,7 +41,7 @@
 					</div>
 				</article>
 				<article>
-					<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe02.jpg" alt="" />
+					<img src="${pageContext.request.contextPath}/resources/assets/css/images/slide02.jpg" alt="" />
 					<div class="inner">
 						<header>
 							<p>Lorem ipsum dolor sit amet nullam feugiat</p>
@@ -50,7 +50,7 @@
 					</div>
 				</article>
 				<article>
-					<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe03.jpg"  alt="" />
+					<img src="${pageContext.request.contextPath}/resources/assets/css/images/slide03.jpg"  alt="" />
 					<div class="inner">
 						<header>
 							<p>Sed cursus aliuam veroeros lorem ipsum nullam</p>
@@ -59,7 +59,7 @@
 					</div>
 				</article>
 				<article>
-					<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe04.jpg"  alt="" />
+					<img src="${pageContext.request.contextPath}/resources/assets/css/images/slide04.jpg"  alt="" />
 					<div class="inner">
 						<header>
 							<p>Adipiscing lorem ipsum feugiat sed phasellus consequat</p>
@@ -69,7 +69,7 @@
 					</div>
 				</article>
 				<article>
-					<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe05.jpg"  alt="" />
+					<img src="${pageContext.request.contextPath}/resources/assets/css/images/slide05.jpg"  alt="" />
 					<div class="inner">
 						<header>
 							<p>Ipsum dolor sed magna veroeros lorem ipsum</p>
@@ -87,7 +87,7 @@
 						<div>
 							<div class="box">
 								<div class="image fit">
-									<img src="${pageContext.request.contextPath}/resources/assets/css/images/pic01.jpg" alt="" />
+									<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafepic02.jpg" alt="" />
 								</div>
 								<div class="content">
 									<header class="align-center">
@@ -105,7 +105,7 @@
 						<div>
 							<div class="box">
 								<div class="image fit">
-									<img src="${pageContext.request.contextPath}/resources/assets/css/images/pic022.jpg" alt="" />
+									<img src="${pageContext.request.contextPath}/resources/assets/css/images/pic03.jpg" alt="" />
 								</div>
 								<div class="content">
 									<header class="align-center">
@@ -144,12 +144,12 @@
 					<div class="gallery">
 						<div>
 							<div class="image fit">
-								<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic01.jpg" alt="" /></a>
+								<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/cafepic01.jpg" alt="" /></a>
 							</div>
 						</div>
 						<div>
 							<div class="image fit">
-								<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic02.jpg" alt="" /></a>
+								<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/cafepic02.jpg" alt="" /></a>
 							</div>
 						</div>
 						<div>

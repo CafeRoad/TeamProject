@@ -10,12 +10,12 @@
 			<div class="gallery">
 				<div>
 					<div class="image fit">
-						<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic01.jpg" alt="" /></a>
+						<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/cafepic01.jpg" alt="" /></a>
 					</div>
 				</div>
 				<div>
 					<div class="image fit">
-						<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic02.jpg" alt="" /></a>
+						<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/cafepic02.jpg" alt="" /></a>
 					</div>
 				</div>
 				<div>
