@@ -141,7 +141,7 @@ public class MemberController {
 		return "redirect:/index";
 	}
 
-//	//로그인 처리.
+//	//로그인 처리. 근데 우리가 mav를 안써용..
 //	@RequestMapping(value = "/member/loginpro.do", method = RequestMethod.POST)
 //	public String loginPro(@ModelAttribute MemberVO vo, Model model) throws Exception {
 //		String status = service.loginPro(vo, session);

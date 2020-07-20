@@ -30,7 +30,7 @@
 	<jsp:include page="/WEB-INF/views/include/banner.jsp"></jsp:include>
 
 	<!-- login -->
-	<jsp:include page="/WEB-INF/views/include/loginForm.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/member/login.jsp"></jsp:include>
 
 	<!-- One -->
 	<jsp:include page="/WEB-INF/views/include/one.jsp"></jsp:include>
