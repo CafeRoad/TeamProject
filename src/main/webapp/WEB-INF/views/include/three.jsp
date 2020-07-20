@@ -10,17 +10,17 @@
 			<div class="gallery">
 				<div>
 					<div class="image fit">
+						<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic01.jpg" alt="" /></a>
+					</div>
+				</div>
+				<div>
+					<div class="image fit">
+						<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic05.jpg" alt="" /></a>
+					</div>
+				</div>
+				<div>
+					<div class="image fit">
 						<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic001.jpg" alt="" /></a>
-					</div>
-				</div>
-				<div>
-					<div class="image fit">
-						<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic02.jpg" alt="" /></a>
-					</div>
-				</div>
-				<div>
-					<div class="image fit">
-						<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic03.jpg" alt="" /></a>
 					</div>
 				</div>
 				<div>

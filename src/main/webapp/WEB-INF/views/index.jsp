@@ -154,7 +154,7 @@
 						</div>
 						<div>
 							<div class="image fit">
-								<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic03.jpg" alt="" /></a>
+								<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic05.jpg" alt="" /></a>
 							</div>
 						</div>
 						<div>
