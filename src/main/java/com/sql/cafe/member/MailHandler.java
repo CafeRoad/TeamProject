@@ -1,4 +1,4 @@
-package com.sql.cafe.mail;
+package com.sql.cafe.member;
 
 import java.io.UnsupportedEncodingException;
 
