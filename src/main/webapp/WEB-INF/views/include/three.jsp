@@ -10,7 +10,7 @@
 			<div class="gallery">
 				<div>
 					<div class="image fit">
-						<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic01.jpg" alt="" /></a>
+						<a href="test"><img src="${pageContext.request.contextPath}/resources/assets/css/images/pic01.jpg" alt="" /></a>
 					</div>
 				</div>
 				<div>
