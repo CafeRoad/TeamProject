@@ -10,6 +10,7 @@
 <title>회원가입 페이지.</title>
 </head>
 <body>
+
 <c:url var="insertUrl" value="/signUpAction"/>
 
 <sf:form modelAttribute="signUpMemberVO" method="POST" action="${insertUrl }">
@@ -48,5 +49,6 @@
 	</table>
 
 </sf:form>
+
 </body>
 </html>
