@@ -59,7 +59,7 @@
 					</div>
 				</article>
 				<article>
-					<img src="${pageContext.request.contextPath}/resources/assets/css/images/slide04.jpg"  alt="" />
+					<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe04.jpg"  alt="" />
 					<div class="inner">
 						<header>
 							<p>Adipiscing lorem ipsum feugiat sed phasellus consequat</p>
@@ -69,7 +69,7 @@
 					</div>
 				</article>
 				<article>
-					<img src="${pageContext.request.contextPath}/resources/assets/css/images/slide05.jpg"  alt="" />
+					<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe05.jpg"  alt="" />
 					<div class="inner">
 						<header>
 							<p>Ipsum dolor sed magna veroeros lorem ipsum</p>
