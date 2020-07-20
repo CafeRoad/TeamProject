@@ -22,7 +22,7 @@
 	</beans:bean>
 	
 	<!-- com.sql.cafe의 모든 하위 경로. -->
-	<context:component-scan base-package="com.sql.cafe" />
+	<context:component-scan base-package="com.cafe.caferoad" />
 	
 	
 </beans:beans>

@@ -37,7 +37,7 @@
 
 	<!-- 아이디는 겹치지만 않으면 됨. 패키지마다 매퍼 지정. -->
 	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.sql.cafe.user.UserMapper"/>
+		<property name="mapperInterface" value="com.cafe.caferoad.mapper.UserMapper"/>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
