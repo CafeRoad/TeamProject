@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <style type="text/css">
+ 
         #deleteTable{
         width : 630px;
             margin-left:auto; 

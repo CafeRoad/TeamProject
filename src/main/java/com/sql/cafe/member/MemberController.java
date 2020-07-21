@@ -2,7 +2,6 @@ package com.sql.cafe.member;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -16,11 +15,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sql.cafe.HomeController;
 
 @Controller
+@SessionAttributes("signedMember") // model에서 "signedMember" 라는 이름을 가진 것을 세션에 저장.
 public class MemberController {
 
 	// 멤버 테이블과 관련된. 회원가입, 로그인 등의 기능이 들어가는 컨트롤러.
@@ -61,10 +63,8 @@ public class MemberController {
 			Model model, RedirectAttributes rttr) throws Exception {
 
 		logger.info(" signUpAction called!");
-		
-		// 리퀘스트.셋캐릭터인코딩..
-		System.out.println(memberVO.getId());
-		
+
+
 		if (bidingResult.hasErrors()) {
 			System.out.println("----------------------------error----------------------------");
 
@@ -129,26 +129,33 @@ public class MemberController {
 	// 로그인 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 VO담아서 리턴.
 	@RequestMapping(value = "/loginAction", method = RequestMethod.POST)
 	public String loginAction(@ModelAttribute("memberVO") @Valid MemberVO memberVO, @RequestParam("id") String id,
-			@RequestParam("password") String password, Model model, HttpSession session) {
+			@RequestParam("password") String password, Model model) {
 		logger.info("Welcome loginAction!");
 
 		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
-		session.setAttribute("signedMember", memberService.login(id, password));
+//		session.setAttribute("signedMember", memberService.login(id, password));
+		model.addAttribute("signedMember", memberService.login(id, password));
 
 		// redirect를 해야 주소창도 바뀜.
 		return "redirect:/index";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(MemberVO memberVO, Model model, HttpSession session) {
+	public String logout(Model model, SessionStatus sessionStatus) {
 
-		// session.setAttribute("signedMember",null); 으로 해줘도 된다.
-		session.invalidate();
-
+		// 세션의 상태를 클리어.
+		sessionStatus.setComplete();
+		
 		// 알러트? 팝업? 메세지를 띄울 필요는 있는 듯.
 		// rttr.addFlashAttribute("msg", "로그아웃 되었습니다.");
 
 		return "redirect:/index";
+	}
+
+	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
+	public String myPage(Model model) {
+
+		return "/myPage";
 	}
 
 //	//로그인 처리. 근데 우리가 mav를 안써용..

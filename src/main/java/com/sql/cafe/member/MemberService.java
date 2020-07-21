@@ -24,6 +24,7 @@ public class MemberService {
 		String key = new TempKey().generateKey(8); // 인증키 생성
 		System.out.println("key : " + key);
 
+		System.out.println("인서트 뉴 멤버에서 확인 " + memberVO.getId());
 		// 인증 키 생성해서 Authority column으로.
 		memberVO.setAuthority(key);
 
@@ -34,6 +35,7 @@ public class MemberService {
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("서비스 이메일 인증");
 		sendMail.setText(new StringBuffer().append("<h1>메일인증</h1>")
+				.append(memberVO.getId()).append("님 가입을 환영합니다.<br/>")
 				.append("<a href='http://localhost:8080/cafe/userEmailConfirm?authKey=").append(key)
 				.append("' target='_blank'>이메일 인증 확인</a>").toString());
 
