@@ -34,13 +34,13 @@
 	<jsp:include page="/WEB-INF/views/include/banner_half.jsp"></jsp:include>
 
 	<!-- One -->
-	<jsp:include page="/WEB-INF/views/include/content/one.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/contents/one.jsp"></jsp:include>
 
 	<!-- Two -->
-	<jsp:include page="/WEB-INF/views/include/content/two.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/contents/two.jsp"></jsp:include>
 
 	<!-- Three -->
-	<jsp:include page="/WEB-INF/views/include/content/three.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/contents/three.jsp"></jsp:include>
 
 	<!-- Footer -->
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>

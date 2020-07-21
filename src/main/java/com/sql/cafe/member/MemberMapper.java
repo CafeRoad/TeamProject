@@ -15,8 +15,8 @@ public interface MemberMapper {
 	MemberVO selectMemberById(@Param("id") String id);
 
 	// 회원가입.
-	final String INSERT = "insert into member (id, password, email, create_time, tel, authority) values (#{id}, #{password}, #{email}, now(), #{tel}, #{authority})";
-	@Insert(INSERT)
+	final String INSERT_NEW_MEMBER = "insert into member (id, password, email, create_time, tel, authority) values (#{id}, #{password}, #{email}, now(), #{tel}, #{authority})";
+	@Insert(INSERT_NEW_MEMBER)
 	void insertNewMember(MemberVO memberVO);
 
 	// 인증키로 정보 검색. 이메일 인증하는 동작에서만 사용됨.

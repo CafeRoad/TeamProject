@@ -29,7 +29,7 @@
 	<jsp:include page="/WEB-INF/views/include/banner_half.jsp"></jsp:include>
 
 	<!-- login -->
-	<jsp:include page="/WEB-INF/views/include/content/loginForm.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/contents/loginForm.jsp"></jsp:include>
 
 	<!-- Footer -->
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>

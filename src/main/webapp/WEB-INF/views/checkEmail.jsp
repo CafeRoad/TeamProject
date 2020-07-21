@@ -35,7 +35,7 @@
 	<jsp:include page="/WEB-INF/views/include/banner.jsp"></jsp:include>
 
 	<!-- check email -->
-	<jsp:include page="/WEB-INF/views/include/content/checkEmailPlease.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/contents/checkEmailPlease.jsp"></jsp:include>
 
 	<!-- Footer -->
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
