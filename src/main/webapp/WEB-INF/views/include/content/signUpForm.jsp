@@ -3,13 +3,6 @@
 <%@ page import="java.util.*, java.sql.*, javax.servlet.http.*, java.io.*, java.text.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원가입 페이지.</title>
-</head>
-<body>
 
 <c:url var="signUpUrl" value="/signUpAction"/>
 <sf:form modelAttribute="signUpMemberVO" method="POST" action="${signUpUrl }">
@@ -48,6 +41,3 @@
 	</table>
 
 </sf:form>
-
-</body>
-</html>

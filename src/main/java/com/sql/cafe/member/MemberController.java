@@ -83,10 +83,16 @@ public class MemberController {
 
 			rttr.addFlashAttribute("msg", "가입시 사용한 이메일로 인증해주세요.");
 			// 가입되었고 이메일 인증하라는 폼을 만들어서 수정해야 함.
-			return "redirect:/";
+			return "redirect:/checkEmail";
 
 		}
 		return "signUpForm";
+	}
+
+	@RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
+	public String checkEmail(Model model) {
+
+		return "checkEmail";
 	}
 
 	// 인증 코드를 보낸 메일에서 접근. Authority 값 USER로 변환.
@@ -116,13 +122,14 @@ public class MemberController {
 	// 로그인 하는 폼으로 이동.
 	@RequestMapping(value = "/login")
 	public String login(Model model) {
+		model.addAttribute("memberVO", new MemberVO());
 		return "login";
 	}
 
 	// 로그인 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 VO담아서 리턴.
 	@RequestMapping(value = "/loginAction", method = RequestMethod.POST)
-	public String loginAction(@RequestParam("id") String id, @RequestParam("password") String password, Model model,
-			HttpSession session) {
+	public String loginAction(@ModelAttribute("memberVO") @Valid MemberVO memberVO, @RequestParam("id") String id,
+			@RequestParam("password") String password, Model model, HttpSession session) {
 		logger.info("Welcome loginAction!");
 
 		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
@@ -136,7 +143,7 @@ public class MemberController {
 
 		// session.setAttribute("signedMember",null); 으로 해줘도 된다.
 		session.invalidate();
-		
+
 		// 로그아웃 처리를 하고 index 메서드 호출하여 주소창도 바꾸면서 이동.
 		return "redirect:/index";
 	}
