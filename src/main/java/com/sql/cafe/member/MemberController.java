@@ -52,7 +52,7 @@ public class MemberController {
 		// VO 만들면서 가입 폼으로.
 		model.addAttribute("signUpMemberVO", new MemberVO());
 
-		return "signUpForm";
+		return "signUp";
 	}
 
 	// 회원가입 동작.
@@ -61,7 +61,10 @@ public class MemberController {
 			Model model, RedirectAttributes rttr) throws Exception {
 
 		logger.info(" signUpAction called!");
-
+		
+		// 리퀘스트.셋캐릭터인코딩..
+		System.out.println(memberVO.getId());
+		
 		if (bidingResult.hasErrors()) {
 			System.out.println("----------------------------error----------------------------");
 
@@ -101,20 +104,20 @@ public class MemberController {
 
 		if (authkey == null) {
 			rttr.addFlashAttribute("msg", "인증키가 잘못되었습니다. 다시 인증해 주세요");
-			return "redirect:/";
+			// 에러페이지를 만들어서 보낼 필요.
+			return "redirect:/index";
 		}
 		MemberVO memberVO = memberService.updateToUser(authkey);
 		if (memberVO == null) {
 			rttr.addFlashAttribute("msg", "잘못된 접근 입니다. 다시 인증해 주세요");
-			return "redirect:/";
+			// 에러페이지를 만들어서 보낼 필요.
+			return "redirect:/index";
 		}
 
 		model.addAttribute("memberVO", memberVO);
 		return "emailOK";
 
 	}
-
-	// 이하 영운씨꺼 땡겨옴. 수정필.
 
 	// 로그인 하는 폼으로 이동.
 	@RequestMapping(value = "/login")
@@ -132,7 +135,8 @@ public class MemberController {
 		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
 		session.setAttribute("signedMember", memberService.login(id, password));
 
-		return "main";
+		// redirect를 해야 주소창도 바뀜.
+		return "redirect:/index";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -141,7 +145,9 @@ public class MemberController {
 		// session.setAttribute("signedMember",null); 으로 해줘도 된다.
 		session.invalidate();
 
-		// 로그아웃 처리를 하고 index 메서드 호출하여 주소창도 바꾸면서 이동.
+		// 알러트? 팝업? 메세지를 띄울 필요는 있는 듯.
+		// rttr.addFlashAttribute("msg", "로그아웃 되었습니다.");
+
 		return "redirect:/index";
 	}
 

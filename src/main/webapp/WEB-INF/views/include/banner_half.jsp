@@ -3,7 +3,7 @@
 	<!-- Banner -->
 	<section class="banner half">
 		<article>
-			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe01.jpg" alt="" />
+			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe01_half.jpg" alt="" />
 			<div class="inner">
 				<header>
 					<p>A free responsive web site template by <a href="https://templated.co">TEMPLATED</a></p>
@@ -12,7 +12,7 @@
 			</div>
 		</article>
 		<article>
-			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe02.jpg" alt="" />
+			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe02_half.jpg" alt="" />
 			<div class="inner">
 				<header>
 					<p>Lorem ipsum dolor sit amet nullam feugiat</p>
@@ -21,7 +21,7 @@
 			</div>
 		</article>
 		<article>
-			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe03.jpg"  alt="" />
+			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe03_half.jpg"  alt="" />
 			<div class="inner">
 				<header>
 					<p>Sed cursus aliuam veroeros lorem ipsum nullam</p>
@@ -30,7 +30,7 @@
 			</div>
 		</article>
 		<article>
-			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe04.jpg"  alt="" />
+			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe04_half.jpg"  alt="" />
 			<div class="inner">
 				<header>
 					<p>Adipiscing lorem ipsum feugiat sed phasellus consequat</p>
@@ -40,7 +40,7 @@
 			</div>
 		</article>
 		<article>
-			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe05.jpg"  alt="" />
+			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe05_half.jpg"  alt="" />
 			<div class="inner">
 				<header>
 					<p>Ipsum dolor sed magna veroeros lorem ipsum</p>
