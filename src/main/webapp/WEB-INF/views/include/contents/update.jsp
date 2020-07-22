@@ -3,25 +3,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-   
  
-    <title>회원정보 수정화면</title>
+ <title>회원정보 수정 화면</title>
     
     <style type="text/css">
-        table{
-            width : 630px;
+        #update{
+            width:900px;
             margin-left:auto; 
             margin-right:auto;
-            border:3px white;
+            border:3px;
         }
         
         td{
-            border:1px white
+            border:1px;
+             background-color:white;
+          }
+       #mail1,#mail2 {
+   
+     display: inline-block;
         }
-        
         #title{
-            background-color:orange
+            background-color:white
         }
+        #mail1{
+        width : 200px;
+        }
+        #mail2{
+        width : 200px;
+        }
+        #update{
+        width : 600px;
+        }
+   
+    
+    
+    
+    
     </style>
     
    
@@ -30,12 +47,9 @@
 <body onload="init()">
  
         <br><br>
-        <b><font size="6" color="gray">회원정보 수정</font></b>
-        <br><br><br>
+       <center> <b><font size="6" color="gray">회원정보 수정</font></b></center>
         
-        
-                
-            
+           
             </table>    
             <br><br>    
             <table id="update">
@@ -54,21 +68,15 @@
                 <tr>
                     <td id="title">이름</td>
                     <td>
-                     <input type="text" name="mail1" maxlength="50" 
-                            value="">
+                     <input type="text" name="name" maxlength="50" value="" id="name">
+                     </td>
                 </tr>
-                    
-                
-                    
-                
-                    
                 <tr>
                     <td id="title">이메일</td>
-                    <td>
-                        <input type="text" name="mail1" maxlength="50" 
-                            value="">
-                        
-                        <select name="mail2" id="mail2">
+                    <td id="mail">
+                        <input type="text" name="mail1" maxlength="10" value="" id="mail1">
+                        @
+                        <select width="200" name="mail2" id="mail2">
                             <option value="naver.com">naver.com</option>
                             <option value="gmail.com">gmail.com</option>
                             <option value="daum.net" >daum.net</option>
@@ -80,14 +88,14 @@
                 <tr>
                     <td id="title">휴대전화</td>
                     <td>
-                        <input type="text" name="phone" value=""/>
+                        <input type="text" name="phone" value="" id="phone">
                     </td>
                 </tr>
                 
             </table>
-            <br><br>
-            <input type="button" value="취소" onclick="javascript:window.location='MainForm.jsp'">
-            <input type="submit" value="수정"/>  
+            
+            <center><input type="button" value="취소" onclick="javascript:window.location='MainForm.jsp'">
+            <input type="submit" value="수정"/></center><br><br>  
         </form>
         
 </body>
