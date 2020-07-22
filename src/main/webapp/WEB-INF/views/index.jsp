@@ -13,12 +13,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- http://localhost:8080/cafe/index -->
 	<!-- css 뒤에 ? ver='숫자'로 값을 주면 바뀐 파일 적용됨.  https://kanu.tistory.com/30  -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/main3.css?ver=9" />
-	<link href="${pageContext.request.contextPath}/resources/assets/css/main3.css?ver=9" rel="stylesheet" type="text/css" />
+	<link href="${pageContext.request.contextPath}/resources/assets/css/main3.css?ver=17" rel="stylesheet" type="text/css" />
 
 	<!-- Scripts -->
 	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.scrollex.min.js"></script>
+ 	<!-- 스크롤과 연동되어 header 이동 기능<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.scrollex.min.js"></script>  -->
 	<script src="${pageContext.request.contextPath}/resources/assets/js/skel.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/util.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/main.js"></script>
@@ -35,13 +34,13 @@
 	<jsp:include page="/WEB-INF/views/include/banner.jsp"></jsp:include>
 
 	<!-- One -->
-	<jsp:include page="/WEB-INF/views/include/one.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/contents/one.jsp"></jsp:include>
 
 	<!-- Two -->
-	<jsp:include page="/WEB-INF/views/include/two.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/contents/two.jsp"></jsp:include>
 
 	<!-- Three -->
-	<jsp:include page="/WEB-INF/views/include/three.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/contents/three.jsp"></jsp:include>
 
 	<!-- Footer -->
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>

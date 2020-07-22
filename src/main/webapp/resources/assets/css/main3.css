@@ -3826,11 +3826,11 @@
 			-webkit-animation: none;
 			-ms-animation: none;
 			animation: none;
-			background-color: transparent;
+			/*background-color: transparent;*/
 			box-shadow: none;
 			overflow: hidden;
-			position: absolute;
-			top: 1.5em;
+			position: fixed;
+			/*top: 1.5em;*/
 		}
 
 			#header.alt h1 {

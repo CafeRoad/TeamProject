@@ -1,171 +1,50 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED 
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
 <html>
 <head>
-<meta name="theme-color" content="#ff792a">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<meta name="format-detection" content="telephone=no" />
-<meta name="subject" content="³ìÂ÷ºù¼ö ¸ÀÁý º£½ºÆ® 15°÷ º£½ºÆ® 15°÷">
-<meta name="description" content="¸Á°íÇÃ·¹ÀÌÆ®°¡ ¼±Á¤ÇÑ ³ìÂ÷ºù¼ö ¸ÀÁý º£½ºÆ® 15°÷">
-<meta name='keywords'
-	content='ºù¼ö, ³ìÂ÷ºù¼ö, ³ìÂ÷ ºù¼ö, ³ìÂ÷, ¸»Â÷, ¸»Â÷ºù¼ö, ¸»Â÷ ºù¼ö, ¸ÀÂ÷, ±×¸°Æ¼, µðÀúÆ®, ±×¸°Æ¼ºù¼ö, ±×¸°Æ¼ ºù¼ö, Ä¿ÇÇÀÇÁ¤¿ø, È£¹Ð¹ç, ¿¬³²»ì·Õ, ÄÚÀÎ, È«ÆÏÁý, µµÄìºù¼ö, ¿À¼³·ÏÆ¼¹ÂÁö¾ö, ¾ÆÀÌ¿¥Æú, ¹Ù¶÷º®¿¡Èò´ç³ª±Í, ¸ð¸ð»óÁ¡, ºÏÃÌºù¼ö, ´ãÀå¿·¿¡±¹È­²É, ºñ½ºÀ§Æ®¿Â, ÆÏÀÌÀç, ¹ÐÅ¾'>
-<meta name='image'
-	content="https://mp-seoul-image-production-s3.mangoplate.com/keyword_search/meta/pictures/n7q9r93msy2d00vt.png" />
+	<title>Cafe Road Main Page</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- http://localhost:8080/cafe/include -->
+	<!-- css ë’¤ì— ? ver='ìˆ«ìž'ë¡œ ê°’ì„ ì£¼ë©´ ë°”ë€ íŒŒì¼ ì ìš©ë¨.  https://kanu.tistory.com/30  -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/main2.css?ver=7" />
+	<link href="${pageContext.request.contextPath}/resources/assets/css/main2.css?ver=7" rel="stylesheet" type="text/css" />
 
-<meta property='og:url'
-	content='https://www.mangoplate.com/top_lists/977_green_tea_bingsu' />
-<meta property='og:type' content='website' />
-<meta property='og:title' content='³ìÂ÷ºù¼ö ¸ÀÁý º£½ºÆ® 15°÷' />
-<meta property='og:description' content='¿©¸§¿¡ ³ìºùÀº ²À ÇÑ¹ø ¸Ô¾îÁà¾ßÇØ' />
-<meta property='og:image'
-	content='https://mp-seoul-image-production-s3.mangoplate.com/keyword_search/meta/pictures/n7q9r93msy2d00vt.png' />
+	<!-- Scripts -->
+	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.scrollex.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/assets/js/skel.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/assets/js/util.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/assets/js/main.js"></script>
 
-<link rel="amphtml"
-	href="https://www.mangoplate.com/amp/top_lists/977_green_tea_bingsu" />
-<!-- Twitter Meta -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:site" content="@MangoPlate">
-<meta property="twitter:url"
-	content="https://www.mangoplate.com/top_lists/977_green_tea_bingsu">
-<meta property="twitter:title" content="³ìÂ÷ºù¼ö ¸ÀÁý º£½ºÆ® 15°÷ º£½ºÆ® 15°÷">
-<meta property="twitter:description"
-	content="¸Á°íÇÃ·¹ÀÌÆ®°¡ ¼±Á¤ÇÑ ³ìÂ÷ºù¼ö ¸ÀÁý º£½ºÆ® 15°÷">
-<meta property="twitter:image"
-	content="https://mp-seoul-image-production-s3.mangoplate.com/keyword_search/meta/pictures/n7q9r93msy2d00vt.png">
-
-
-<meta property='fb:app_id' content='476661545693695' />
-<meta property='al:ios:url'
-	content='mangoplate://toplists?link_name=977_green_tea_bingsu' />
-<meta property='al:ios:app_store_id' content='628509224' />
-<meta property='al:ios:app_name' content='MangoPlate' />
-
-<meta property='al:android:url'
-	content='mangoplate://toplists?link_name=977_green_tea_bingsu' />
-<meta property='al:android:package' content='com.mangoplate' />
-<meta property='al:android:app_name' content='MangoPlate' />
-<meta charset="EUC-KR">
-<title>Insert title here</title>
 </head>
 <body>
-	<main class="mn-toplist pg-toplist" data-restaurant_uuid=""
-		data-restaurant_count="15" data-keyword="977_green_tea_bingsu">
+	<!-- Header -->
+	<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 
-		<article class="contents">
-			<header class="basic-info-list">
-				<div class="inner" style="padding-bottom: 10px">
-					<p class="status">
-						<span> 109,716 Å¬¸¯ </span> |
-						<time datetime="2020-07-17"> 2020-07-17 </time>
-					</p>
+	<!-- Nav -->
+	<jsp:include page="/WEB-INF/views/include/nav.jsp"></jsp:include>
 
-					<h1 class="title">ÀÎ½ºÅ¸ºÐÀ§±â º£½ºÆ® 15°÷</h1>
-					<h2 class="desc">¡°ÀÎ½ºÅ¸´öÈÄµéÀÇ ÀÎ½ºÅ¸¸ðÀÓ!¡±</h2>
-				</div>
-			</header>
+	<!-- Banner -->
+	<jsp:include page="/WEB-INF/views/include/banner.jsp"></jsp:include>
 
-			<div class="container-list" id="contents_width">
-				<div class="inner">
-					<div class="ad_placeholder" data-platform="web_desktop"
-						data-page="toplist" data-inventory="right_space"></div>
+	<!-- One -->
+	<jsp:include page="/WEB-INF/views/test2.jsp"></jsp:include>
 
-					<!-- ÇØ´ç ·¹½ºÅä¶û ¸ñ·Ï -->
-					<section id="contents_list">
-						<p class="hidden">{{::top_list_info.title}} ¸ñ·Ï</p>
+	<!-- Two -->
+	<!--<jsp:include page="/WEB-INF/views/include/two.jsp"></jsp:include>
 
-						<ul
-							class="list-restaurants type-single-big top_list_restaurant_list">
-							<li class="toplist_list">
-								<div class="with-review">
-									<figure class="restaurant-item">
-										<a href="/restaurants/vsh3qH5c6Q"
-											onclick="trackEvent('CLICK_RESTAURANT', {&quot;position&quot;:0,&quot;restaurant_key&quot;:&quot;vsh3qH5c6Q&quot;})">
-											<div class="thumb">
-												<img class="center-croping lazy"
-													alt="¿¬³²»ì·Õ »çÁø - ¼­¿ïÆ¯º°½Ã ¸¶Æ÷±¸ ¼º¹Ì»ê·Î 122-1"
-													data-original="https://mp-seoul-image-production-s3.mangoplate.com/47673/1396143_1571209554960_3537?fit=around|738:738&amp;crop=738:738;*,*&amp;output-format=jpg&amp;output-quality=80"
-													data-error="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/kssf5eveeva_xlmy.jpg?fit=around|*:*&amp;crop=*:*;*,*&amp;output-format=jpg&amp;output-quality=80" />
-											</div>
-										</a>
-										<figcaption>
-											<div class="info">
-												<div class="wannago_wrap">
-													<button class="btn-type-icon favorite wannago_btn "
-														data-restaurant_uuid="47673" data-action_id=""></button>
-													<p class="wannago_txt">°¡°í½Í´Ù</p>
-												</div>
-												<span class="title "> <a
-													href="/restaurants/vsh3qH5c6Q"
-													onclick="trackEvent('CLICK_RESTAURANT', {&quot;position&quot;:0,&quot;restaurant_key&quot;:&quot;vsh3qH5c6Q&quot;})">
-														1.
-														<h3>¿¬³²»ì·Õ</h3>
-												</a>
-												</span> <strong class="point  "> <span>4.3</span>
-												</strong>
-												<p class="etc ">¼­¿ïÆ¯º°½Ã ¸¶Æ÷±¸ ¼º¹Ì»ê·Î 122-1</p>
-											</div>
-										</figcaption>
-									</figure>
+	<!-- Three -->
+	<!--<jsp:include page="/WEB-INF/views/include/three.jsp"></jsp:include>
 
-									<div class="review-content no-bottom">
-										<figure class="user">
-											<div class="thumb lazy"
-												data-original="https://mp-seoul-image-production-s3.mangoplate.com/50784_1499050757749?fit=around|56:56&amp;crop=56:56;*,*&amp;output-format=jpg&amp;output-quality=80"
-												data-error="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/jmcmlp180qwkp1jj.png?fit=around|*:*&amp;crop=*:*;*,*&amp;output-format=jpg&amp;output-quality=80">
-											</div>
-											<figcaption class="">ÁøÁø¾²</figcaption>
-										</figure>
-										<p class="short_review "
-											onclick="trackEvent('CLICK_FEATURED_REVIEW')"
-											data-restaurant_key="vsh3qH5c6Q"
-											data-is_long_reivew="
-                        true
-                        ">
-											¾ÆÁöÆ® »ï°í½ÍÀº °÷ À¯¸®Ã¢ ³Ê¸Ó·Î µé¾î¿À´Â ÇØ, Â÷ºÐÇÏ°Ô ¸¸µé¾îÁÖ´Â ¾îµÏÇÑ ºÐÀ§±â, ¾ö¸¶¶û µþÀÌ ³ª¶õÈ÷ ¾É¾Æ
-											Ã¥À» ÀÐ´Â Àå¸é ÆÏÀ» ¾ñÁö¾Ê°í ÆÛ¸Ô...</p>
+	<!-- Footer -->
+	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 
-										<p class="long_review ">¾ÆÁöÆ® »ï°í½ÍÀº °÷ À¯¸®Ã¢ ³Ê¸Ó·Î µé¾î¿À´Â ÇØ, Â÷ºÐÇÏ°Ô
-											¸¸µé¾îÁÖ´Â ¾îµÏÇÑ ºÐÀ§±â, ¾ö¸¶¶û µþÀÌ ³ª¶õÈ÷ ¾É¾Æ Ã¥À» ÀÐ´Â Àå¸é ÆÏÀ» ¾ñÁö¾Ê°í ÆÛ¸Ô¾îµµ ¸ÀÀÖ´Â ¸»Â÷¾óÀ½,
-											¾Ë¾ËÀÌ »ì¾ÆÀÖ´Â ÆÏ, ¸¶½Ã¸á·Î¸¸Å­ ÅëÅëÂËµæÇÑ ¶±, ÅëÀÚ¸ù µ¢¾î¸®°¡ µé¾îÀÖ´Â ÁøÂ¥ ÀÚ¸ùÁÖ½º ¸ðµç°Ô ´Ù
-											»ç¶û½º·¯¿ü¾î¿ä ºù¼öÁ¶Â÷ 1ÀÎ1¸Þ´º ÇØ¾ßÇÑ´Ù´ÂÁ¡ÀÌ »ìÂ¦ ºÎ´ã½º·¯¿üÁö¸¸ ¸Ô°í³ª¸é ±×Á¶Â÷µµ ÀÌÇØµÇ¾ú¾î¿ä</p>
-
-										<span class="review_more_btn"
-											onclick="trackEvent('CLICK_MORE_REVIEW', {&quot;position&quot;:0,&quot;restaurant_key&quot;:&quot;vsh3qH5c6Q&quot;})">´õº¸±â</span>
-									</div>
-
-
-									<a href="/restaurants/vsh3qH5c6Q" class="btn-detail"
-										onclick="trackEvent('CLICK_RESTAURANT', {&quot;position&quot;:0,&quot;restaurant_key&quot;:&quot;vsh3qH5c6Q&quot;})">
-										<div class="restaurant-more-name">¿¬³²»ì·Õ</div>
-										<div class="restaurant-more-text">´õº¸±â ></div>
-									</a>
-								</div>
-							</li>
-							<li class="toplist_list">
-								<div class="with-review">
-									<figure class="restaurant-item">
-										<a href="/restaurants/HFaqLOkmMeGp"
-											onclick="trackEvent('CLICK_RESTAURANT', {&quot;position&quot;:1,&quot;restaurant_key&quot;:&quot;HFaqLOkmMeGp&quot;})">
-											<div class="thumb">
-												<img class="center-croping lazy"
-													alt="ÆÏÀÌÀç »çÁø - ¼­¿ïÆ¯º°½Ã ¿µµîÆ÷±¸ ¿©ÀÇ´ë¹æ·Î65±æ 17"
-													data-original="https://mp-seoul-image-production-s3.mangoplate.com/231866/621247_1576411240406_10407?fit=around|738:738&amp;crop=738:738;*,*&amp;output-format=jpg&amp;output-quality=80"
-													data-error="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/kssf5eveeva_xlmy.jpg?fit=around|*:*&amp;crop=*:*;*,*&amp;output-format=jpg&amp;output-quality=80" />
-											</div>
-										</a>
-										</figure>
-										</div>
-										</li>
-										</ul>
-										</section>
-										</div>
-										</div>
-										</article>
-										</main>
-										
 </body>
 </html>
