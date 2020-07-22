@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class CafeVO {
 	private String cafe_id;
-	private String onwer_id;
+	private String owner_id;
 	private String cafe_name;
 	private String gu;
 	private String address;
@@ -20,11 +20,11 @@ public class CafeVO {
 	public void setCafe_id(String cafe_id) {
 		this.cafe_id = cafe_id;
 	}
-	public String getOnwer_id() {
-		return onwer_id;
+	public String getOwner_id() {
+		return owner_id;
 	}
-	public void setOnwer_id(String onwer_id) {
-		this.onwer_id = onwer_id;
+	public void setOwner_id(String owner_id) {
+		this.owner_id = owner_id;
 	}
 	public String getCafe_name() {
 		return cafe_name;

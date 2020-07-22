@@ -32,7 +32,7 @@ public class HomeController {
 
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
+		
 		String formattedDate = dateFormat.format(date);
 
 		model.addAttribute("serverTime", formattedDate);
@@ -68,9 +68,8 @@ public class HomeController {
 		model.addAttribute("banner_full", "True");
 		return "main";
 	}
-	
-	@RequestMapping(value = "/addcafe", method = RequestMethod.GET)
-	public String addcafe(Locale locale, Model model) {
+	@RequestMapping(value = "/addCafeForm", method = RequestMethod.GET)
+	public String addCafeForm(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 
 		Date date = new Date();
@@ -80,7 +79,8 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		return "addcafe";
+		return "addCafeForm";
 	}
+	
 	
 }

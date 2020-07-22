@@ -39,12 +39,13 @@ public class CafeController {
 		// VO 만들면서 가입 폼으로.
 		model.addAttribute("waitingCafeVO", new CafeVO());
 		model.addAttribute("waitingCafeOptionVO", new Cafe_optionVO());
-
-		return "cafe/signUpForm";
+		model.addAttribute("content", "cafe/addCafeForm");
+		return "main";
 	}
 
 	// 카페 등록 동작.
-	@RequestMapping(value = "/cafe/signUpAction", method = RequestMethod.POST)
+	@RequestMapping(value = "/cafe/signUpAction", method = 
+			{RequestMethod.POST, RequestMethod.GET})
 	public String signUpAction(@ModelAttribute("waitingCafeVO") @Valid CafeVO cafeVO,
 			@ModelAttribute("waitingCafeOptionVO") @Valid Cafe_optionVO cafe_optionVO, BindingResult bidingResult,
 			Model model, RedirectAttributes rttr) throws Exception {
