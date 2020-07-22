@@ -61,6 +61,11 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
+	<bean id="boardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.sql.cafe.board.BoardMapper"/>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
 	<!-- member table로 합치면서 이제 안 쓰는 테이블이라 삭제.
 	<bean id="ownerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.sql.cafe.owner.OwnerMapper"/>
