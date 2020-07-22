@@ -3,7 +3,7 @@
 	<!-- Banner -->
 	<section class="banner full">
 		<article>
-			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe01.jpg" alt="" />
+			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe011.jpg" alt="" />
 			<div class="inner">
 				<header>
 					<p>A free responsive web site template by <a href="https://templated.co">TEMPLATED</a></p>
@@ -12,7 +12,7 @@
 			</div>
 		</article>
 		<article>
-			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe02.jpg" alt="" />
+			<img src="${pageContext.request.contextPath}/resources/assets/css/images/cafe022.jpg" alt="" />
 			<div class="inner">
 				<header>
 					<p>Lorem ipsum dolor sit amet nullam feugiat</p>
