@@ -1,4 +1,4 @@
-package com.sql.cafe.board;
+package com.sql.cafe.mapper;
 
 import org.springframework.stereotype.Repository;
 

@@ -62,7 +62,7 @@
 	</bean>
 	
 	<bean id="boardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.sql.cafe.board.BoardMapper"/>
+		<property name="mapperInterface" value="com.sql.cafe.mapper.BoardMapper"/>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
