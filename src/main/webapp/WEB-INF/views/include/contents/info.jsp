@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <head>
-<p/><p/><p/><p/><p/><p/><p/><p/>
+<br><br><br>
 <center>
 <button type="button" class="btn btn-warning">내정보</button>
 <button type="button" class="btn btn-primary">내가쓴리뷰</button>
@@ -33,8 +33,6 @@
    </style>
    
    
-      
-   </script>
    
 </head>
 <body>
@@ -60,17 +58,7 @@
             <td></td>
          </tr>
                
-         <tr>
-            <td id="title">성별</td>
-            <td></td>
-         </tr>
-               
-         <tr>
-            <td id="title">생일</td>
-            <td>
-               
-            </td>
-         </tr>
+         
                
          <tr>
             <td id="title">이메일</td>
@@ -83,12 +71,7 @@
             <td id="title">휴대전화</td>
             <td></td>
          </tr>
-         <tr>
-            <td id="title">주소</td>
-            <td>
-               
-            </td>
-         </tr>
+         
       </table>
   </center>    
       <br>
@@ -97,4 +80,5 @@
       <input type="button" value="회원정보 변경" onclick="changeForm(0)">
       <input type="button" value="회원탈퇴" onclick="changeForm(1)">
         </center>
+        <br><br>
 </body>
