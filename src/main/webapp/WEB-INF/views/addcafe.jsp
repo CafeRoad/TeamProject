@@ -18,12 +18,12 @@
     
     <div class="form-group">
       <label for="exampleInputHomepage1">홈페이지</label>
-      <input class="form-control" id="exampleInputHomepage1" aria-describedby="HomepageHelp" type="text" placeholder="Enter Homepage">
-      <small class="form-text text-muted" id="HomepageHelp">예시:http://www.Homepage.com</small>
+      <input class="form-control" id="homepage" aria-describedby="HomepageHelp" type="text" placeholder="Enter Homepage">
+      <small class="form-text text-muted">예시:http://www.Homepage.com</small>
     </div>
     <div class="form-group">
       <label for="exampleSelectGu">구</label>
-      <select class="form-control" id="exampleSelectGu">
+      <select class="form-control" id="gu">
         <option>강남구</option>
         <option>강동구</option>
         <option>강북구</option>
@@ -53,7 +53,7 @@
     </div>
     <div class="form-group">
       <label for="InputAddress">나머지 주소</label>
-      <input class="form-control" id="Address" type="text" placeholder="Enter Address">
+      <input class="form-control" id="address" type="text" placeholder="Enter Address">
     </div>
     
     <div class="form-group">
@@ -63,11 +63,11 @@
 
     <div class="form-group">
       <label for="exampleEvent">행사</label>
-      <textarea class="form-control" id="exampleEvent" rows="2"></textarea>
+      <textarea class="form-control" id="event" rows="2"></textarea>
     </div>
     <div class="form-group">
       <label for="exampleIntro">카페 소개</label>
-      <textarea class="form-control" id="exampleIntro" rows="2"></textarea>
+      <textarea class="form-control" id="intro" rows="2"></textarea>
     </div>
      
     </fieldset>
