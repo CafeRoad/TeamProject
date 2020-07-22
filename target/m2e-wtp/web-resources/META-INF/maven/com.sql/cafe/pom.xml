@@ -15,6 +15,7 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
+	
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -35,7 +36,7 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<!-- Mybatis -->
+		<!-- 추가한 Mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
@@ -57,7 +58,7 @@
 			<version>1.4</version>
 		</dependency>
 
-		<!-- MySQL connector -->
+		<!-- 추가한 MySQL connector -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -70,6 +71,36 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+
+		<!-- 추가한 메일인증 라이브러리. -->
+		 <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+
+		<!-- 폼에서 컨트롤러로 VO전달을 위한 라이브러리. -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.1.Final</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
+		</dependency>
+
+
 
 		<!-- AspectJ -->
 		<dependency>

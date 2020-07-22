@@ -9,6 +9,26 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
+	<!-- 메일 보내기 (SEND) -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	    <property name="host" value="smtp.gmail.com" />
+	    <property name="port" value="587" />
+	    <property name="username" value="CafeRoadTeam@gmail.com" />
+	    <property name="password" value="teamcafe1!" />
+		<property name="defaultEncoding" value="utf-8" />
+	
+	    <!-- email 요청시는 SMTP -->
+	    <property name="javaMailProperties">
+		    <props>
+			    <prop key="mail.transport.protocol">smtp</prop>
+			    <prop key="mail.smtp.auth">true</prop>
+			    <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+			    <prop key="mail.smtp.starttls.enable">true</prop>
+			    <prop key="mail.debug">true</prop>
+		    </props>
+	    </property>
+	</bean>
+	
 	<!-- MySQL과 연동. -->
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -37,14 +57,19 @@
 
 	<!-- 아이디는 겹치지만 않으면 됨. 패키지마다 매퍼 지정. -->
 	<bean id="memberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.sql.cafe.member.MemberMapper"/>
+		<property name="mapperInterface" value="com.sql.cafe.mapper.MemberMapper"/>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
-	<!-- member table로 합치면서 이제 안 쓰는 테이블이라 삭제.
-	<bean id="ownerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.sql.cafe.owner.OwnerMapper"/>
+	<bean id="boardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.sql.cafe.mapper.BoardMapper"/>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
-	 -->
+	
+	<!-- 아이디는 겹치지만 않으면 됨. 패키지마다 매퍼 지정. -->
+	<bean id="cafeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.sql.cafe.mapper.CafeMapper"/>
+
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
 </beans>

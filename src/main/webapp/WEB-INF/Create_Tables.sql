@@ -4,14 +4,6 @@
 -- sequence나 cafe_name 등등 몇몇의 수정 필요.
 
 -- -----------------------------------------------------
--- Table `gu`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gu` (
-  `gu` VARCHAR(5) NOT NULL,
-  PRIMARY KEY (`gu`))engine=innodb default charset=utf8;
-
-
--- -----------------------------------------------------
 -- Table `member`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `member` (
@@ -30,21 +22,17 @@ CREATE TABLE IF NOT EXISTS `member` (
 CREATE TABLE IF NOT EXISTS `added_cafe` (
   `cafe_id` VARCHAR(30) NOT NULL,
   `owner_id` VARCHAR(16) NOT NULL,
-  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `cafe_name` VARCHAR(45) NOT NULL,
   `gu` VARCHAR(5) NOT NULL,
   `address` VARCHAR(45) NOT NULL,
   `sns` VARCHAR(45) NULL,
   `event` TINYINT(1) NULL,
   `homepage` VARCHAR(45) NULL,
   `intro` VARCHAR(200) NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`cafe_id`, `owner_id`),
   INDEX `fk_added_cafe_gu1_idx` (`gu` ASC),
   INDEX `fk_added_cafe_member1_idx` (`owner_id` ASC),
-  CONSTRAINT `fk_added_cafe_gu1`
-    FOREIGN KEY (`gu`)
-    REFERENCES `gu` (`gu`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_added_cafe_member1`
     FOREIGN KEY (`owner_id`)
     REFERENCES `member` (`id`)
@@ -78,21 +66,17 @@ CREATE TABLE IF NOT EXISTS `favorite` (
 CREATE TABLE IF NOT EXISTS `waiting_cafe` (
   `cafe_id` VARCHAR(30) NOT NULL,
   `owner_id` VARCHAR(16) NOT NULL,
-  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `cafe_name` VARCHAR(45) NOT NULL,
   `gu` VARCHAR(5) NOT NULL,
   `address` VARCHAR(45) NOT NULL,
   `sns` VARCHAR(45) NULL,
   `event` TINYINT(1) NULL,
   `homepage` VARCHAR(45) NULL,
   `intro` VARCHAR(200) NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`cafe_id`, `owner_id`),
   INDEX `fk_added_cafe_gu1_idx` (`gu` ASC),
   INDEX `fk_waiting_cafe_member1_idx` (`owner_id` ASC),
-  CONSTRAINT `fk_added_cafe_gu10`
-    FOREIGN KEY (`gu`)
-    REFERENCES `gu` (`gu`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_waiting_cafe_member1`
     FOREIGN KEY (`owner_id`)
     REFERENCES `member` (`id`)
@@ -228,4 +212,5 @@ CREATE TABLE IF NOT EXISTS `notice` (
     REFERENCES `member` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)engine=innodb default charset=utf8;
+
 
