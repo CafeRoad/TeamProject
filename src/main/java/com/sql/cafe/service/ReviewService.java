@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.sql.cafe.mapper.BoardMapper;
-import com.sql.cafe.vo.BoardVO;
+import com.sql.cafe.mapper.ReviewMapper;
+import com.sql.cafe.vo.ReviewVO;
 
 @Component
-public class BoardService {
+public class ReviewService {
 	
 	@Autowired
-	private BoardMapper boardMapper;
+	private ReviewMapper boardMapper;
 	
-	public List<BoardVO> List() throws Exception {
+	public List<ReviewVO> List() throws Exception {
 		return null;
 	}
  

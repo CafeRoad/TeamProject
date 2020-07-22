@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class BoardVO {
+public class ReviewVO {
 
 	int bno;
 	String subject;

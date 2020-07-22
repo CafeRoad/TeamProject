@@ -2,6 +2,8 @@ package com.sql.cafe.vo;
 
 public class Cafe_optionVO {
 
+	// 카페VO에 통합시킨 이후로 쓰지 않고 있으나 혹시 몰라 아직 지우지는 않음.
+	
 	private String cafe_id;
 	private boolean concent;
 	private boolean pet;

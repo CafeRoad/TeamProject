@@ -38,10 +38,10 @@
 	<jsp:include page="/WEB-INF/views/test2.jsp"></jsp:include>
 
 	<!-- Two -->
-	<!--<jsp:include page="/WEB-INF/views/include/two.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/contents/two.jsp"></jsp:include>
 
 	<!-- Three -->
-	<!--<jsp:include page="/WEB-INF/views/include/three.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/contents/three.jsp"></jsp:include>
 
 	<!-- Footer -->
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>

@@ -31,7 +31,6 @@ CREATE TABLE IF NOT EXISTS `added_cafe` (
   `intro` VARCHAR(200) NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`cafe_id`, `owner_id`),
-  INDEX `fk_added_cafe_gu1_idx` (`gu` ASC),
   INDEX `fk_added_cafe_member1_idx` (`owner_id` ASC),
   CONSTRAINT `fk_added_cafe_member1`
     FOREIGN KEY (`owner_id`)
@@ -75,7 +74,6 @@ CREATE TABLE IF NOT EXISTS `waiting_cafe` (
   `intro` VARCHAR(200) NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`cafe_id`, `owner_id`),
-  INDEX `fk_added_cafe_gu1_idx` (`gu` ASC),
   INDEX `fk_waiting_cafe_member1_idx` (`owner_id` ASC),
   CONSTRAINT `fk_waiting_cafe_member1`
     FOREIGN KEY (`owner_id`)
