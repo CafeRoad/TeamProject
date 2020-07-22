@@ -43,7 +43,7 @@
         
         <br> 
         <center><input type="button" value="취소" onclick="javascript:window.location='MainForm.jsp'">
-        <input type="submit" value="탈퇴" /></center> 
+        <input type="submit" value="탈퇴" /></center>
     </form>
 
 </body>

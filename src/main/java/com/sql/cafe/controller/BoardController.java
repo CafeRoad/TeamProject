@@ -16,9 +16,9 @@ public class BoardController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-	@RequestMapping(value = "/board/board.do")
+	@RequestMapping(value = "/board")
 	public String boardView() {
-		return "/board/board";
+		return "/include/contents/board";
 	}
 	
 	@RequestMapping(value = "/board/write.do")
