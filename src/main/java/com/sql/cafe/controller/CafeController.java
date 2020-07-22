@@ -39,8 +39,8 @@ public class CafeController {
 
 		// VO 만들면서 가입 폼으로.
 		model.addAttribute("waitingCafeVO", new CafeVO());
-
-		return "cafe/signUpForm";
+		model.addAttribute("content", "cafe/addCafeForm");
+		return "main";
 	}
 
 	// 카페 등록 동작.
@@ -64,7 +64,7 @@ public class CafeController {
 
 			rttr.addFlashAttribute("msg", "등록이 완료되었습니다. 관리자 승인 후 등록된 카페 목록을 확인할 수 있습니다.");
 			// 마이페이지로..? 신청충인 카페 보는 뷰도 만들어야 함.
-			return "redirect:/checkEmail";
+			return "redirect:/searchMyWatingCafe";
 
 		}
 		return "cafe/signUpForm";

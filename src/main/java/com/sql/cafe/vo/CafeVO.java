@@ -33,7 +33,6 @@ public class CafeVO {
 	public void setCafe_id(String cafe_id) {
 		this.cafe_id = cafe_id;
 	}
-	
 
 	public String getOwner_id() {
 		return owner_id;

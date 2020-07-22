@@ -11,7 +11,7 @@ public class Cafe_optionVO {
 	private boolean wifi;
 	private boolean local_money;
 	private boolean parking_zone;
-	private int sdutyroom;
+	private int studyroom;
 	private String toilet;
 	
 	public String getCafe_id() {
@@ -56,11 +56,11 @@ public class Cafe_optionVO {
 	public void setParking_zone(boolean parking_zone) {
 		this.parking_zone = parking_zone;
 	}
-	public int getSdutyroom() {
-		return sdutyroom;
+	public int getStudyroom() {
+		return studyroom;
 	}
-	public void setSdutyroom(int sdutyroom) {
-		this.sdutyroom = sdutyroom;
+	public void setStudyroom(int sdutyroom) {
+		this.studyroom = sdutyroom;
 	}
 	public String getToilet() {
 		return toilet;

@@ -31,7 +31,7 @@ public class HomeController {
 
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
+		
 		String formattedDate = dateFormat.format(date);
 
 		model.addAttribute("serverTime", formattedDate);
@@ -68,18 +68,15 @@ public class HomeController {
 		return "main";
 	}
 	
-	@RequestMapping(value = "/addcafe", method = RequestMethod.GET)
-	public String addcafe(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate);
-
-		return "addcafe";
-	}
+//	이제 필요 없음.
+//	@RequestMapping(value = "/addCafeForm", method = RequestMethod.GET)
+//	public String addCafeForm(Locale locale, Model model) {
+//		
+//		logger.info("Welcome 테스트용.! The client locale is {}.", locale);
+//
+//
+//		return "addCafeForm";
+//	}
+	
 	
 }

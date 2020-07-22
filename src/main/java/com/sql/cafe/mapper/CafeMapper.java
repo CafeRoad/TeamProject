@@ -9,9 +9,9 @@ import com.sql.cafe.vo.CafeVO;
 @Repository
 public interface CafeMapper {
 
-	// 카페 인서트.
-	final String INSERT_NEW_WAITING_CAFE = "insert into waiting_cafe (cafe_id, onwer_id, cafe_name, gu, address, sns, event, homepage, intro, create_time) values (#{cafe_id}, #{onwer_id}, #{cafe_name}, #{gu}, #{address}, #{sns}, #{event}, #{homepage}, #{intro}, now())";
 
+	//카페 등록.
+	final String INSERT_NEW_WAITING_CAFE = "insert into waiting_cafe (cafe_id, owner_id, cafe_name, gu, address, sns, event, homepage, intro, create_time) values (#{cafe_id}, #{owner_id}, #{cafe_name}, #{gu}, #{address}, #{sns}, #{event}, #{homepage}, #{intro}, now())";
 	@Insert(INSERT_NEW_WAITING_CAFE)
 	void insertNewCafeToCafe(CafeVO cafeVO);
 	

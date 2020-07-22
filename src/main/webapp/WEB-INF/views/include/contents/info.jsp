@@ -28,18 +28,18 @@
 <p />
 <p />
 <center>
-<c:url var="owner" value="OWNER"/>
-	<button type="button" class="btn btn-warning">내정보</button>
+	<c:url var="owner" value="OWNER"/>
+	<button type="button" class="btn btn-warning" onclick="location.href='/myPage'">내정보</button>
 	<button type="button" class="btn btn-primary">내가쓴리뷰</button>
 	<button type="button" class="btn btn-secondary">즐겨찾기</button>
 	<c:if test="${signedMember.getAuthority().equals(owner)}">
 	<button type="button" class="btn btn-warning">내카페</button>
-	<button type="button" class="btn btn-warning"  onclick="location.href='/cafe/searchMyWatingCafe'">대기중인 카페.</button>
+	<button type="button" class="btn btn-warning" onclick="location.href='/cafe/searchMyWatingCafe'">대기중인 카페.</button>
 	</c:if>
 </center>
 
 <center>
-	<br> <br> <b><font size="6" color="gray">내 정보.</font></b> <br>
+	<br> <br> <b><font size="6" color="gray">내 정보</font></b> <br>
 	<br> <br>
 
 	<table id="info">
@@ -54,21 +54,6 @@
 		</tr>
 
 		<tr>
-			<td id="title">이름</td>
-			<td></td>
-		</tr>
-
-		<tr>
-			<td id="title">성별</td>
-			<td></td>
-		</tr>
-
-		<tr>
-			<td id="title">생일</td>
-			<td></td>
-		</tr>
-
-		<tr>
 			<td id="title">이메일</td>
 			<td>${signedMember.getEmail() }</td>
 		</tr>
@@ -76,10 +61,6 @@
 		<tr>
 			<td id="title">권한</td>
 			<td>${signedMember.getAuthority() }</td>
-		</tr>
-		<tr>
-			<td id="title">주소</td>
-			<td></td>
 		</tr>
 	</table>
 </center>
