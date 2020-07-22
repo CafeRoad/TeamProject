@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <!--
 	Hielo by TEMPLATED 
@@ -17,7 +18,6 @@
 
 	<!-- Scripts -->
 	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
- 	<!-- 스크롤과 연동되어 header 이동 기능<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.scrollex.min.js"></script>  -->
 	<script src="${pageContext.request.contextPath}/resources/assets/js/skel.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/util.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/main.js"></script>
@@ -31,12 +31,22 @@
 	<jsp:include page="/WEB-INF/views/include/nav.jsp"></jsp:include>
 
 	<!-- Banner -->
+	<c:if test="${banner_full != null}">
+	<jsp:include page="/WEB-INF/views/include/banner.jsp"></jsp:include>
+	</c:if>
+	<c:if test="${banner_full == null}">
 	<jsp:include page="/WEB-INF/views/include/banner_half.jsp"></jsp:include>
-
+	</c:if>
+	
 	<!-- One -->
-	<jsp:include page="/WEB-INF/views/include/contents/one.jsp"></jsp:include>
-
+	<c:if test="${content != null}">
+		<jsp:include page="/WEB-INF/views/include/contents/${content }.jsp"></jsp:include>
+	</c:if>
+	<c:if test="${content == null}">
+		<jsp:include page="/WEB-INF/views/include/contents/one.jsp"></jsp:include>
+	</c:if>
 	<!-- Two -->
+	
 	<jsp:include page="/WEB-INF/views/include/contents/two.jsp"></jsp:include>
 
 	<!-- Three -->

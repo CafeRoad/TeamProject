@@ -1,7 +1,11 @@
-package com.sql.cafe.cafe;
+package com.sql.cafe.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.sql.cafe.mapper.CafeMapper;
+import com.sql.cafe.vo.CafeVO;
+import com.sql.cafe.vo.Cafe_optionVO;
 
 @Service
 public class CafeService {

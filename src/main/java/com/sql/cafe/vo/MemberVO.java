@@ -1,4 +1,4 @@
-package com.sql.cafe.member;
+package com.sql.cafe.vo;
 
 import java.util.Date;
 

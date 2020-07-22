@@ -1,4 +1,4 @@
-package com.sql.cafe;
+package com.sql.cafe.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -10,11 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
+@SessionAttributes("signedMember")
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -55,14 +57,15 @@ public class HomeController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Model model) {
 		logger.info("Welcome index! ");
-
+		model.addAttribute("banner_full", "True");
 		return "index";
 	}
 	
-	@RequestMapping(value = "/include", method = RequestMethod.GET)
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String include(Model model) {
 		logger.info("Welcome include!");
 		
+		model.addAttribute("banner_full", "True");
 		return "main";
 	}
 	

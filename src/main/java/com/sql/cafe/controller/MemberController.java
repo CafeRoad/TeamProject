@@ -1,4 +1,4 @@
-package com.sql.cafe.member;
+package com.sql.cafe.controller;
 
 import java.util.List;
 
@@ -19,10 +19,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.sql.cafe.HomeController;
+import com.sql.cafe.service.MemberService;
+import com.sql.cafe.vo.MemberVO;
 
 @Controller
-@SessionAttributes("signedMember") // model에서 "signedMember" 라는 이름을 가진 것을 세션에 저장.
+@SessionAttributes("signedMember")
 public class MemberController {
 
 	// 멤버 테이블과 관련된. 회원가입, 로그인 등의 기능이 들어가는 컨트롤러.
@@ -32,19 +33,6 @@ public class MemberController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	// 특정 한 유저의 정보를 겟. 내부 기능 수정 필. 아이디를 변수로 받아와서 selelctMemberById의 인자로 넣어야 함. 생각해보니
-	// 얜 그냥 확인용.
-	@RequestMapping(value = "/getMember", method = RequestMethod.GET)
-	public String getmember(Model model) {
-		logger.info("Welcome getMember!");
-
-		String id = "totoro";
-
-		model.addAttribute("member", memberService.selectMemberById(id));
-
-		return "memberTableTest";
-	}
-
 	// 회원가입 폼으로 이동.
 	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
 	public String signUp(Model model) {
@@ -53,17 +41,16 @@ public class MemberController {
 
 		// VO 만들면서 가입 폼으로.
 		model.addAttribute("signUpMemberVO", new MemberVO());
-
-		return "signUp";
+		model.addAttribute("content", "signUpForm");
+		return "main";
 	}
 
 	// 회원가입 동작.
 	@RequestMapping(value = "/signUpAction", method = RequestMethod.POST)
-	public String signUpAction(@ModelAttribute("signUpMemberVO") @Valid MemberVO memberVO, BindingResult bidingResult,
+	public String signUpAction(@ModelAttribute("signUpMemberVO") @Valid MemberVO signUpMemberVO, BindingResult bidingResult,
 			Model model, RedirectAttributes rttr) throws Exception {
 
 		logger.info(" signUpAction called!");
-
 
 		if (bidingResult.hasErrors()) {
 			System.out.println("----------------------------error----------------------------");
@@ -74,26 +61,28 @@ public class MemberController {
 				logger.error("ObjectError : " + e.toString() + "\n");
 
 			}
-			// 에러가 있으면 돌려보냄.
-			model.addAttribute("member", memberVO);
+			// 에러가 있으면 돌려보냄. 문구 띄워야 함.
+			model.addAttribute("signUpMemberVO", signUpMemberVO);
 		} else {
 
 			// 에러가 없으면 Authority는 난수로 설정하고 insert.
-			memberService.insertNewMember(memberVO);
+			memberService.insertNewMember(signUpMemberVO);
 
 			rttr.addFlashAttribute("msg", "가입시 사용한 이메일로 인증해주세요.");
 			// 가입되었고 이메일 인증하라는 폼을 만들어서 수정해야 함.
-			return "redirect:/checkEmail";
+			model.addAttribute("content", "checkEmailPlease");
+			return "redirect:/main";
 
 		}
-		return "signUpForm";
+		return "redirect:/signUp";
 	}
-
-	@RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
-	public String checkEmail(Model model) {
-
-		return "checkEmail";
-	}
+	
+//	안쓰나..? 없어도 돌아가면 지우야 함.
+//	@RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
+//	public String checkEmail(Model model) {
+//
+//		return "checkEmail";
+//	}
 
 	// 인증 코드를 보낸 메일에서 접근. Authority 값 USER로 변환.
 	@RequestMapping(value = "/userEmailConfirm", method = RequestMethod.GET)
@@ -105,17 +94,18 @@ public class MemberController {
 		if (authkey == null) {
 			rttr.addFlashAttribute("msg", "인증키가 잘못되었습니다. 다시 인증해 주세요");
 			// 에러페이지를 만들어서 보낼 필요.
-			return "redirect:/index";
+			return "redirect:/main";
 		}
 		MemberVO memberVO = memberService.updateToUser(authkey);
 		if (memberVO == null) {
 			rttr.addFlashAttribute("msg", "잘못된 접근 입니다. 다시 인증해 주세요");
 			// 에러페이지를 만들어서 보낼 필요.
-			return "redirect:/index";
+			return "redirect:/main";
 		}
 
 		model.addAttribute("memberVO", memberVO);
-		return "emailOK";
+		model.addAttribute("content", "emailOK");
+		return "main";
 
 	}
 
@@ -123,7 +113,8 @@ public class MemberController {
 	@RequestMapping(value = "/login")
 	public String login(Model model) {
 		model.addAttribute("memberVO", new MemberVO());
-		return "login";
+		model.addAttribute("content", "loginForm");
+		return "main";
 	}
 
 	// 로그인 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 VO담아서 리턴.
@@ -133,11 +124,9 @@ public class MemberController {
 		logger.info("Welcome loginAction!");
 
 		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
-//		session.setAttribute("signedMember", memberService.login(id, password));
 		model.addAttribute("signedMember", memberService.login(id, password));
-
 		// redirect를 해야 주소창도 바뀜.
-		return "redirect:/index";
+		return "redirect:/main";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -145,41 +134,17 @@ public class MemberController {
 
 		// 세션의 상태를 클리어.
 		sessionStatus.setComplete();
-		
+
 		// 알러트? 팝업? 메세지를 띄울 필요는 있는 듯.
 		// rttr.addFlashAttribute("msg", "로그아웃 되었습니다.");
 
-		return "redirect:/index";
+		return "redirect:/main";
 	}
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public String myPage(Model model) {
-
-		return "/myPage";
+		model.addAttribute("content", "info");
+		return "main";
 	}
-
-//	//로그인 처리. 근데 우리가 mav를 안써용..
-//	@RequestMapping(value = "/member/loginpro.do", method = RequestMethod.POST)
-//	public String loginPro(@ModelAttribute MemberVO vo, Model model) throws Exception {
-//		String status = service.loginPro(vo, session);
-//		ModelAndView mav = new ModelAndView();
-//		if (status == null) {
-//			System.out.println("로그인 실패");
-//			mav.setViewName("login");
-//			mav.addObject("msg", "error");
-//		} else if (status.equals("1")) {
-//			mav.setViewName("home");
-//		} else {
-//			mav.setViewName("adminhome");
-//		}
-//		return mav;
-//	}
-
-//	@RequestMapping("/member/join")
-//	String showJoin(Model model) {
-//		
-//		
-//		return "/member/join";
-//	}
 
 }

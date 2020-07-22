@@ -1,4 +1,4 @@
-package com.sql.cafe.member;
+package com.sql.cafe.helper;
 
 //난수 생성하는 클래스.
 public class TempKey {

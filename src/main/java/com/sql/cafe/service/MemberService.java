@@ -1,9 +1,14 @@
-package com.sql.cafe.member;
+package com.sql.cafe.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
+import com.sql.cafe.helper.MailHandler;
+import com.sql.cafe.helper.TempKey;
+import com.sql.cafe.mapper.MemberMapper;
+import com.sql.cafe.vo.MemberVO;
 
 @Service
 public class MemberService {

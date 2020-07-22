@@ -1,4 +1,4 @@
-package com.sql.cafe.cafe;
+package com.sql.cafe.controller;
 
 import java.util.List;
 
@@ -14,11 +14,15 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.sql.cafe.HomeController;
+import com.sql.cafe.service.CafeService;
+import com.sql.cafe.vo.CafeVO;
+import com.sql.cafe.vo.Cafe_optionVO;
 
 @Controller
+@SessionAttributes("signedMember")
 public class CafeController {
 
 	@Autowired

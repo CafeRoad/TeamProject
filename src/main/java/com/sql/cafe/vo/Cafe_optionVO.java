@@ -1,4 +1,4 @@
-package com.sql.cafe.cafe;
+package com.sql.cafe.vo;
 
 public class Cafe_optionVO {
 

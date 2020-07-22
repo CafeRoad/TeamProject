@@ -1,7 +1,9 @@
-package com.sql.cafe.member;
+package com.sql.cafe.mapper;
 
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
+
+import com.sql.cafe.vo.MemberVO;
 
 @Repository
 public interface MemberMapper {

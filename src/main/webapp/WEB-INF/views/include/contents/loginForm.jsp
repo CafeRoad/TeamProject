@@ -35,7 +35,7 @@
 
 		<tr>
 			<td id="title"><b>비밀번호</b></td>
-			<td><sf:input path="password" size="50" maxlength="50" /> <br /> <sf:errors
+			<td><sf:input type="password" path="password" size="50" maxlength="50" /> <br /> <sf:errors
 					path="password" cssClass="error" /></td>
 		</tr>
 

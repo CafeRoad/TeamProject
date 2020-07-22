@@ -1,7 +1,10 @@
-package com.sql.cafe.cafe;
+package com.sql.cafe.mapper;
 
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
+
+import com.sql.cafe.vo.CafeVO;
+import com.sql.cafe.vo.Cafe_optionVO;
 
 @Repository
 public interface CafeMapper {
