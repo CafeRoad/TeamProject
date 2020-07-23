@@ -4,7 +4,7 @@
     
 <center>
 	<c:url var="owner" value="OWNER"/>
-	<button type="button" class="btn btn-warning" onclick="location.href='/myPage'">내정보</button>
+	<button type="button" class="btn btn-warning" onclick="location.href='/cafe/myPage'">내정보</button>
 	<button type="button" class="btn btn-primary">내가쓴리뷰</button>
 	<button type="button" class="btn btn-secondary">즐겨찾기</button>
 	<c:if test="${signedMember.getAuthority().equals(owner)}">

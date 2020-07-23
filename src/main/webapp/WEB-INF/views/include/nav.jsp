@@ -7,7 +7,7 @@
 	
 	<c:if test="${signedMember.getId() == null}">
 		<li><a href="/cafe/login">로그인.</a></li>
-		<li><a href="/cafe/signUp">회원가입</a></li>
+		<li><a href="/cafe/joinChoice">회원가입</a></li>
 	</c:if>
 		
 	<c:if test="${signedMember.getId() != null}">

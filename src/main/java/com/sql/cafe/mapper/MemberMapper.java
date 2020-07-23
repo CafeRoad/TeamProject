@@ -37,6 +37,12 @@ public interface MemberMapper {
 	@Update(UPDATE_TO_USER)
 	int updateToUser(@Param("authority") String authority);
 
+	// Authority가 일치하는 행을 오너 권한으로 변경.
+	final String UPDATE_TO_OWNER = "update member set authority = 'OWNER' where authority = #{authority}";
+
+	@Update(UPDATE_TO_OWNER)
+	int updateToOwner(@Param("authority") String authority);
+	
 	// 로그인.
 	final String LOGIN = "select * from member where id = #{id} and password = #{password}";
 

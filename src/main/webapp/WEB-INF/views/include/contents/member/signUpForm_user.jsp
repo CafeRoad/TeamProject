@@ -22,7 +22,7 @@
 }
 </style>
 
-<c:url var="signUpUrl" value="/signUpAction"/>
+<c:url var="signUpUrl" value="/userSignUpAction"/>
 <sf:form modelAttribute="signUpMemberVO" method="POST" action="${signUpUrl }">
 	<center>
 	<br> <b><font size="6" color="gray">회원가입</font></b> <br><br>
@@ -54,6 +54,28 @@
 			<sf:errors path="tel" cssClass="error"/>
 			</td>
 		</tr>
+		
+		<tr>
+			<td id="title"><b>이름</b></td>
+			<td><sf:input path="name" size="50" maxlength="50"/> <br/>
+			<sf:errors path="name" cssClass="error"/>
+			</td>
+		</tr>
+	
+		<tr>
+			<td id="title"><b>닉네임</b></td>
+			<td><sf:input path="nickname" size="50" maxlength="50"/> <br/>
+			<sf:errors path="nickname" cssClass="error"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td id="title"><b>구</b></td>
+			<td><sf:input path="gu" size="50" maxlength="50"/> <br/>
+			<sf:errors path="gu" cssClass="error"/>
+			</td>
+		</tr>
+	
 	
 	</table>
 	<input type="submit" value="회원가입">
