@@ -47,6 +47,8 @@ public class CafeController {
 			Model model, RedirectAttributes rttr) throws Exception {
 
 		logger.info(" cafe/signUpAction called!");
+		
+		
 
 		if (bidingResult.hasErrors()) {
 			System.out.println("----------------------------error----------------------------");

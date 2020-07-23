@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
- 
- <title>회원정보 수정 화면</title>
+
     
     <style type="text/css">
         #update{
@@ -40,17 +36,15 @@
     
     
     </style>
-    
+    <jsp:include page="myPageTopButton.jsp" flush="false"/>
+    <form>
    
     
-</head>
-<body onload="init()">
  
         <br><br>
        <center> <b><font size="6" color="gray">회원정보 수정</font></b></center>
         
            
-            </table>    
             <br><br>    
             <table id="update">
                 <tr>
@@ -98,6 +92,4 @@
             <input type="submit" value="수정"/></center><br><br>  
         </form>
         
-</body>
-</html>
 

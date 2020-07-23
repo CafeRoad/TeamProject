@@ -20,22 +20,7 @@
 	
 }
 </style>
-
-
-<p />
-<p />
-<p />
-<p />
-<p />
-<p />
-<p />
-<p />
-<center>
-	<button type="button" class="btn btn-warning">내정보</button>
-	<button type="button" class="btn btn-primary">내가쓴리뷰</button>
-	<button type="button" class="btn btn-secondary">즐겨찾기</button>
-	<button type="button" class="btn btn-warning">내카페</button>
-</center>
+<jsp:include page="myPageTopButton.jsp" flush="false"/>
 
 <center>
 	<br> <br> <b><font size="6" color="gray">회원탈퇴</font></b> <br>
