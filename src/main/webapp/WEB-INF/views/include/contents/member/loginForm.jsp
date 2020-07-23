@@ -4,6 +4,30 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
+<script>
+	function submitloginForm(form) {
+		form.loginId.value = form.loginId.value.trim();
+
+		if (form.loginId.value.length == 0) {
+			alert('아이디를 입력해 주세요.');
+			form.loginId.focus();
+
+			return false;
+		}
+
+		form.loginPasswd.value = form.loginPasswd.value.trim();
+
+		if (form.loginPasswd.value.length == 0) {
+			alert('비밀번호를 입력해 주세요.');
+			form.loginPasswd.focus();
+
+			return false;
+		}
+
+		form.submit();
+	}
+</script>
+
 <style type="text/css">
 #login {
 	width: 700px;
@@ -16,32 +40,34 @@
 #title {
 	vertical-align: middle;
 	text-align: center;
-	height : 50px;
-	width : 150px;
-	
+	height: 50px;
+	width: 150px;
 }
 </style>
 
 <c:url var="loginUrl" value="/loginAction" />
-<sf:form modelAttribute="memberVO" method="POST" action="${loginUrl }">
+<sf:form modelAttribute="memberVO" method="POST" action="${loginUrl }"
+	onsubmit="submitloginForm(this); return false;">
 	<center>
-		<br> <b><font size="6" color="gray">로그인</font></b> <br><br>
+		<br> <b><font size="6" color="gray">로그인</font></b> <br> <br>
 		<table id="login">
-		 <tr>
-			<td id="title"><b>아이디</b></td>
-			<td><sf:input path="id" size="50" maxlength="50" /> <br /> <sf:errors
-					path="id" cssClass="error" /></td>
-		</tr>
+			<tr>
+				<td id="title"><b>아이디</b></td>
+				<td><sf:input id="loginId" autofocus="autofocus" path="id"
+						size="50" maxlength="50" /> <br /> <sf:errors path="id"
+						cssClass="error" /></td>
+			</tr>
 
-		<tr>
-			<td id="title"><b>비밀번호</b></td>
-			<td><sf:input type="password" path="password" size="50" maxlength="50" /> <br /> <sf:errors
-					path="password" cssClass="error" /></td>
-		</tr>
+			<tr>
+				<td id="title"><b>비밀번호</b></td>
+				<td><sf:input id="loginPasswd" type="password" path="password"
+						size="50" maxlength="50" /> <br /> <sf:errors path="password"
+						cssClass="error" /></td>
+			</tr>
 
 		</table>
-				<input type="submit" value="로그인">
+		<input type="submit" value="로그인">
 	</center>
 </sf:form>
 
-	<br>
+<br>

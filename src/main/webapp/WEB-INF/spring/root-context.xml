@@ -69,7 +69,6 @@
 	<!-- 아이디는 겹치지만 않으면 됨. 패키지마다 매퍼 지정. -->
 	<bean id="cafeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.sql.cafe.mapper.CafeMapper"/>
-
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 </beans>

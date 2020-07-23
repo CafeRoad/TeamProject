@@ -30,3 +30,4 @@ insert into waiting_cafe_option values("cafe11", 1, 0, 53, 1, 1, 1, 2, "내부�
 
 select * from waiting_cafe natural join waiting_cafe_option;
 	
+
