@@ -10,9 +10,12 @@ CREATE TABLE IF NOT EXISTS `member` (
   `id` VARCHAR(16) NOT NULL,
   `password` VARCHAR(20) NOT NULL,
   `email` VARCHAR(30) NULL,
-  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `name` VARCHAR(10) NULL,
+  `nickname` VARCHAR(10) NULL,
+  `gu` VARCHAR(5) NOT NULL,
   `tel` VARCHAR(45) NULL,
   `authority` VARCHAR(10) NOT NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))engine=innodb default charset=utf8;
 
 
@@ -20,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `member` (
 -- Table `added_cafe`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `added_cafe` (
-  `cafe_id` VARCHAR(30) NOT NULL,
+  `cafe_id` int NOT NULL,
   `owner_id` VARCHAR(16) NOT NULL,
   `cafe_name` VARCHAR(45) NOT NULL,
    `gu` VARCHAR(5) NOT NULL,
@@ -64,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `favorite` (
 -- Table `waiting_cafe`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `waiting_cafe` (
-  `cafe_id` VARCHAR(30) NOT NULL,
+  `cafe_id` int auto_increment,,
   `owner_id` VARCHAR(16) NOT NULL,
   `cafe_name` VARCHAR(45) NOT NULL,
   `gu` VARCHAR(5) NOT NULL,
@@ -87,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `waiting_cafe` (
 -- Table `waiting_cafe_option`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `waiting_cafe_option` (
-  `cafe_id` VARCHAR(30) NOT NULL,
+  `cafe_id` int NOT NULL,
   `concent` TINYINT(1) NULL,
   `pet` TINYINT(1) NULL,
   `seat` INT NULL,
@@ -109,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `waiting_cafe_option` (
 -- Table `added_cafe_option`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `added_cafe_option` (
-  `cafe_id` VARCHAR(30) NOT NULL,
+  `cafe_id` int NOT NULL,
   `concent` TINYINT(1) NULL,
   `pet` TINYINT(1) NULL,
   `seat` INT NULL,
