@@ -72,7 +72,7 @@ public class MemberController {
 			rttr.addFlashAttribute("msg", "가입시 사용한 이메일로 인증해주세요.");
 			// 가입되었고 이메일 인증하라는 폼을 만들어서 수정해야 함.
 			model.addAttribute("content", "member/checkEmailPlease");
-			return "redirect:/main";
+			return "main";
 
 		}
 		return "redirect:/signUp";
