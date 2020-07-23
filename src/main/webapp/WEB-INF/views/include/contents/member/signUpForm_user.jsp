@@ -1,8 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, java.sql.*, javax.servlet.http.*, java.io.*, java.text.*" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, java.sql.*, javax.servlet.http.*, java.io.*, java.text.*"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+
+<script>
+	function submitSignUpForm(form) {
+		form.SignUpFormId.value = form.SignUpFormId.value.trim();
+
+		if (form.SignUpFormId.value.length == 0) {
+			alert('아이디를 입력해 주세요.');
+			form.SignUpFormId.focus();
+
+			return false;
+		}
+
+		form.SignUpFormPasswd.value = form.SignUpFormPasswd.value.trim();
+
+		if (form.SignUpFormPasswd.value.length == 0) {
+			alert('비밀번호를 입력해 주세요.');
+			form.SignUpFormPasswd.focus();
+
+			return false;
+		}
+
+		form.SignUpFormPasswdConfirm.value = form.SignUpFormPasswdConfirm.value
+				.trim();
+
+		if (form.SignUpFormPasswd.value != form.SignUpFormPasswdConfirm.value) {
+			alert('비밀번호가 일치하지 않습니다.');
+			form.SignUpFormPasswdConfirm.focus();
+
+			return false;
+		}
+
+		form.email.value = form.email.value.trim();
+
+		if (form.email.value.length == 0) {
+			alert('이메일을 입력해 주세요.');
+			form.email.focus();
+
+			return false;
+		}
+
+		form.phone.value = form.phone.value.trim();
+
+		if (form.phone.value.length == 0) {
+			alert('전화번호를 입력해 주세요.');
+			form.phone.focus();
+
+			return false;
+		}
+
+		form.submit();
+	}
+</script>
 
 <style type="text/css">
 #signUp {
@@ -16,11 +68,11 @@
 #title {
 	vertical-align: middle;
 	text-align: center;
-	height : 50px;
-	width : 150px;
-	
+	height: 50px;
+	width: 150px;
 }
 </style>
+
 
 <c:url var="signUpUrl" value="/userSignUpAction"/>
 <sf:form modelAttribute="signUpMemberVO" method="POST" action="${signUpUrl }">

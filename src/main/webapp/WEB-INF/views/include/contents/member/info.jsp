@@ -43,6 +43,20 @@
 		</tr>
 
 		<tr>
+			<td id="title">이름</td>
+			<td>${signedMember.getName() }</td>
+		</tr>
+		
+		<tr>
+			<td id="title">닉네임</td>
+			<td>${signedMember.getNickname() }</td>
+		</tr>
+		
+		<tr>
+			<td id="title">지역구</td>
+			<td>${signedMember.getGu() }</td>
+		</tr>
+		<tr>
 			<td id="title">권한</td>
 			<td>${signedMember.getAuthority() }</td>
 		</tr>

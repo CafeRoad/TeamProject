@@ -13,7 +13,7 @@ public interface CafeMapper {
 
 
 	//카페 등록.
-	final String INSERT_NEW_WAITING_CAFE = "insert into waiting_cafe (cafe_id, owner_id, cafe_name, gu, address, sns, event, homepage, intro, create_time) values (#{cafe_id}, #{owner_id}, #{cafe_name}, #{gu}, #{address}, #{sns}, #{event}, #{homepage}, #{intro}, now())";
+	final String INSERT_NEW_WAITING_CAFE = "insert into waiting_cafe (owner_id, cafe_name, gu, address, sns, event, homepage, intro, create_time) values (#{owner_id}, #{cafe_name}, #{gu}, #{address}, #{sns}, #{event}, #{homepage}, #{intro}, now())";
 	@Insert(INSERT_NEW_WAITING_CAFE)
 	void insertNewCafeToCafe(CafeVO cafeVO);
 	
@@ -52,6 +52,22 @@ public interface CafeMapper {
 			@Result(property = "local_money", column = "local_money"), @Result(property = "parking_zone", column = "parking_zone"),
 			@Result(property = "sdutyroom", column = "sdutyroom"), @Result(property = "toilet", column = "toilet") })
 	ArrayList<CafeVO> selectAddedCafesByOwnerId(@Param("owner_id") String owner_id);
+	
+	// 카페 아이디로  등록된 특정 카페 정보 검색.
+		final String SELECT_ADDED_CAFES_BY_CAFE_ID = "select * from added_cafe natural join added_cafe_option where cafe_id = #{cafe_id}";
+		
+		@Select(SELECT_ADDED_CAFES_BY_CAFE_ID)
+		@Results(value = { @Result(property = "cafe_id", column = "cafe_id"), @Result(property = "owner_id", column = "owner_id"),
+				@Result(property = "cafe_name", column = "cafe_name"), @Result(property = "gu", column = "gu"),
+				@Result(property = "address", column = "address"), @Result(property = "sns", column = "sns"),
+				@Result(property = "event", column = "event"), @Result(property = "homepage", column = "homepage"),
+				@Result(property = "intro", column = "intro"), @Result(property = "create_time", column = "create_time"),
+				@Result(property = "concent", column = "concent"), @Result(property = "pet", column = "pet"),
+				@Result(property = "seat", column = "seat"), @Result(property = "wifi", column = "wifi"),
+				@Result(property = "local_money", column = "local_money"), @Result(property = "parking_zone", column = "parking_zone"),
+				@Result(property = "sdutyroom", column = "sdutyroom"), @Result(property = "toilet", column = "toilet") })
+		ArrayList<CafeVO> selectAddedCafesByCafeId(@Param("cafe_id") String cafe_id);
+		
 	
 	
 //	카페 테이블 리절트.

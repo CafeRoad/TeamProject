@@ -10,9 +10,13 @@ public class MemberVO {
 	private String id;
 	private String password;
 	private String email;
+	private String name;
+	private String nickname;
+	private String gu;
 	private Date create_time;
 	private String tel;
 	private String authority;
+	
 	public String getId() {
 		return id;
 	}
@@ -30,6 +34,24 @@ public class MemberVO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getGu() {
+		return gu;
+	}
+	public void setGu(String gu) {
+		this.gu = gu;
 	}
 	public Date getCreate_time() {
 		return create_time;
@@ -49,7 +71,7 @@ public class MemberVO {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-	
+
 
 
 }

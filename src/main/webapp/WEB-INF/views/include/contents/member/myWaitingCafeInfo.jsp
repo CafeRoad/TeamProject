@@ -23,7 +23,7 @@
 <center>
 	<br> <br> <b><font size="6" color="gray">내 승인 대기중인 카페</font></b> <br>
 	<br> <br>
-		<c:if test="${myWaitingCafeList == null}">
+		<c:if test="${myWaitingCafeList.size() == 0}">
 		승인 대기중인 카페가 없습니다.
 		</c:if>
 	

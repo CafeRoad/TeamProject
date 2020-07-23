@@ -1,6 +1,5 @@
 package com.sql.cafe.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -115,10 +114,14 @@ public class MemberService {
 		return memberMapper.login(id, password);
 	}
 	
-		//회원탈퇴.
+
+	//회원탈퇴.
 	public int delete(String id, String password) {
 		
 		return memberMapper.delete(id, password);
 		
 	}
+	
+	// 회원 정보 수정.
+
 }
