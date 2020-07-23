@@ -45,4 +45,12 @@ public interface MemberMapper {
 			@Result(property = "email", column = "email"), @Result(property = "create_time", column = "create_time"),
 			@Result(property = "tel", column = "tel"), @Result(property = "authority", column = "authority") })
 	MemberVO login(@Param("id") String id, @Param("password") String password);
+	
+	// 회원탈퇴.
+	final String DELETE = "delete from member where id = #{id} and password = #{password}";
+	@Delete(DELETE)
+	int delete(@Param("id") String id, @Param("password") String password); 
 }
+
+
+	

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -128,7 +129,8 @@ public class MemberController {
 		// redirect를 해야 주소창도 바뀜.
 		return "redirect:/main";
 	}
-
+	
+	//로그아웃.
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(Model model, SessionStatus sessionStatus) {
 
@@ -145,6 +147,28 @@ public class MemberController {
 	public String myPage(Model model) {
 		model.addAttribute("content", "info");
 		return "main";
+	}
+	
+	//회원탈퇴.
+	@RequestMapping(value = "/deleteForm", method = RequestMethod.GET)
+	public String delete(Model model, @SessionAttribute MemberVO signedMember) {
+		signedMember.setPassword(null);
+		model.addAttribute("content", "deleteForm");
+		return "main";
+		
+	}
+	
+	// 로그인 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 VO담아서 리턴.
+	@RequestMapping(value = "/deleteAction", method = RequestMethod.POST)
+	public String deleteAction(@ModelAttribute("signedMember") @Valid MemberVO signedMember,
+		@RequestParam("id") String id, @RequestParam("password") String password, Model model, SessionStatus sessionStatus) {
+		logger.info("Welcome deleteAction!");
+
+		sessionStatus.setComplete();
+		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
+		model.addAttribute("signedMember", memberService.delete(id, password));
+		// redirect를 해야 주소창도 바뀜.
+		return "redirect:/main";
 	}
 
 }

@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	pageEncoding="UTF-8"%>
  <style type="text/css">
  
         #deleteTable{
@@ -24,9 +19,8 @@
     </style>
     
     
+<jsp:include page="myPageTopButton.jsp" flush="false"/>
 
-</head>
-<body>
 <br><br>
     <center><b><font size="6" color="gray">내 정보</font></b></center>
     <br><br><br>
@@ -46,5 +40,3 @@
         <input type="submit" value="탈퇴" /></center> 
     </form>
 
-</body>
-</html>

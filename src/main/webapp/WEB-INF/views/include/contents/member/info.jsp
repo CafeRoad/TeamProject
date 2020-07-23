@@ -69,7 +69,7 @@
 </center>
 <br>
 <center>
-	<input type="button" value="뒤로" onclick="changeForm(-1)"> <input
-		type="button" value="회원정보 변경" onclick="changeForm(0)"> <input
-		type="button" value="회원탈퇴" onclick="changeForm(1)">
+	<input type="button" value="뒤로" onclick="history.go(-1)"> 
+	<input type="button" value="회원정보 변경" onclick="changeForm(0)"> 
+	<input type="button" value="회원탈퇴" onclick="location.href='/cafe/deleteForm'">
 </center>
