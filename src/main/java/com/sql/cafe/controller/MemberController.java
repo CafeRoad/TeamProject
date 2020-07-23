@@ -42,7 +42,7 @@ public class MemberController {
 
 		// VO 만들면서 가입 폼으로.
 		model.addAttribute("signUpMemberVO", new MemberVO());
-		model.addAttribute("content", "signUpForm");
+		model.addAttribute("content", "member/signUpForm");
 		return "main";
 	}
 
@@ -71,19 +71,13 @@ public class MemberController {
 
 			rttr.addFlashAttribute("msg", "가입시 사용한 이메일로 인증해주세요.");
 			// 가입되었고 이메일 인증하라는 폼을 만들어서 수정해야 함.
-			model.addAttribute("content", "checkEmailPlease");
+			model.addAttribute("content", "member/checkEmailPlease");
 			return "redirect:/main";
 
 		}
 		return "redirect:/signUp";
 	}
 	
-//	안쓰나..? 없어도 돌아가면 지우야 함.
-//	@RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
-//	public String checkEmail(Model model) {
-//
-//		return "checkEmail";
-//	}
 
 	// 인증 코드를 보낸 메일에서 접근. Authority 값 USER로 변환.
 	@RequestMapping(value = "/userEmailConfirm", method = RequestMethod.GET)
@@ -105,7 +99,7 @@ public class MemberController {
 		}
 
 		model.addAttribute("memberVO", memberVO);
-		model.addAttribute("content", "emailOK");
+		model.addAttribute("content", "member/emailOK");
 		return "main";
 
 	}
@@ -114,7 +108,7 @@ public class MemberController {
 	@RequestMapping(value = "/login")
 	public String login(Model model) {
 		model.addAttribute("memberVO", new MemberVO());
-		model.addAttribute("content", "loginForm");
+		model.addAttribute("content", "member/loginForm");
 		return "main";
 	}
 
@@ -145,7 +139,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public String myPage(Model model) {
-		model.addAttribute("content", "info");
+		model.addAttribute("content", "member/info");
 		return "main";
 	}
 	
@@ -153,7 +147,7 @@ public class MemberController {
 	@RequestMapping(value = "/deleteForm", method = RequestMethod.GET)
 	public String delete(Model model, @SessionAttribute MemberVO signedMember) {
 		signedMember.setPassword(null);
-		model.addAttribute("content", "deleteForm");
+		model.addAttribute("content", "member/deleteForm");
 		return "main";
 		
 	}

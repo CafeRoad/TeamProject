@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sql.cafe.service.BoardService;
+import com.sql.cafe.service.ReviewService;
 
 @Controller
-public class BoardController {
+public class ReviewController {
 	
 	@Autowired
-	BoardService boardservice;
+	ReviewService boardservice;
 	
-	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ReviewController.class);
 	
 	@RequestMapping(value = "/board/board.do")
 	public String boardView() {

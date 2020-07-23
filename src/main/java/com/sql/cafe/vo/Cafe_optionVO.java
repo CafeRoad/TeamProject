@@ -2,6 +2,8 @@ package com.sql.cafe.vo;
 
 public class Cafe_optionVO {
 
+	// 카페VO에 통합시킨 이후로 쓰지 않고 있으나 혹시 몰라 아직 지우지는 않음.
+	
 	private String cafe_id;
 	private boolean concent;
 	private boolean pet;
@@ -9,7 +11,7 @@ public class Cafe_optionVO {
 	private boolean wifi;
 	private boolean local_money;
 	private boolean parking_zone;
-	private int sdutyroom;
+	private int studyroom;
 	private String toilet;
 	
 	public String getCafe_id() {
@@ -54,11 +56,11 @@ public class Cafe_optionVO {
 	public void setParking_zone(boolean parking_zone) {
 		this.parking_zone = parking_zone;
 	}
-	public int getSdutyroom() {
-		return sdutyroom;
+	public int getStudyroom() {
+		return studyroom;
 	}
-	public void setSdutyroom(int sdutyroom) {
-		this.sdutyroom = sdutyroom;
+	public void setStudyroom(int sdutyroom) {
+		this.studyroom = sdutyroom;
 	}
 	public String getToilet() {
 		return toilet;

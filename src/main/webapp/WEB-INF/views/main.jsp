@@ -21,6 +21,8 @@
 	<script src="${pageContext.request.contextPath}/resources/assets/js/skel.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/util.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/main.js"></script>
+	
+	
 
 </head>
 <body>
@@ -39,6 +41,7 @@
 	</c:if>
 	
 	<!-- One -->
+	
 	<c:if test="${content != null}">
 		<jsp:include page="/WEB-INF/views/include/contents/${content }.jsp"></jsp:include>
 	</c:if>
@@ -54,6 +57,8 @@
 
 	<!-- Footer -->
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+
+
 
 </body>
 </html>
