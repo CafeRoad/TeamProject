@@ -39,87 +39,87 @@
 </center>
 
 <center>
-	<br> <br> <b><font size="6" color="gray">내 승인 대기중인 카페</font></b> <br>
+	<br> <br> <b><font size="6" color="gray">내 카페</font></b> <br>
 	<br> <br>
-		<c:if test="${myWaitingCafeList == null}">
-		승인 대기중인 카페가 없습니다.
+		<c:if test="${myAddedCafeList == null}">
+		승인된 카페가 없습니다.
 		</c:if>
 	
-	<c:forEach var="myWaitingCafe" items="${myWaitingCafeList}">
+	<c:forEach var="myAddedCafe" items="${myAddedCafeList}">
 	<table id="info">
 		<tr>
 			<td id="title">카페 아이디</td>
-			<td>${myWaitingCafe.getCafe_id() }</td>
+			<td>${myAddedCafe.getCafe_id() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">오너 아이디</td>
-			<td>${myWaitingCafe.getOwner_id() }</td>
+			<td>${myAddedCafe.getOwner_id() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">카페 이름</td>
-			<td>${myWaitingCafe.getCafe_name() }</td>
+			<td>${myAddedCafe.getCafe_name() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">카페 위지</td>
-			<td>${myWaitingCafe.getGu() }, ${myWaitingCafe.getAddress() }</td>
+			<td>${myAddedCafe.getGu() }, ${myAddedCafe.getAddress() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">카페 SNS</td>
-			<td>${myWaitingCafe.getSns() }</td>
+			<td>${myAddedCafe.getSns() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">카페 행사여부</td>
-			<td>${myWaitingCafe.isEvent() }</td>
+			<td>${myAddedCafe.isEvent() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">카페 홈페이지 주소</td>
-			<td>${myWaitingCafe.getHomepage() }</td>
+			<td>${myAddedCafe.getHomepage() }</td>
 		</tr>
 		<tr>
 			<td id="title">카페 소개글</td>
-			<td>${myWaitingCafe.getIntro() }</td>
+			<td>${myAddedCafe.getIntro() }</td>
 		</tr>
 		<tr>
 			<td id="title">콘센트</td>
-			<td>${myWaitingCafe.isConcent() }</td>
+			<td>${myAddedCafe.isConcent() }</td>
 		</tr>
 		<tr>
 			<td id="title">반려동물 허용</td>
-			<td>${myWaitingCafe.isPet() }</td>
+			<td>${myAddedCafe.isPet() }</td>
 		</tr>
 		<tr>
 			<td id="title">좌석 수</td>
-			<td>${myWaitingCafe.getSeat() }</td>
+			<td>${myAddedCafe.getSeat() }</td>
 		</tr>
 		<tr>
 			<td id="title">와이파이</td>
-			<td>${myWaitingCafe.isWifi() }</td>
+			<td>${myAddedCafe.isWifi() }</td>
 		</tr>
 		<tr>
 			<td id="title">지역화페 가능 여부</td>
-			<td>${myWaitingCafe.isLocal_money() }</td>
+			<td>${myAddedCafe.isLocal_money() }</td>
 		</tr>
 		<tr>
 			<td id="title">주차장 여부</td>
-			<td>${myWaitingCafe.isParking_zone() }</td>
+			<td>${myAddedCafe.isParking_zone() }</td>
 		</tr>
 		<tr>
 			<td id="title">스터디룸 수</td>
-			<td>${myWaitingCafe.getSdutyroom() }</td>
+			<td>${myAddedCafe.getSdutyroom() }</td>
 		</tr>
 		<tr>
 			<td id="title">화장실</td>
-			<td>${myWaitingCafe.getToilet() }</td>
+			<td>${myAddedCafe.getToilet() }</td>
 		</tr>
 		<tr>
 			<td id="title">카페 등록일</td>
-			<td>${myWaitingCafe.getCreate_time() }</td>
+			<td>${myAddedCafe.getCreate_time() }</td>
 		</tr>
 
 	</table>

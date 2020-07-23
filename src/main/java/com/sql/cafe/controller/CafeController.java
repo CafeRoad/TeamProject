@@ -15,12 +15,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sql.cafe.service.CafeService;
 import com.sql.cafe.vo.CafeVO;
-import com.sql.cafe.vo.Cafe_optionVO;
 import com.sql.cafe.vo.MemberVO;
 
 @Controller
@@ -70,15 +68,22 @@ public class CafeController {
 		return "cafe/signUpForm";
 	}
 	
-	@RequestMapping(value = "/searchMyWatingCafe", method = RequestMethod.GET)
-	public String myPage(Model model, @SessionAttribute MemberVO signedMember) {
+	// 승인 대기중인 카페 리스트를 뽑음.
+	@RequestMapping(value = "/searchMyWatingCafes", method = RequestMethod.GET)
+	public String searchMyWatingCafes(Model model, @SessionAttribute MemberVO signedMember) {
 		
 		String owner_id = signedMember.getId();
-		System.out.println(owner_id);
-		model.addAttribute("myWaitingCafe", cafeService.selectWaitingCafeByOwnerId(owner_id));
+		model.addAttribute("myWaitingCafeList", cafeService.selectWaitingCafesByOwnerId(owner_id));
 		model.addAttribute("content", "myWaitingCafeInfo");
 		return "main";
 	}
 	
-	
+	@RequestMapping(value = "/searchMyAddedCafes", method = RequestMethod.GET)
+	public String myPage(Model model, @SessionAttribute MemberVO signedMember) {
+		
+		String owner_id = signedMember.getId();
+		model.addAttribute("myAddedCafeList", cafeService.selectAddedCafesByOwnerId(owner_id));
+		model.addAttribute("content", "myAddedCafeInfo");
+		return "main";
+	}
 }
