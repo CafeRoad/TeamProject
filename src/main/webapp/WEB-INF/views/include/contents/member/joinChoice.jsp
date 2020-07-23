@@ -61,8 +61,7 @@ padding:15px
 
 
 </style>
-  
- 
+
    <div class="main">
      <div class="title">
      <br>회원가입
@@ -78,13 +77,8 @@ padding:15px
      <div class="price-guest-info">
      <br>손님께서는 이쪽에서 회원가입을 해주세요.
      </div>
-     
-     
-     <button class="price-guest-button">
-     
-     가입하러 가기
-     
-     </button>
+<input type="button" value="가입하기" onclick="location.href='/cafe/joinUser'">
+
 
      </div>
    <div class="price-guest">
@@ -95,12 +89,7 @@ padding:15px
      <br>사장님께서는 이쪽에서 <br>회원가입을 해주세요.
      </div>
      
-     
-     <button class="price-guest-button">
-     
-     가입하러 가기
-     
-     </button>
+<input type="button" value="가입하기" onclick="location.href='/cafe/joinOwner'">
 
      </div>
      </div>

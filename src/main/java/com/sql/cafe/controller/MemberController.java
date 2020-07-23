@@ -35,20 +35,46 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	// 회원가입 폼으로 이동.
-	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
-	public String signUp(Model model) {
+	@RequestMapping(value = "/joinChoice", method = RequestMethod.GET)
+	public String joinChoice(Model model) {
 
 		logger.info("signUp called!");
 
 		// VO 만들면서 가입 폼으로.
 		model.addAttribute("signUpMemberVO", new MemberVO());
-		model.addAttribute("content", "member/signUpForm");
+		model.addAttribute("content", "member/joinChoice");
 		return "main";
 	}
+	
+	// 회원가입 유저 폼으로 이동.
+	@RequestMapping(value = "/joinUser", method = RequestMethod.GET)
+	public String joinUser(Model model) {
 
-	// 회원가입 동작.
-	@RequestMapping(value = "/signUpAction", method = RequestMethod.POST)
-	public String signUpAction(@ModelAttribute("signUpMemberVO") @Valid MemberVO signUpMemberVO, BindingResult bidingResult,
+		logger.info("signUp called!");
+
+		// VO 만들면서 가입 폼으로.
+		model.addAttribute("signUpMemberVO", new MemberVO());
+		model.addAttribute("content", "member/signUpForm_user");
+		return "main";
+	}
+	
+	
+	// 회원가입 오너 폼으로 이동.
+	@RequestMapping(value = "/joinOwner", method = RequestMethod.GET)
+	public String joinOwner(Model model) {
+
+		logger.info("signUp called!");
+
+		// VO 만들면서 가입 폼으로.
+		model.addAttribute("signUpMemberVO", new MemberVO());
+		model.addAttribute("content", "member/signUpForm_owner");
+		return "main";
+	}
+	
+	
+	// 회원가입 유저동작.
+	@RequestMapping(value = "/userSignUpAction", method = RequestMethod.POST)
+	public String userSignUpAction(@ModelAttribute("signUpMemberVO") @Valid MemberVO signUpMemberVO, BindingResult bidingResult,
 			Model model, RedirectAttributes rttr) throws Exception {
 
 		logger.info(" signUpAction called!");
@@ -67,7 +93,7 @@ public class MemberController {
 		} else {
 
 			// 에러가 없으면 Authority는 난수로 설정하고 insert.
-			memberService.insertNewMember(signUpMemberVO);
+			memberService.insertNewMemberToUser(signUpMemberVO);
 
 			rttr.addFlashAttribute("msg", "가입시 사용한 이메일로 인증해주세요.");
 			// 가입되었고 이메일 인증하라는 폼을 만들어서 수정해야 함.
@@ -77,6 +103,38 @@ public class MemberController {
 		}
 		return "redirect:/signUp";
 	}
+	
+	// 회원가입 오너동작.
+		@RequestMapping(value = "/ownerSignUpAction", method = RequestMethod.POST)
+		public String ownerSignUpAction(@ModelAttribute("signUpMemberVO") @Valid MemberVO signUpMemberVO, BindingResult bidingResult,
+				Model model, RedirectAttributes rttr) throws Exception {
+
+			logger.info(" signUpAction called!");
+
+			if (bidingResult.hasErrors()) {
+				System.out.println("----------------------------error----------------------------");
+
+				List<ObjectError> list = bidingResult.getAllErrors();
+
+				for (ObjectError e : list) {
+					logger.error("ObjectError : " + e.toString() + "\n");
+
+				}
+				// 에러가 있으면 돌려보냄. 문구 띄워야 함.
+				model.addAttribute("signUpMemberVO", signUpMemberVO);
+			} else {
+
+				// 에러가 없으면 Authority는 난수로 설정하고 insert.
+				memberService.insertNewMemberToOwner(signUpMemberVO);
+
+				rttr.addFlashAttribute("msg", "가입시 사용한 이메일로 인증해주세요.");
+				// 가입되었고 이메일 인증하라는 폼을 만들어서 수정해야 함.
+				model.addAttribute("content", "member/checkEmailPlease");
+				return "redirect:/main";
+
+			}
+			return "redirect:/signUp";
+		}
 	
 
 	// 인증 코드를 보낸 메일에서 접근. Authority 값 USER로 변환.
@@ -103,6 +161,32 @@ public class MemberController {
 		return "main";
 
 	}
+	
+	
+	// 인증 코드를 보낸 메일에서 접근. Authority 값 OWNER로 변환.
+		@RequestMapping(value = "/ownerEmailConfirm", method = RequestMethod.GET)
+		public String ownerEmailConfirm(@RequestParam("authKey") String authkey, Model model, RedirectAttributes rttr)
+				throws Exception {
+
+			logger.info("Welcome ownerEmailConfirm!");
+
+			if (authkey == null) {
+				rttr.addFlashAttribute("msg", "인증키가 잘못되었습니다. 다시 인증해 주세요");
+				// 에러페이지를 만들어서 보낼 필요.
+				return "redirect:/main";
+			}
+			MemberVO memberVO = memberService.updateToOwner(authkey);
+			if (memberVO == null) {
+				rttr.addFlashAttribute("msg", "잘못된 접근 입니다. 다시 인증해 주세요");
+				// 에러페이지를 만들어서 보낼 필요.
+				return "redirect:/main";
+			}
+
+			model.addAttribute("memberVO", memberVO);
+			model.addAttribute("content", "member/emailOK");
+			return "main";
+
+		}
 
 	// 로그인 하는 폼으로 이동.
 	@RequestMapping(value = "/login")
@@ -121,6 +205,7 @@ public class MemberController {
 		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
 		model.addAttribute("signedMember", memberService.login(id, password));
 		// redirect를 해야 주소창도 바뀜.
+		
 		return "redirect:/main";
 	}
 	

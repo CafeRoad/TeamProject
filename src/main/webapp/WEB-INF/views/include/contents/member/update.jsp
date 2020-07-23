@@ -38,8 +38,6 @@
     </style>
     <jsp:include page="myPageTopButton.jsp" flush="false"/>
     <form>
-   
-    
  
         <br><br>
        <center> <b><font size="6" color="gray">회원정보 수정</font></b></center>

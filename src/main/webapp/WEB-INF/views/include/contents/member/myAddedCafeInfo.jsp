@@ -24,7 +24,7 @@
 <center>
 	<br> <br> <b><font size="6" color="gray">내 카페</font></b> <br>
 	<br> <br>
-		<c:if test="${myAddedCafeList == null}">
+		<c:if test="${myAddedCafeList.size() == 0}">
 		승인된 카페가 없습니다.
 		</c:if>
 	
