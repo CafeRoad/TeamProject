@@ -123,5 +123,8 @@ public class MemberService {
 	}
 	
 	// 회원 정보 수정.
-
+	public int updateMemberInfo(String id) {
+		
+		return memberMapper.updateMemberInfo(id);
+	}
 }
