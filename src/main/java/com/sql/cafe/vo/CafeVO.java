@@ -10,7 +10,6 @@ public class CafeVO {
 	private String cafe_name;
 	private String gu;
 	private String address;
-	private String sns;
 	private boolean event;
 	private String homepage;
 	private String intro;
@@ -22,18 +21,15 @@ public class CafeVO {
 	private boolean pet;
 	private int seat;
 	private boolean wifi;
-	private boolean local_money;
 	private boolean parking_zone;
-	private int sdutyroom;
+	private boolean smoking_room;
 	private String toilet;
-	
 	public String getCafe_id() {
 		return cafe_id;
 	}
 	public void setCafe_id(String cafe_id) {
 		this.cafe_id = cafe_id;
 	}
-
 	public String getOwner_id() {
 		return owner_id;
 	}
@@ -57,12 +53,6 @@ public class CafeVO {
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	public String getSns() {
-		return sns;
-	}
-	public void setSns(String sns) {
-		this.sns = sns;
 	}
 	public boolean isEvent() {
 		return event;
@@ -112,23 +102,17 @@ public class CafeVO {
 	public void setWifi(boolean wifi) {
 		this.wifi = wifi;
 	}
-	public boolean isLocal_money() {
-		return local_money;
-	}
-	public void setLocal_money(boolean local_money) {
-		this.local_money = local_money;
-	}
 	public boolean isParking_zone() {
 		return parking_zone;
 	}
 	public void setParking_zone(boolean parking_zone) {
 		this.parking_zone = parking_zone;
 	}
-	public int getSdutyroom() {
-		return sdutyroom;
+	public boolean isSmoking_room() {
+		return smoking_room;
 	}
-	public void setSdutyroom(int sdutyroom) {
-		this.sdutyroom = sdutyroom;
+	public void setSmoking_room(boolean smoking_room) {
+		this.smoking_room = smoking_room;
 	}
 	public String getToilet() {
 		return toilet;

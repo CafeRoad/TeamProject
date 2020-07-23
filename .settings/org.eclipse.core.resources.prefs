@@ -2,7 +2,6 @@ eclipse.preferences.version=1
 encoding//src/main/java/com/sql/cafe/controller/CafeController.java=UTF-8
 encoding//src/main/java/com/sql/cafe/controller/HomeController.java=UTF-8
 encoding//src/main/java/com/sql/cafe/controller/MemberController.java=UTF-8
-encoding//src/main/webapp/WEB-INF/views/addcafe.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/main.jsp=UTF-8
 encoding/<project>=UTF-8
 separateDerivedEncodings=true

@@ -17,8 +17,8 @@ public class CafeService {
 	// 카페 등록 폼에서 받은 정보로 waiting_cafe에 insert
 	public void insertNewCafe(CafeVO cafeVO) {
 
-		cafeMapper.insertNewCafeToCafe(cafeVO);
-		cafeMapper.insertNewCafeToCafeOption(cafeVO);
+		cafeMapper.insertToWaitingCafe(cafeVO);
+		cafeMapper.insertToWaitingCafeOption(cafeVO);
 	}
 
 	// 접속한 오너의 아이디로 승인 대기중인 카페들 검색.
@@ -34,10 +34,19 @@ public class CafeService {
 	}
 	
 	// 어드민이 카페를 승인하면 waiting_cafe 에서 added_cafe 로 이동. 옵션도.
+	public int approveCafe(String cafe_id) {
+		
+		CafeVO cafeVO = cafeMapper.selectWaitingCafeByCafeId(cafe_id);
+		
+		cafeMapper.insertToAddedCafe(cafeVO);
+		cafeMapper.insertToAddedCafeOption(cafeVO);
+		
+		
+		return cafeMapper.deleteFromWaitingCafe(cafe_id);
+		
+		
+	}
 	
-	
-	// 접속한 오너의 아이디로 대기중인 카페를 검색.
-	// 리스트로 돌려야 함.
 	
 	// 클릭하면 카페의 아이디로 검색해서 특정 카페의 상세 정보를 뿌리는 페이지로 이동.
 

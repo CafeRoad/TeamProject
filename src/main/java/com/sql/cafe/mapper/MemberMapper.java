@@ -19,7 +19,8 @@ public interface MemberMapper {
 	MemberVO selectMemberById(@Param("id") String id);
 
 	// 회원가입.
-	final String INSERT_NEW_MEMBER = "insert into member (id, password, email, name, nickname, gu, tel, authority, create_time) values (#{id}, #{password}, #{email}, #{name},#{nickname},#{gu},#{tel}, #{authority}, now())";
+	final String INSERT_NEW_MEMBER = "insert into member (id, password, email, name, nickname, gu, tel, authority, create_time) "
+			+ "values (#{id}, #{password}, #{email}, #{name},#{nickname},#{gu},#{tel}, #{authority}, now())";
 
 	@Insert(INSERT_NEW_MEMBER)
 	void insertNewMember(MemberVO memberVO);

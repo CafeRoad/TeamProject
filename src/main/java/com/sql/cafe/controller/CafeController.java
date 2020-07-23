@@ -80,6 +80,7 @@ public class CafeController {
 		return "main";
 	}
 	
+	// 등록된 카페의 리스트를 뽑음.
 	@RequestMapping(value = "/searchMyAddedCafes", method = RequestMethod.GET)
 	public String myPage(Model model, @SessionAttribute MemberVO signedMember) {
 		

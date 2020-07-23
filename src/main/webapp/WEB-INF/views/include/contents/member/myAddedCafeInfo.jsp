@@ -50,10 +50,6 @@
 			<td>${myAddedCafe.getGu() }, ${myAddedCafe.getAddress() }</td>
 		</tr>
 
-		<tr>
-			<td id="title">카페 SNS</td>
-			<td>${myAddedCafe.getSns() }</td>
-		</tr>
 
 		<tr>
 			<td id="title">카페 행사여부</td>
@@ -85,16 +81,12 @@
 			<td>${myAddedCafe.isWifi() }</td>
 		</tr>
 		<tr>
-			<td id="title">지역화페 가능 여부</td>
-			<td>${myAddedCafe.isLocal_money() }</td>
-		</tr>
-		<tr>
 			<td id="title">주차장 여부</td>
 			<td>${myAddedCafe.isParking_zone() }</td>
 		</tr>
 		<tr>
-			<td id="title">스터디룸 수</td>
-			<td>${myAddedCafe.getSdutyroom() }</td>
+			<td id="title">흡연실 여부</td>
+			<td>${myAddedCafe.getSmoking_room() }</td>
 		</tr>
 		<tr>
 			<td id="title">화장실</td>
