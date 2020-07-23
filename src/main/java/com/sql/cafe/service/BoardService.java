@@ -1,21 +1,19 @@
 package com.sql.cafe.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.sql.cafe.mapper.BoardMapper;
 import com.sql.cafe.vo.BoardVO;
 
-@Component
+@Service
 public class BoardService {
-	
+
 	@Autowired
 	private BoardMapper boardMapper;
-	
-	public List<BoardVO> List() throws Exception {
-		return null;
+
+	public void insertWrite(BoardVO vo) {
+		boardMapper.insertWrite(vo);
 	}
- 
+
 }

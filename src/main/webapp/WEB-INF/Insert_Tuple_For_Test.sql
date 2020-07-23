@@ -12,3 +12,4 @@ select * from member;
 
 update member set password="doraemonn" where id="nobita";
 
+insert into review
