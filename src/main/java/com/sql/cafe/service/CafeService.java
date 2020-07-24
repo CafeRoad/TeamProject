@@ -40,7 +40,13 @@ public class CafeService {
 		return cafeMapper.selectAllFromWaitingCafe();
 
 	}
+	
+	// 등록된 모든 카페의 리스트 겟.
+	public ArrayList<CafeVO> selectAddedCafes() {
+		return cafeMapper.selectAllFromAddedCafe();
 
+	}
+	
 	// 어드민이 승인을 위해 대기중인 특정 카페의 상세 정보를 뿌리는 페이지로 이동.
 	public CafeVO searchSpecificWaitingCafe(String cafe_id) {
 
@@ -66,19 +72,17 @@ public class CafeService {
 	}
 
 	// 클릭하면 카페의 아이디로 검색해서 특정 카페의 상세 정보를 뿌리는 페이지로 이동.
-	public CafeVO searchSpecificAddedCafe(String cafe_id) {
+	public CafeVO selectAddedCafeByCafeId(String cafe_id) {
 		return cafeMapper.selectAddedCafeByCafeId(cafe_id);
 	}
 
 	// 즐겨찾기 버튼으로 즐겨찾기 테이블에 정보 주가.
 	public int toFavorite(String user_id, String cafe_id) {
-		
 		return cafeMapper.toFavorite(user_id, cafe_id);
 	}
 	
 	// 다시 즐겨찾기 버튼으로 즐겨찾기 취소. 즐겨찾기 테이블에서 삭제.
 	public int deleteFavorite(String user_id, String cafe_id) {
-		
 		return cafeMapper.deleteFavorite(user_id, cafe_id);
 	}
 }

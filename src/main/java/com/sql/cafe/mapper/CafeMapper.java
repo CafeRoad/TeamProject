@@ -78,6 +78,22 @@ public interface CafeMapper {
 			@Result(property = "toilet", column = "toilet") })
 	ArrayList<CafeVO> selectAllFromWaitingCafe();
 	
+	// 승인을 위해 승인 대기중인 모든 카페 리스트 검색.
+	final String SELECT_ALL_FROM_ADDED_CAFE = "select * from added_cafe natural join added_cafe_option";
+	
+	@Select(SELECT_ALL_FROM_ADDED_CAFE)
+	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
+			@Result(property = "owner_id", column = "owner_id"), @Result(property = "cafe_name", column = "cafe_name"),
+			@Result(property = "gu", column = "gu"), @Result(property = "address", column = "address"),
+			@Result(property = "event", column = "event"), @Result(property = "homepage", column = "homepage"),
+			@Result(property = "intro", column = "intro"), @Result(property = "create_time", column = "create_time"),
+			@Result(property = "concent", column = "concent"), @Result(property = "pet", column = "pet"),
+			@Result(property = "seat", column = "seat"), @Result(property = "wifi", column = "wifi"),
+			@Result(property = "smoking_room", column = "smoking_room"),
+			@Result(property = "parking_zone", column = "parking_zone"),
+			@Result(property = "toilet", column = "toilet") })
+	ArrayList<CafeVO> selectAllFromAddedCafe();
+	
 	// 승인을 위해 카페를 선택하여 해당 카페아이디로 카페 정보 검색.
 	final String SELECT_WAITING_CAFES_BY_CAFE_ID = "select * from waiting_cafe natural join waiting_cafe_option where cafe_id = #{cafe_id}";
 
@@ -172,5 +188,5 @@ public interface CafeMapper {
 	@Delete(DELETE_FROM_ADDED_CAFE)
 	int deleteFromAddedCafe(@Param("cafe_id") String cafe_id);
 	
-	
+	final String SELECT_FROM_ADDED_CAFE_BY_CAFE_ID = "select * from added_cafe natural join added_cafe_option where cafe_id = #{cafe_id}";
 }

@@ -20,93 +20,89 @@
 	
 }
 </style>
-<jsp:include page="myPageTopButton.jsp" flush="false"/>
+<jsp:include page="/WEB-INF/views/include/contents/member/myPageTopButton.jsp"></jsp:include>
 
 <center>
-
-	<br> <br> <b><font size="6" color="gray">내 승인 대기중인 카페</font></b> <br>
-	<br> <br>
+	<br> <br> <b><font size="6" color="gray">${cafeListTitle}</font></b>
+	<br><br> <br>
 		<c:if test="${CafeList.size() == 0}">
-		승인 대기중인 카페가 없습니다.
+		카페가 없습니다.
 		</c:if>
 	
-	<c:forEach var="myWaitingCafe" items="${CafeList}">
+	<c:forEach var="cafe" items="${CafeList}">
 	<table id="info">
 		<tr>
 			<td id="title">카페 아이디</td>
-			<td>${myWaitingCafe.getCafe_id() }</td>
+			<td>${cafe.getCafe_id() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">오너 아이디</td>
-			<td>${myWaitingCafe.getOwner_id() }</td>
+			<td>${cafe.getOwner_id() }</td>
 		</tr>
 		<tr>
 			<td id="title">카페 이름</td>
-			<td>${myWaitingCafe.getCafe_name() }</td>
+			<td><button type="button" class="btn btn-warning" onclick="location.href='/cafe/cafe/getSpecificCafe?cafe_id=${cafe.getCafe_id() }'">${cafe.getCafe_name() }</button></td>
 		</tr>
-
 		<tr>
 			<td id="title">카페 위지</td>
-			<td>${myWaitingCafe.getGu() }, ${myWaitingCafe.getAddress() }</td>
+			<td>${cafe.getGu() }, ${cafe.getAddress() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">카페 행사여부</td>
-			<td>${myWaitingCafe.isEvent() }</td>
+			<td>${cafe.isEvent() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">카페 홈페이지 주소</td>
-			<td>${myWaitingCafe.getHomepage() }</td>
+			<td>${cafe.getHomepage() }</td>
 		</tr>
 		<tr>
 			<td id="title">카페 소개글</td>
-			<td>${myWaitingCafe.getIntro() }</td>
+			<td>${cafe.getIntro() }</td>
 		</tr>
 		<tr>
 			<td id="title">콘센트</td>
-			<td>${myWaitingCafe.isConcent() }</td>
+			<td>${cafe.isConcent() }</td>
 		</tr>
 		<tr>
 			<td id="title">반려동물 허용</td>
-			<td>${myWaitingCafe.isPet() }</td>
+			<td>${cafe.isPet() }</td>
 		</tr>
 		<tr>
 			<td id="title">좌석 수</td>
-			<td>${myWaitingCafe.getSeat() }</td>
+			<td>${cafe.getSeat() }</td>
 		</tr>
 		<tr>
 			<td id="title">와이파이</td>
-			<td>${myWaitingCafe.isWifi() }</td>
+			<td>${cafe.isWifi() }</td>
 		</tr>
 		<tr>
 			<td id="title">주차장 여부</td>
-			<td>${myWaitingCafe.isParking_zone() }</td>
+			<td>${cafe.isParking_zone() }</td>
 		</tr>
 		<tr>
 			<td id="title">흠연실 여부</td>
-			<td>${myWaitingCafe.isSmoking_room() }</td>
+			<td>${cafe.isSmoking_room() }</td>
 		</tr>
 		<tr>
 			<td id="title">화장실</td>
-			<td>${myWaitingCafe.getToilet() }</td>
+			<td>${cafe.getToilet() }</td>
 		</tr>
 		<tr>
 			<td id="title">카페 등록일</td>
-			<td>${myWaitingCafe.getCreate_time() }</td>
+			<td>${cafe.getCreate_time() }</td>
 		</tr>
 
 	</table>
 	
-	<c:if test="${signedMember.getAuthority().equals(admin)}">
-	<button type="button" class="btn btn-warning" onclick="location.href='/cafe/approveCafeAction?cafe_id=${myWaitingCafe.getCafe_id() }'">카페 승인하기</button>
-	</c:if>
+
 	<hr/>
 	</c:forEach>
 	<br>
-	<c:if test="${signedMember.getAuthority().equals(owner)}">
-		<input type="button" value="카페 등록하기" onClick="location.href='/cafe/cafe/signUp'">
+	<c:if test="${signUpCafe != null}">
+		<input type="button" class="btn btn-warning" value="카페 등록하기" onClick="location.href='/cafe/cafe/signUp'">
 	</c:if>
 </center>
 <br>

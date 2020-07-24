@@ -36,7 +36,7 @@
     
     
     </style>
-    <jsp:include page="myPageTopButton.jsp" flush="false"/>
+<jsp:include page="/WEB-INF/views/include/contents/member/myPageTopButton.jsp"></jsp:include>
     <form>
  
         <br><br>
