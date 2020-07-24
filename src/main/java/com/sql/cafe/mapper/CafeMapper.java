@@ -56,6 +56,38 @@ public interface CafeMapper {
 			@Result(property = "toilet", column = "toilet") })
 	ArrayList<CafeVO> selectAddedCafesByOwnerId(@Param("owner_id") String owner_id);
 
+	// 승인을 위해 승인 대기중인 모든 카페 리스트 검색.
+	final String SELECT_ALL_FROM_WAITING_CAFE = "select * from waiting_cafe natural join waiting_cafe_option";
+	
+	@Select(SELECT_ALL_FROM_WAITING_CAFE)
+	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
+			@Result(property = "owner_id", column = "owner_id"), @Result(property = "cafe_name", column = "cafe_name"),
+			@Result(property = "gu", column = "gu"), @Result(property = "address", column = "address"),
+			@Result(property = "event", column = "event"), @Result(property = "homepage", column = "homepage"),
+			@Result(property = "intro", column = "intro"), @Result(property = "create_time", column = "create_time"),
+			@Result(property = "concent", column = "concent"), @Result(property = "pet", column = "pet"),
+			@Result(property = "seat", column = "seat"), @Result(property = "wifi", column = "wifi"),
+			@Result(property = "smoking_room", column = "smoking_room"),
+			@Result(property = "parking_zone", column = "parking_zone"),
+			@Result(property = "toilet", column = "toilet") })
+	ArrayList<CafeVO> selectAllFromWaitingCafe();
+	
+	// 승인을 위해 카페를 선택하여 해당 카페아이디로 카페 정보 검색.
+	final String SELECT_WAITING_CAFES_BY_CAFE_ID = "select * from waiting_cafe natural join waiting_cafe_option where cafe_id = #{cafe_id}";
+
+	@Select(SELECT_WAITING_CAFES_BY_CAFE_ID)
+	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
+			@Result(property = "owner_id", column = "owner_id"), @Result(property = "cafe_name", column = "cafe_name"),
+			@Result(property = "gu", column = "gu"), @Result(property = "address", column = "address"),
+			@Result(property = "event", column = "event"), @Result(property = "homepage", column = "homepage"),
+			@Result(property = "intro", column = "intro"), @Result(property = "create_time", column = "create_time"),
+			@Result(property = "concent", column = "concent"), @Result(property = "pet", column = "pet"),
+			@Result(property = "seat", column = "seat"), @Result(property = "wifi", column = "wifi"),
+			@Result(property = "smoking_room", column = "smoking_room"),
+			@Result(property = "parking_zone", column = "parking_zone"),
+			@Result(property = "toilet", column = "toilet") })
+	CafeVO selectWaitingCafeByCafeId(@Param("cafe_id") String cafe_id);
+	
 	// 특정 카페 선택시 카페 아이디로 등록된 특정 카페 정보 검색.
 	final String SELECT_ADDED_CAFES_BY_CAFE_ID = "select * from added_cafe natural join added_cafe_option where cafe_id = #{cafe_id}";
 
@@ -70,13 +102,19 @@ public interface CafeMapper {
 			@Result(property = "smoking_room", column = "smoking_room"),
 			@Result(property = "parking_zone", column = "parking_zone"),
 			@Result(property = "toilet", column = "toilet") })
-	ArrayList<CafeVO> selectAddedCafesByCafeId(@Param("cafe_id") String cafe_id);
+	CafeVO selectAddedCafeByCafeId(@Param("cafe_id") String cafe_id);
 
 	// 선택한 카페를 즐겨찾기에 등록.
 	final String TO_FAVORITE = "insert into favorite (user_id, cafe_id)values (#{user_id}, #{cafe_id})";
 
 	@Insert(TO_FAVORITE)
-	void toFavorite(@Param("user_id") String user_id, @Param("cafe_id") String cafe_id);
+	int toFavorite(@Param("user_id") String user_id, @Param("cafe_id") String cafe_id);
+	
+	// 선택한 카페를 즐겨찾기에서 취소.
+	final String DELETE_FAVORITE = "delete from favorite where user_id = #{user_id} and cafe_id = #{cafe_id";
+	
+	@Delete(DELETE_FAVORITE)
+	int deleteFavorite(@Param("user_id") String user_id, @Param("cafe_id") String cafe_id);
 
 	// 즐겨찾기한 카페들의 정보를 검색.
 	final String MY_FAVORITE_CAFES = "seletct * from added_cafe natural join added_cafe_option where cafe_id in (select cafe_id from favorite where user_id = #{user_id})";
@@ -101,22 +139,6 @@ public interface CafeMapper {
 	@Result(property = "count", column = "count")
 	int howManyFavoriteThisCafe(@Param("cafe_id") String cafe_id);
 
-	// 승인을 위해 해당 카페아이디로 카페 정보 검색.
-	final String SELECT_WAITING_CAFE_BY_CAFE_ID = "select * from waiting_cafe natural join waiting_cafe_option where cafe_id = #{cafe_id}";
-
-	@Select(SELECT_WAITING_CAFE_BY_CAFE_ID)
-	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
-			@Result(property = "owner_id", column = "owner_id"), @Result(property = "cafe_name", column = "cafe_name"),
-			@Result(property = "gu", column = "gu"), @Result(property = "address", column = "address"),
-			@Result(property = "event", column = "event"), @Result(property = "homepage", column = "homepage"),
-			@Result(property = "intro", column = "intro"), @Result(property = "create_time", column = "create_time"),
-			@Result(property = "concent", column = "concent"), @Result(property = "pet", column = "pet"),
-			@Result(property = "seat", column = "seat"), @Result(property = "wifi", column = "wifi"),
-			@Result(property = "smoking_room", column = "smoking_room"),
-			@Result(property = "parking_zone", column = "parking_zone"),
-			@Result(property = "toilet", column = "toilet") })
-	CafeVO selectWaitingCafeByCafeId(@Param("cafe_id") String cafe_id);
-	
 	
 	// 승인된 카페 등록.
 	final String INSERT_TO_ADDED_CAFE = "insert into added_cafe (owner_id, cafe_name, gu, address, event, homepage, intro, create_time) "

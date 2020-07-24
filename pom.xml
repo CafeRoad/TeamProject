@@ -85,7 +85,7 @@
             <version>${org.springframework-version}</version>
         </dependency>
 
-		<!-- 폼에서 컨트롤러로 VO전달을 위한 라이브러리. -->
+		<!-- VO에서 유효성 검사를 위한 라이브러리. -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
