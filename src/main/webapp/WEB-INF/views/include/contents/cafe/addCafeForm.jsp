@@ -78,12 +78,6 @@
 			</td>
 		</tr>
 	
-		<tr>
-			<td id="title"><b>SNS</b></td>
-			<td><sf:input path="sns" size="50" maxlength="50"/> <br/>
-			<sf:errors path="sns" cssClass="error"/>
-			</td>
-		</tr>
 		
 		<tr>
 			<td id="title"><b>행사</b></td>

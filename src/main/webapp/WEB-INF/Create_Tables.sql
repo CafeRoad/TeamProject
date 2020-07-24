@@ -18,10 +18,9 @@ CREATE TABLE IF NOT EXISTS `member` (
   `nickname` VARCHAR(10) NOT NULL,
   `gu` VARCHAR(5) NULL,
   `tel` VARCHAR(45) NULL,
-  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `authority` VARCHAR(10) NOT NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))engine=innodb default charset=utf8;
-
 
 -- -----------------------------------------------------
 -- Table `added_cafe`
