@@ -45,7 +45,7 @@ public class CafeController {
 	// 카페 등록 동작.
 	@RequestMapping(value = "/cafe/signUpAction", method = RequestMethod.POST)
 	public String signUpAction(@ModelAttribute("waitingCafeVO") @Valid CafeVO waitingCafeVO, BindingResult bidingResult,
-			Model model, RedirectAttributes rttr) throws Exception {
+			Model model,@SessionAttribute MemberVO signedMember, RedirectAttributes rttr) throws Exception {
 
 		logger.info(" cafe/signUpAction called!");
 
@@ -59,6 +59,9 @@ public class CafeController {
 			model.addAttribute("waitingCafeVO", waitingCafeVO);
 			model.addAttribute("content", "cafe/addCafeForm");
 		} else {
+			
+			String owner_id = signedMember.getId();
+			waitingCafeVO.setOwner_id(owner_id);
 			// waiting_cafe 두 테이블에 인서트.
 			cafeService.insertNewCafe(waitingCafeVO);
 
@@ -71,13 +74,13 @@ public class CafeController {
 	}
 
 	// 오너가 내 승인 대기중인 카페 리스트를 뽑음.
-	@RequestMapping(value = "/searchMyWatingCafes", method = RequestMethod.GET)
+	@RequestMapping(value = "/searchMyWaitingCafes", method = RequestMethod.GET)
 	public String searchMyWatingCafes(Model model, @SessionAttribute MemberVO signedMember) {
 
 		String owner_id = signedMember.getId();
 		model.addAttribute("CafeList", cafeService.selectWaitingCafesByOwnerId(owner_id));
 		//
-		model.addAttribute("content", "리스트 페이지 만들어서 넣어야 함.");
+		model.addAttribute("content", "member/myWaitingCafeInfo");
 		return "main";
 	}
 
@@ -89,7 +92,7 @@ public class CafeController {
 		
 		// 어드민이 카페의 리스트를 보는 페이지.
 		// 그냥 리스트를 잘 재활용해도 되지 않을까..?
-		model.addAttribute("content", "리스트 페이지 만들어서 넣어야 함.");
+		model.addAttribute("content", "member/myWaitingCafeInfo");
 		return "main";
 	}
 	

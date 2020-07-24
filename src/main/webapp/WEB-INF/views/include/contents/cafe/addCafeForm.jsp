@@ -29,8 +29,8 @@
 	<table id="addCafe" width=400 border=1 cellpadding=5>
 		<tr>
 			<td id="title"><b>이름</b></td>
-			<td><sf:input path="cafe_id" size="50" maxlength="50"/> <br/>
-			<sf:errors path="cafe_id" cssClass="error"/>
+			<td><sf:input path="cafe_name" size="50" maxlength="50"/> <br/>
+			<sf:errors path="cafe_name" cssClass="error"/>
 			</td>
 		</tr>
 	
@@ -68,16 +68,26 @@
 			</td>	
 		</tr>
 	
-		
-		
-		
 		<tr>
 			<td id="title"><b>주소</b></td>
 			<td><sf:input path="address" size="50" maxlength="50"/> <br/>
 			<sf:errors path="address" cssClass="error"/>
 			</td>
 		</tr>
-	
+		
+		<tr>
+			<td id="title"><b>소개</b></td>
+			<td><sf:input path="intro" size="200" maxlength="200"/> <br/>
+			<sf:errors path="intro" cssClass="error"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td id="title"><b>홈페이지</b></td>
+			<td><sf:input path="homepage" size="50" maxlength="50"/> <br/>
+			<sf:errors path="homepage" cssClass="error"/>
+			</td>
+		</tr>
 		
 		<tr>
 			<td id="title"><b>행사</b></td>
@@ -88,13 +98,56 @@
 		</tr>
 		
 		<tr>
-		
-		<tr>
-			<td id="title"><b>홈페이지</b></td>
-			<td><sf:input path="homepage" size="50" maxlength="50"/> <br/>
-			<sf:errors path="homepage" cssClass="error"/>
+			<td id="title"><b>반려 동물 입장</b></td>
+			<td><sf:radiobutton path="pet" value="true" label="돼요" size="50" maxlength="50"/>
+			<sf:radiobutton path="pet" value="false" label="안 돼요" size="50" maxlength="50"/> <br/>
+			<sf:errors path="pet" cssClass="error"/>
 			</td>
 		</tr>
+		
+		<tr>
+			<td id="title"><b>와이파이</b></td>
+			<td><sf:radiobutton path="wifi" value="true" label="있음" size="50" maxlength="50"/>
+			<sf:radiobutton path="wifi" value="false" label="없음" size="50" maxlength="50"/> <br/>
+			<sf:errors path="wifi" cssClass="error"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td id="title"><b>주차 공간</b></td>
+			<td><sf:radiobutton path="parking_zone" value="true" label="있음" size="50" maxlength="50"/>
+			<sf:radiobutton path="parking_zone" value="false" label="없음" size="50" maxlength="50"/> <br/>
+			<sf:errors path="parking_zone" cssClass="error"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td id="title"><b>흡연실</b></td>
+			<td><sf:radiobutton path="smoking_room" value="true" label="있음" size="50" maxlength="50"/>
+			<sf:radiobutton path="smoking_room" value="false" label="없음" size="50" maxlength="50"/> <br/>
+			<sf:errors path="smoking_room" cssClass="error"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td id="title"><b>좌석 수</b></td>
+			<td><sf:input path="seat" size="5" maxlength="5"/> <br/>
+			<sf:errors path="seat" cssClass="error"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td id="title"><b>화장실</b></td>
+			<td><sf:select path="toilet">
+			<sf:option value="none">==선택하세요==</sf:option>
+			<sf:option value="없음">없음</sf:option>
+			<sf:option value="외부에 별도">외부에 별도</sf:option>
+			<sf:option value="내부에 하나">내부에 하나</sf:option>
+			<sf:option value="내부에 성별별">내부에 성별별</sf:option>
+			</sf:select>
+			</td>	
+		</tr>
+
 	</table>
 	<input type="submit" value="등록">
 

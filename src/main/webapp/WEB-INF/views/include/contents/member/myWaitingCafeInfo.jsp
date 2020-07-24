@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<c:url var="owner" value="OWNER"/>
+	<c:url var="admin" value="ADMIN"/>
     <style type="text/css">
 #info {
 	width: 700px;
@@ -21,13 +23,14 @@
 <jsp:include page="myPageTopButton.jsp" flush="false"/>
 
 <center>
+
 	<br> <br> <b><font size="6" color="gray">내 승인 대기중인 카페</font></b> <br>
 	<br> <br>
-		<c:if test="${myWaitingCafeList.size() == 0}">
+		<c:if test="${CafeList.size() == 0}">
 		승인 대기중인 카페가 없습니다.
 		</c:if>
 	
-	<c:forEach var="myWaitingCafe" items="${myWaitingCafeList}">
+	<c:forEach var="myWaitingCafe" items="${CafeList}">
 	<table id="info">
 		<tr>
 			<td id="title">카페 아이디</td>
@@ -38,7 +41,6 @@
 			<td id="title">오너 아이디</td>
 			<td>${myWaitingCafe.getOwner_id() }</td>
 		</tr>
-
 		<tr>
 			<td id="title">카페 이름</td>
 			<td>${myWaitingCafe.getCafe_name() }</td>
@@ -47,11 +49,6 @@
 		<tr>
 			<td id="title">카페 위지</td>
 			<td>${myWaitingCafe.getGu() }, ${myWaitingCafe.getAddress() }</td>
-		</tr>
-
-		<tr>
-			<td id="title">카페 SNS</td>
-			<td>${myWaitingCafe.getSns() }</td>
 		</tr>
 
 		<tr>
@@ -84,16 +81,12 @@
 			<td>${myWaitingCafe.isWifi() }</td>
 		</tr>
 		<tr>
-			<td id="title">지역화페 가능 여부</td>
-			<td>${myWaitingCafe.isLocal_money() }</td>
-		</tr>
-		<tr>
 			<td id="title">주차장 여부</td>
 			<td>${myWaitingCafe.isParking_zone() }</td>
 		</tr>
 		<tr>
-			<td id="title">스터디룸 수</td>
-			<td>${myWaitingCafe.getSdutyroom() }</td>
+			<td id="title">흠연실 여부</td>
+			<td>${myWaitingCafe.isSmoking_room() }</td>
 		</tr>
 		<tr>
 			<td id="title">화장실</td>
@@ -105,8 +98,15 @@
 		</tr>
 
 	</table>
+	
+	<c:if test="${signedMember.getAuthority().equals(admin)}">
+	<button type="button" class="btn btn-warning" onclick="location.href='/cafe/approveCafeAction?cafe_id=${myWaitingCafe.getCafe_id() }'">카페 승인하기</button>
+	</c:if>
 	<hr/>
 	</c:forEach>
-
+	<br>
+	<c:if test="${signedMember.getAuthority().equals(owner)}">
+		<input type="button" value="카페 등록하기" onClick="location.href='/cafe/cafe/signUp'">
+	</c:if>
 </center>
 <br>

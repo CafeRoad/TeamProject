@@ -18,6 +18,8 @@ public class CafeService {
 	public void insertNewCafe(CafeVO cafeVO) {
 
 		cafeMapper.insertToWaitingCafe(cafeVO);
+		cafeVO.setCafe_id(cafeMapper.getNowCafeId());
+		// 지금 넣은 카페의 cafe_id를 가져와서 cafeVO에 담아야 함.
 		cafeMapper.insertToWaitingCafeOption(cafeVO);
 	}
 

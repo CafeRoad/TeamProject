@@ -24,6 +24,12 @@ public interface CafeMapper {
 	@Insert(INSERT_TO_WAITING_CAFE_OPTION)
 	void insertToWaitingCafeOption(CafeVO cafeVO);
 
+	// 대기중인 카페 옵션에 넣기 위해 대기중인 카페의 id를 겟.
+	final String GET_NOW_CAFE_ID = "select max(cafe_id) as cafe_id from waiting_cafe";
+	@Select(GET_NOW_CAFE_ID)
+	@Result(property = "cafe_id", column = "cafe_id")
+	String getNowCafeId();
+	
 	// 오너 아이디로 오너의 등록 대기중인 카페 정보 검색.
 	final String SELECT_WAITING_CAFES_BY_OWNER_ID = "select * from waiting_cafe natural join waiting_cafe_option where owner_id = #{owner_id}";
 
@@ -141,8 +147,8 @@ public interface CafeMapper {
 
 	
 	// 승인된 카페 등록.
-	final String INSERT_TO_ADDED_CAFE = "insert into added_cafe (owner_id, cafe_name, gu, address, event, homepage, intro, create_time) "
-			+ "values (#{owner_id}, #{cafe_name}, #{gu}, #{address}, #{event}, #{homepage}, #{intro}, now())";
+	final String INSERT_TO_ADDED_CAFE = "insert into added_cafe (cafe_id, owner_id, cafe_name, gu, address, event, homepage, intro, create_time) "
+			+ "values (#{cafe_id}, #{owner_id}, #{cafe_name}, #{gu}, #{address}, #{event}, #{homepage}, #{intro}, now())";
 
 	@Insert(INSERT_TO_ADDED_CAFE)
 	void insertToAddedCafe(CafeVO cafeVO);

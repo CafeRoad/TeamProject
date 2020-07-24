@@ -24,77 +24,76 @@
 <center>
 	<br> <br> <b><font size="6" color="gray">내 카페</font></b> <br>
 	<br> <br>
-		<c:if test="${myAddedCafeList.size() == 0}">
+		<c:if test="${CafeList.size() == 0}">
 		승인된 카페가 없습니다.
 		</c:if>
 	
-	<c:forEach var="myAddedCafe" items="${myAddedCafeList}">
+	<c:forEach var="myWaitingCafe" items="${CafeList}">
 	<table id="info">
 		<tr>
 			<td id="title">카페 아이디</td>
-			<td>${myAddedCafe.getCafe_id() }</td>
+			<td>${myWaitingCafe.getCafe_id() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">오너 아이디</td>
-			<td>${myAddedCafe.getOwner_id() }</td>
+			<td>${myWaitingCafe.getOwner_id() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">카페 이름</td>
-			<td>${myAddedCafe.getCafe_name() }</td>
+			<td>${myWaitingCafe.getCafe_name() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">카페 위지</td>
-			<td>${myAddedCafe.getGu() }, ${myAddedCafe.getAddress() }</td>
+			<td>${myWaitingCafe.getGu() }, ${myWaitingCafe.getAddress() }</td>
 		</tr>
-
 
 		<tr>
 			<td id="title">카페 행사여부</td>
-			<td>${myAddedCafe.isEvent() }</td>
+			<td>${myWaitingCafe.isEvent() }</td>
 		</tr>
 
 		<tr>
 			<td id="title">카페 홈페이지 주소</td>
-			<td>${myAddedCafe.getHomepage() }</td>
+			<td>${myWaitingCafe.getHomepage() }</td>
 		</tr>
 		<tr>
 			<td id="title">카페 소개글</td>
-			<td>${myAddedCafe.getIntro() }</td>
+			<td>${myWaitingCafe.getIntro() }</td>
 		</tr>
 		<tr>
 			<td id="title">콘센트</td>
-			<td>${myAddedCafe.isConcent() }</td>
+			<td>${myWaitingCafe.isConcent() }</td>
 		</tr>
 		<tr>
 			<td id="title">반려동물 허용</td>
-			<td>${myAddedCafe.isPet() }</td>
+			<td>${myWaitingCafe.isPet() }</td>
 		</tr>
 		<tr>
 			<td id="title">좌석 수</td>
-			<td>${myAddedCafe.getSeat() }</td>
+			<td>${myWaitingCafe.getSeat() }</td>
 		</tr>
 		<tr>
 			<td id="title">와이파이</td>
-			<td>${myAddedCafe.isWifi() }</td>
+			<td>${myWaitingCafe.isWifi() }</td>
 		</tr>
 		<tr>
 			<td id="title">주차장 여부</td>
-			<td>${myAddedCafe.isParking_zone() }</td>
+			<td>${myWaitingCafe.isParking_zone() }</td>
 		</tr>
 		<tr>
-			<td id="title">흡연실 여부</td>
-			<td>${myAddedCafe.getSmoking_room() }</td>
+			<td id="title">흠연실 여부</td>
+			<td>${myWaitingCafe.isSmoking_room() }</td>
 		</tr>
 		<tr>
 			<td id="title">화장실</td>
-			<td>${myAddedCafe.getToilet() }</td>
+			<td>${myWaitingCafe.getToilet() }</td>
 		</tr>
 		<tr>
 			<td id="title">카페 등록일</td>
-			<td>${myAddedCafe.getCreate_time() }</td>
+			<td>${myWaitingCafe.getCreate_time() }</td>
 		</tr>
 
 	</table>
