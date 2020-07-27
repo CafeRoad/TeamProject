@@ -19,6 +19,7 @@
 	
 	<!-- Scripts -->
 	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.scrollex.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/skel.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/util.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/main.js"></script>
@@ -50,17 +51,19 @@
 	<jsp:include page="/WEB-INF/views/include/banner_half.jsp"></jsp:include>
 	</c:if>
 	
-	<!-- One -->
+
+	<!-- Search -->
+	<jsp:include page="/WEB-INF/views/include/contents/search.jsp"></jsp:include>
 	
+	<!-- One -->
 	<c:if test="${content != null}">
 		<jsp:include page="/WEB-INF/views/include/contents/${content }.jsp"></jsp:include>
 	</c:if>
 	<c:if test="${content == null}">
 		<jsp:include page="/WEB-INF/views/include/contents/one.jsp"></jsp:include>
 	</c:if>
-	<!-- Two -->
+
 	
-	<jsp:include page="/WEB-INF/views/include/contents/two.jsp"></jsp:include>
 
 	<!-- Three -->
 	<jsp:include page="/WEB-INF/views/include/contents/three.jsp"></jsp:include>
