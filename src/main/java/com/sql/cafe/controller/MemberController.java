@@ -199,26 +199,26 @@ public class MemberController {
 	// 로그인 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 VO담아서 리턴.
 	@RequestMapping(value = "/loginAction", method = RequestMethod.POST)
 	public String loginAction(@ModelAttribute("memberVO") @Valid MemberVO memberVO, @RequestParam("id") String id,
-			@RequestParam("password") String password, Model model) {
+			@RequestParam("password") String password, Model model, RedirectAttributes rttr) {
 		logger.info("Welcome loginAction!");
 
 		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
 		model.addAttribute("signedMember", memberService.login(id, password));
 		// redirect를 해야 주소창도 바뀜.
-		
+		rttr.addFlashAttribute("msg", "로그인 성공.");
 		return "redirect:/main";
 	}
 	
 	//로그아웃.
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(Model model, SessionStatus sessionStatus) {
+	public String logout(Model model, SessionStatus sessionStatus,RedirectAttributes rttr) {
 
 		// 세션의 상태를 클리어.
 		sessionStatus.setComplete();
 
 		// 알러트? 팝업? 메세지를 띄울 필요는 있는 듯.
 		// rttr.addFlashAttribute("msg", "로그아웃 되었습니다.");
-
+		rttr.addFlashAttribute("msg", "로그아웃.");
 		return "redirect:/main";
 	}
 

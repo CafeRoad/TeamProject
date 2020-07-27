@@ -85,14 +85,18 @@ public class HomeController {
 
 	// 파일 업로드 테스트
 	@RequestMapping(value = "/fileupload", method = RequestMethod.POST)
-	public String upload(MultipartFile uploadfile, Model model, HttpServletRequest request) {
+	public String upload(MultipartFile uploadfile, Model model, HttpServletRequest request, String dir) {
 		logger.info("upload() POST 호출");
 		logger.info("파일 이름: {}", uploadfile.getOriginalFilename());
 		logger.info("파일 크기: {}", uploadfile.getSize());
 
 		System.out.println("경로 테스트 : " + request.getSession().getServletContext().getRealPath("\\resources\\assets\\imgtest"));
-
-		String filename = saveFile(uploadfile);
+System.out.println("다은 dir"+dir);
+		String filename = saveFile(uploadfile, dir);
+		
+		System.out.println("자바 절대 경로"+this.getClass().getResource("").getPath());
+		
+//		File file = new File(arg0, arg1)
 		System.err.println(filename);
 		if (filename != null) { // 파일 저장 성공
 			model.addAttribute("filename", filename);
@@ -104,17 +108,16 @@ public class HomeController {
 		return "filetest";
 	}
 
-	private String UPLOAD_PATH = "D:\\Works\\renndouTest\\CafeRoad_connected\\src\\main\\webapp\\resources\\assets\\imgtest";
 
-	private String saveFile(MultipartFile file) {
+	private String saveFile(MultipartFile file, String dir) {
 		// 파일 이름 변경
 		UUID uuid = UUID.randomUUID();
-		String saveName = uuid + "_" + file.getOriginalFilename() + ".jpg";
+		String saveName = uuid + "_" + file.getOriginalFilename();
 
 		logger.info("saveName: {}", saveName);
 
 		// 저장할 File 객체를 생성(껍데기 파일)
-		File saveFile = new File(UPLOAD_PATH, saveName); // 저장할 폴더 이름, 저장할 파일 이름
+		File saveFile = new File(dir, saveName); // 저장할 폴더 이름, 저장할 파일 이름
 
 		try {
 			file.transferTo(saveFile); // 업로드 파일에 saveFile이라는 껍데기 입힘
