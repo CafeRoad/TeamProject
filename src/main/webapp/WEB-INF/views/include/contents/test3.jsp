@@ -46,7 +46,7 @@
 			src="${pageContext.request.contextPath}/resources/assets/cafeimg/im1.jpg"
 			alt="" style="width:300px; height:300px;"/>
 		</th>
-		<td>카페이름</td>
+		<td>카페이름1</td>
 	</tr>
 	<tr>
 		<td>기문</td>
