@@ -6,6 +6,7 @@
    font-size: 60px;
    font-weight: bold;
    text-align: center;
+   margin:10 auto;
   }
  .subtitle{
    font-size:40px;
@@ -24,10 +25,7 @@ border-radius:4px;
   display:flex;
 }
 
-#choice{
-  width: 1000px;
-  margin:0 auto;
-}
+
 
 .price-guest-title{
 font-size:1.5rem;
