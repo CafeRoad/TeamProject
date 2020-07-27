@@ -18,9 +18,10 @@ CREATE TABLE IF NOT EXISTS `member` (
   `nickname` VARCHAR(10) NOT NULL,
   `gu` VARCHAR(5) NULL,
   `tel` VARCHAR(45) NULL,
-  `authority` VARCHAR(10) NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `authority` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`id`))engine=innodb default charset=utf8;
+
 
 -- -----------------------------------------------------
 -- Table `added_cafe`
@@ -35,6 +36,22 @@ CREATE TABLE IF NOT EXISTS `added_cafe` (
   `homepage` VARCHAR(45) NULL,
   `intro` VARCHAR(200) NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `concent` TINYINT(1) NULL,
+  `pet` TINYINT(1) NULL,
+  `wifi` TINYINT(1) NULL,
+  `parking_zone` TINYINT(1) NULL,
+  `smoking_room` TINYINT(1) NULL,
+  `toilet` TINYINT(1) NULL,
+  `img_main` VARCHAR(45) NULL,
+  `img01` VARCHAR(45) NULL,
+  `img02` VARCHAR(45) NULL,
+  `img03` VARCHAR(45) NULL,
+  `img04` VARCHAR(45) NULL,
+  `img05` VARCHAR(45) NULL,
+  `img06` VARCHAR(45) NULL,
+  `img07` VARCHAR(45) NULL,
+  `img08` VARCHAR(45) NULL,
+  `img09` VARCHAR(45) NULL,
   PRIMARY KEY (`cafe_id`),
   INDEX `fk_added_cafe_member1_idx` (`owner_id` ASC),
   CONSTRAINT `fk_added_cafe_member1`
@@ -63,6 +80,7 @@ CREATE TABLE IF NOT EXISTS `favorite` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)engine=innodb default charset=utf8;
 
+
 -- -----------------------------------------------------
 -- Table `waiting_cafe`
 -- -----------------------------------------------------
@@ -76,6 +94,22 @@ CREATE TABLE IF NOT EXISTS `waiting_cafe` (
   `homepage` VARCHAR(45) NULL,
   `intro` VARCHAR(200) NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `concent` TINYINT(1) NULL,
+  `pet` TINYINT(1) NULL,
+  `wifi` TINYINT(1) NULL,
+  `parking_zone` TINYINT(1) NULL,
+  `smoking_room` TINYINT(1) NULL,
+  `toilet` TINYINT(1) NULL,
+  `img_main` VARCHAR(45) NULL,
+  `img01` VARCHAR(45) NULL,
+  `img02` VARCHAR(45) NULL,
+  `img03` VARCHAR(45) NULL,
+  `img04` VARCHAR(45) NULL,
+  `img05` VARCHAR(45) NULL,
+  `img06` VARCHAR(45) NULL,
+  `img07` VARCHAR(45) NULL,
+  `img08` VARCHAR(45) NULL,
+  `img09` VARCHAR(45) NULL,
   PRIMARY KEY (`cafe_id`),
   INDEX `fk_waiting_cafe_member1_idx` (`owner_id` ASC),
   CONSTRAINT `fk_waiting_cafe_member1`
@@ -84,45 +118,6 @@ CREATE TABLE IF NOT EXISTS `waiting_cafe` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)engine=innodb default charset=utf8;
 
-
--- -----------------------------------------------------
--- Table `waiting_cafe_option`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `waiting_cafe_option` (
-  `cafe_id` INT NOT NULL,
-  `concent` TINYINT(1) NULL,
-  `pet` TINYINT(1) NULL,
-  `seat` INT NULL,
-  `wifi` TINYINT(1) NULL,
-  `parking_zone` INT NULL,
-  `smoking_room` TINYINT(1) NULL,
-  `toilet` VARCHAR(10) NULL,
-  INDEX `fk_waiting_cafe_option_waiting_cafe1_idx` (`cafe_id` ASC),
-  PRIMARY KEY (`cafe_id`),
-  CONSTRAINT `fk_waiting_cafe_option_waiting_cafe1`
-    FOREIGN KEY (`cafe_id`)
-    REFERENCES `waiting_cafe` (`cafe_id`)
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION)engine=innodb default charset=utf8;
-
--- -----------------------------------------------------
--- Table `added_cafe_option`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `added_cafe_option` (
-  `cafe_id` INT NOT NULL,
-  `concent` TINYINT(1) NULL,
-  `pet` TINYINT(1) NULL,
-  `seat` INT NULL,
-  `wifi` TINYINT(1) NULL,
-  `parking_zone` INT NULL,
-  `smoking_room` INT NULL,
-  `toilet` VARCHAR(10) NULL,
-  PRIMARY KEY (`cafe_id`),
-  CONSTRAINT `fk_added_cafe_option_added_cafe1`
-    FOREIGN KEY (`cafe_id`)
-    REFERENCES `added_cafe` (`cafe_id`)
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION)engine=innodb default charset=utf8;
 
 
 -- -----------------------------------------------------
@@ -163,7 +158,6 @@ CREATE TABLE IF NOT EXISTS `review` (
 CREATE TABLE IF NOT EXISTS `like` (
   `review_id` INT NOT NULL,
   `user_id` VARCHAR(16) NOT NULL,
-  `like` TINYINT(1) NOT NULL,
   PRIMARY KEY (`review_id`),
   INDEX `fk_like_member1_idx` (`user_id` ASC),
   CONSTRAINT `fk_like_review1`
@@ -176,6 +170,7 @@ CREATE TABLE IF NOT EXISTS `like` (
     REFERENCES `member` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)engine=innodb default charset=utf8;
+
 
 -- -----------------------------------------------------
 -- Table `article`
@@ -213,6 +208,4 @@ CREATE TABLE IF NOT EXISTS `notice` (
     REFERENCES `member` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)engine=innodb default charset=utf8;
-
-
 

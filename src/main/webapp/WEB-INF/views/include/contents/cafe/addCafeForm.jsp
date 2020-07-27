@@ -150,6 +150,23 @@
 
 	</table>
 	<input type="submit" value="등록">
-
+	<!-- 파일 업로드 일단 포기.
+		<sf:form modelAttribute="waitingCafeVO" method="POST" action="${addCafeUrl }" enctype="multipart/form-data">
+			<center>
+			<br> <b><font size="6" color="gray">카페 사진 등록</font></b> <br><br>
+			<table id="addCafe" width=400 border=1 cellpadding=5>
+				<tr>
+					<td id="title"><b>메인 이미지</b></td>
+					<td><sf:input type="file" path="cafe_img1" size="50" maxlength="50"/> <br/>
+					<sf:errors path="cafe_img1" cssClass="error"/>
+					</td>
+				</tr>
+			
+				
+		
+			</table>
+		
+		</sf:form>
+ -->
 	</center>
 </sf:form>

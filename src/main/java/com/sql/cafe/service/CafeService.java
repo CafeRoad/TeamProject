@@ -19,8 +19,6 @@ public class CafeService {
 
 		cafeMapper.insertToWaitingCafe(cafeVO);
 		cafeVO.setCafe_id(cafeMapper.getNowCafeId());
-		// 지금 넣은 카페의 cafe_id를 가져와서 cafeVO에 담아야 함.
-		cafeMapper.insertToWaitingCafeOption(cafeVO);
 	}
 
 	// 접속한 오너의 아이디로 승인 대기중인 카페들 검색.
@@ -59,7 +57,6 @@ public class CafeService {
 		CafeVO cafeVO = cafeMapper.selectWaitingCafeByCafeId(cafe_id);
 
 		cafeMapper.insertToAddedCafe(cafeVO);
-		cafeMapper.insertToAddedCafeOption(cafeVO);
 
 		// 리턴되는 인트가 1이면 1개의 행이 삭제됨. 정상.
 		return cafeMapper.deleteFromWaitingCafe(cafe_id);

@@ -83,19 +83,20 @@ public class HomeController {
 		return "filetest";
 	}
 
-	// 파일 업로드 테스트
+	// 파일 업로드 테스트///////이거 망했ㅇ어어ㅓ어어어ㅓㅇ어어어어어ㅓㅓㅓㅓㅓㅓㅓㅓ
 	@RequestMapping(value = "/fileupload", method = RequestMethod.POST)
 	public String upload(MultipartFile uploadfile, Model model, HttpServletRequest request, String dir) {
 		logger.info("upload() POST 호출");
 		logger.info("파일 이름: {}", uploadfile.getOriginalFilename());
 		logger.info("파일 크기: {}", uploadfile.getSize());
 
-		System.out.println("경로 테스트 : " + request.getSession().getServletContext().getRealPath("\\resources\\assets\\imgtest"));
-System.out.println("다은 dir"+dir);
+		System.out.println(
+				"경로 테스트 : " + request.getSession().getServletContext().getRealPath("\\resources\\assets\\imgtest"));
+		System.out.println("다은 dir" + dir);
 		String filename = saveFile(uploadfile, dir);
-		
-		System.out.println("자바 절대 경로"+this.getClass().getResource("").getPath());
-		
+
+		System.out.println("자바 절대 경로" + this.getClass().getResource("").getPath());
+
 //		File file = new File(arg0, arg1)
 		System.err.println(filename);
 		if (filename != null) { // 파일 저장 성공
@@ -107,7 +108,6 @@ System.out.println("다은 dir"+dir);
 
 		return "filetest";
 	}
-
 
 	private String saveFile(MultipartFile file, String dir) {
 		// 파일 이름 변경
