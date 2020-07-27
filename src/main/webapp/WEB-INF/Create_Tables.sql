@@ -136,7 +136,6 @@ CREATE TABLE IF NOT EXISTS `review` (
   `star_mood` DECIMAL(3,2) NULL,
   `star_service` DECIMAL(3,2) NULL,
   `star_clean` DECIMAL(3,2) NULL,
-  `reviewcol` VARCHAR(45) NULL,
   PRIMARY KEY (`review_id`),
   INDEX `fk_review_added_cafe1_idx` (`cafe_id` ASC),
   INDEX `fk_review_member1_idx` (`user_id` ASC),

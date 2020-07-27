@@ -15,13 +15,15 @@
 	<!-- http://localhost:8080/cafe/include -->
 	<!-- css 뒤에 ? ver='숫자'로 값을 주면 바뀐 파일 적용됨.  https://kanu.tistory.com/30  -->
 	<link href="${pageContext.request.contextPath}/resources/assets/css/main3.css?ver=7" rel="stylesheet" type="text/css" />
-
+	<link href="${pageContext.request.contextPath}/resources/assets/css/lightbox.css?ver=6" rel="stylesheet" type="text/css" />
+	
 	<!-- Scripts -->
 	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/skel.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/util.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/main.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/assets/js/lightbox-2.6.min.js"></script>
 	
 
 <script type="text/javascript">

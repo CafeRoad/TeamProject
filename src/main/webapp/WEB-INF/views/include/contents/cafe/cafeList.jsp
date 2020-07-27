@@ -19,6 +19,15 @@
 	width : 150px;
 	
 }
+ol, ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
 </style>
 <jsp:include page="/WEB-INF/views/include/contents/member/myPageTopButton.jsp"></jsp:include>
 
@@ -31,6 +40,9 @@
 	
 	<c:forEach var="cafe" items="${CafeList}">
 	<table id="info">
+		<div class="example">
+			<a href="${pageContext.request.contextPath}/resources/assets/cafeimg/${cafe.getCafe_id() }/${cafe.getImg_main() }.jpg" data-lightbox="image-1" title="${cafe.getCafe_name() }"><img width="400" height="400" src="${pageContext.request.contextPath}/resources/assets/cafeimg/${cafe.getCafe_id() }/${cafe.getImg_main() }.jpg" /></a>
+		</div>
 		<tr>
 			<td id="title">카페 아이디</td>
 			<td>${cafe.getCafe_id() }</td>
@@ -71,10 +83,6 @@
 			<td>${cafe.isPet() }</td>
 		</tr>
 		<tr>
-			<td id="title">좌석 수</td>
-			<td>${cafe.getSeat() }</td>
-		</tr>
-		<tr>
 			<td id="title">와이파이</td>
 			<td>${cafe.isWifi() }</td>
 		</tr>
@@ -88,7 +96,7 @@
 		</tr>
 		<tr>
 			<td id="title">화장실</td>
-			<td>${cafe.getToilet() }</td>
+			<td>${cafe.isToilet() }</td>
 		</tr>
 		<tr>
 			<td id="title">카페 등록일</td>

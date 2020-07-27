@@ -37,10 +37,10 @@ public interface CafeMapper {
 			@Result(property = "parking_zone", column = "parking_zone"),
 			@Result(property = "toilet", column = "toilet"), @Result(property = "img_main", column = "img_main"),
 			@Result(property = "img01", column = "img01"), @Result(property = "img02", column = "img02"),
-			@Result(property = "img03", column = "img03"), @Result(property = "img01", column = "img04"),
-			@Result(property = "img01", column = "img05"), @Result(property = "img01", column = "img06"),
-			@Result(property = "img01", column = "img07"), @Result(property = "img01", column = "img08"),
-			@Result(property = "img01", column = "img09") })
+			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
+			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
+			@Result(property = "img07", column = "img07"), @Result(property = "img08", column = "img08"),
+			@Result(property = "img09", column = "img09") })
 	ArrayList<CafeVO> selectWaitingCafesByOwnerId(@Param("owner_id") String owner_id);
 
 	// 오너 아이디로 오너의 등록된 카페 정보 검색.
@@ -57,10 +57,10 @@ public interface CafeMapper {
 			@Result(property = "parking_zone", column = "parking_zone"),
 			@Result(property = "toilet", column = "toilet"), @Result(property = "img_main", column = "img_main"),
 			@Result(property = "img01", column = "img01"), @Result(property = "img02", column = "img02"),
-			@Result(property = "img03", column = "img03"), @Result(property = "img01", column = "img04"),
-			@Result(property = "img01", column = "img05"), @Result(property = "img01", column = "img06"),
-			@Result(property = "img01", column = "img07"), @Result(property = "img01", column = "img08"),
-			@Result(property = "img01", column = "img09") })
+			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
+			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
+			@Result(property = "img07", column = "img07"), @Result(property = "img08", column = "img08"),
+			@Result(property = "img09", column = "img09") })
 	ArrayList<CafeVO> selectAddedCafesByOwnerId(@Param("owner_id") String owner_id);
 
 	// 승인을 위해 승인 대기중인 모든 카페 리스트 검색.
@@ -77,10 +77,10 @@ public interface CafeMapper {
 			@Result(property = "parking_zone", column = "parking_zone"),
 			@Result(property = "toilet", column = "toilet"), @Result(property = "img_main", column = "img_main"),
 			@Result(property = "img01", column = "img01"), @Result(property = "img02", column = "img02"),
-			@Result(property = "img03", column = "img03"), @Result(property = "img01", column = "img04"),
-			@Result(property = "img01", column = "img05"), @Result(property = "img01", column = "img06"),
-			@Result(property = "img01", column = "img07"), @Result(property = "img01", column = "img08"),
-			@Result(property = "img01", column = "img09") })
+			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
+			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
+			@Result(property = "img07", column = "img07"), @Result(property = "img08", column = "img08"),
+			@Result(property = "img09", column = "img09") })
 	ArrayList<CafeVO> selectAllFromWaitingCafe();
 
 	// 검색을 위해 승인된  모든 카페 리스트 검색.
@@ -97,10 +97,10 @@ public interface CafeMapper {
 			@Result(property = "parking_zone", column = "parking_zone"),
 			@Result(property = "toilet", column = "toilet"), @Result(property = "img_main", column = "img_main"),
 			@Result(property = "img01", column = "img01"), @Result(property = "img02", column = "img02"),
-			@Result(property = "img03", column = "img03"), @Result(property = "img01", column = "img04"),
-			@Result(property = "img01", column = "img05"), @Result(property = "img01", column = "img06"),
-			@Result(property = "img01", column = "img07"), @Result(property = "img01", column = "img08"),
-			@Result(property = "img01", column = "img09") })
+			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
+			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
+			@Result(property = "img07", column = "img07"), @Result(property = "img08", column = "img08"),
+			@Result(property = "img09", column = "img09") })
 	ArrayList<CafeVO> selectAllFromAddedCafe();
 
 	// 승인을 위해 카페를 선택하여 해당 카페아이디로 카페 정보 검색.
@@ -117,10 +117,10 @@ public interface CafeMapper {
 			@Result(property = "parking_zone", column = "parking_zone"),
 			@Result(property = "toilet", column = "toilet"), @Result(property = "img_main", column = "img_main"),
 			@Result(property = "img01", column = "img01"), @Result(property = "img02", column = "img02"),
-			@Result(property = "img03", column = "img03"), @Result(property = "img01", column = "img04"),
-			@Result(property = "img01", column = "img05"), @Result(property = "img01", column = "img06"),
-			@Result(property = "img01", column = "img07"), @Result(property = "img01", column = "img08"),
-			@Result(property = "img01", column = "img09") })
+			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
+			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
+			@Result(property = "img07", column = "img07"), @Result(property = "img08", column = "img08"),
+			@Result(property = "img09", column = "img09") })
 	CafeVO selectWaitingCafeByCafeId(@Param("cafe_id") String cafe_id);
 
 	// 특정 카페 선택시 카페 아이디로 등록된 특정 카페 정보 검색.
@@ -137,10 +137,10 @@ public interface CafeMapper {
 			@Result(property = "parking_zone", column = "parking_zone"),
 			@Result(property = "toilet", column = "toilet"), @Result(property = "img_main", column = "img_main"),
 			@Result(property = "img01", column = "img01"), @Result(property = "img02", column = "img02"),
-			@Result(property = "img03", column = "img03"), @Result(property = "img01", column = "img04"),
-			@Result(property = "img01", column = "img05"), @Result(property = "img01", column = "img06"),
-			@Result(property = "img01", column = "img07"), @Result(property = "img01", column = "img08"),
-			@Result(property = "img01", column = "img09") })
+			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
+			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
+			@Result(property = "img07", column = "img07"), @Result(property = "img08", column = "img08"),
+			@Result(property = "img09", column = "img09") })
 	CafeVO selectAddedCafeByCafeId(@Param("cafe_id") String cafe_id);
 
 	// 선택한 카페를 즐겨찾기에 등록.
@@ -169,10 +169,10 @@ public interface CafeMapper {
 			@Result(property = "parking_zone", column = "parking_zone"),
 			@Result(property = "toilet", column = "toilet"), @Result(property = "img_main", column = "img_main"),
 			@Result(property = "img01", column = "img01"), @Result(property = "img02", column = "img02"),
-			@Result(property = "img03", column = "img03"), @Result(property = "img01", column = "img04"),
-			@Result(property = "img01", column = "img05"), @Result(property = "img01", column = "img06"),
-			@Result(property = "img01", column = "img07"), @Result(property = "img01", column = "img08"),
-			@Result(property = "img01", column = "img09") })
+			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
+			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
+			@Result(property = "img07", column = "img07"), @Result(property = "img08", column = "img08"),
+			@Result(property = "img09", column = "img09") })
 	ArrayList<CafeVO> myFavoriteCafes(@Param("user_id") String user_id);
 
 	// 이 카페를 즐겨찾기 한 유저의 수.

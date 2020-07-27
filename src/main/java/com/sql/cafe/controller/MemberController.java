@@ -201,7 +201,7 @@ public class MemberController {
 	// 로그인 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 VO담아서 리턴.
 	@RequestMapping(value = "/loginAction", method = RequestMethod.POST)
 
-	public String loginAction(@ModelAttribute("memberVO") @Valid MemberVO memberVO, @RequestParam("id") String id,
+	public String loginAction(@ModelAttribute("memberVO") MemberVO memberVO, @RequestParam("id") String id,
 			@RequestParam("password") String password, Model model, RedirectAttributes rttr) {
 
 		logger.info("Welcome loginAction!");

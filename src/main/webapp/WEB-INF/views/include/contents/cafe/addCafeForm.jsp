@@ -129,44 +129,16 @@
 			</td>
 		</tr>
 		
-		<tr>
-			<td id="title"><b>좌석 수</b></td>
-			<td><sf:input path="seat" size="5" maxlength="5"/> <br/>
-			<sf:errors path="seat" cssClass="error"/>
-			</td>
-		</tr>
 		
 		<tr>
 			<td id="title"><b>화장실</b></td>
-			<td><sf:select path="toilet">
-			<sf:option value="none">==선택하세요==</sf:option>
-			<sf:option value="없음">없음</sf:option>
-			<sf:option value="외부에 별도">외부에 별도</sf:option>
-			<sf:option value="내부에 하나">내부에 하나</sf:option>
-			<sf:option value="내부에 성별별">내부에 성별별</sf:option>
-			</sf:select>
+			<td><sf:radiobutton path="toilet" value="true" label="있음" size="50" maxlength="50"/>
+			<sf:radiobutton path="toilet" value="false" label="없음" size="50" maxlength="50"/> <br/>
+			<sf:errors path="toilet" cssClass="error"/>
 			</td>	
 		</tr>
 
 	</table>
 	<input type="submit" value="등록">
-	<!-- 파일 업로드 일단 포기.
-		<sf:form modelAttribute="waitingCafeVO" method="POST" action="${addCafeUrl }" enctype="multipart/form-data">
-			<center>
-			<br> <b><font size="6" color="gray">카페 사진 등록</font></b> <br><br>
-			<table id="addCafe" width=400 border=1 cellpadding=5>
-				<tr>
-					<td id="title"><b>메인 이미지</b></td>
-					<td><sf:input type="file" path="cafe_img1" size="50" maxlength="50"/> <br/>
-					<sf:errors path="cafe_img1" cssClass="error"/>
-					</td>
-				</tr>
-			
-				
-		
-			</table>
-		
-		</sf:form>
- -->
 	</center>
 </sf:form>

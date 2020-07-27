@@ -36,7 +36,7 @@ font-size: 20px;
 
 
 <div>
-<img src="${pageContext.request.contextPath}/resources/assets/images/airplane.png" alt="" />
+<img src="${pageContext.request.contextPath}/resources/assets/css/images/airplane.png" alt="" />
 
 </div>
 <div class="main">
@@ -50,10 +50,10 @@ font-size: 20px;
 
 <div style="text-align : center;">
 
-<input id="search" onclick="location.href='http://www.naver.com'"  type="image"  src="${pageContext.request.contextPath}/resources/assets/images/naver.png">
+<input id="search" onclick="location.href='http://www.naver.com'"  type="image"  src="${pageContext.request.contextPath}/resources/assets/css/images/naver.png">
 
-<input id="search" onclick="location.href='http://www.google.com'" type="image" src="${pageContext.request.contextPath}/resources/assets/images/google.png">
-<input id="search" onclick="location.href='http://www.nate.com'" type="image" src="${pageContext.request.contextPath}/resources/assets/images/nate.png">
+<input id="search" onclick="location.href='http://www.google.com'" type="image" src="${pageContext.request.contextPath}/resources/assets/css/images/google.png">
+<input id="search" onclick="location.href='http://www.nate.com'" type="image" src="${pageContext.request.contextPath}/resources/assets/css/images/nate.png">
 </div><br><br><br>
 
 

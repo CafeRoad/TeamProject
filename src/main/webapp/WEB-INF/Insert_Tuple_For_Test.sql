@@ -26,9 +26,7 @@ select * from waiting_cafe;
 
 -- 카페 관련 여기 안 됨. 
 insert into waiting_cafe (owner_id, cafe_name, gu, address, event, homepage, intro, create_time)values("test11","스타벅스 관철점", "종로","관철동 솔데스크 8층", 0, "cafe11.com", "테스트용 카페 입니다.", now());
-insert into waiting_cafe_option values(1, 1, 0, 53, 1, 1, 1, "내부에 별도");
-
-select * from waiting_cafe natural join waiting_cafe_option;
+update waiting_cafe set img_main = "main", img01 = "01", img02 = "02", img03 = "03", img04 = "04", img05 = "05", img06 = "06", img07 = "07", img08 = "08", img09 = "09" where cafe_id = "1";
 
 	
 
