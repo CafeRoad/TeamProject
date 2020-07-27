@@ -32,7 +32,7 @@
 	<jsp:include page="/WEB-INF/views/include/nav.jsp"></jsp:include>
 
 	<!-- Banner -->
-	<jsp:include page="/WEB-INF/views/include/banner.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/banner_half.jsp"></jsp:include>
 
 	<!-- One -->
 	<jsp:include page="/WEB-INF/views/test2.jsp"></jsp:include>

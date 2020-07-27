@@ -60,7 +60,7 @@
 							<li class="toplist_list">
 								<div class="with-review">
 									<figure class="restaurant-item">
-										<a href="/cafeimg/im1.jpg"
+										<a href="/cafe/test3"
 											onclick="trackEvent('CLICK_RESTAURANT', {&quot;position&quot;:0,&quot;restaurant_key&quot;:&quot;vsh3qH5c6Q&quot;})">
 											<div class="thumb">
 												<img class="center-croping lazy"

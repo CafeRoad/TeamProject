@@ -60,6 +60,20 @@ public class HomeController {
 		return "test1";
 	}
 
+	@RequestMapping(value = "/test3", method = RequestMethod.GET)
+	public String test3(Locale locale, Model model) {
+		logger.info("Welcome test! The client locale is {}.", locale);
+
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+
+		model.addAttribute("serverTime", formattedDate);
+model.addAttribute("content","test3");
+		return "main";
+	}
+
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Model model) {
 		logger.info("Welcome index! ");
