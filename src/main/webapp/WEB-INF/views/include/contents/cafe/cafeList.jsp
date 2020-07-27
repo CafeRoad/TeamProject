@@ -104,7 +104,7 @@ ol, ul {
 		</tr>
 
 	</table>
-	
+	<button type="button" class="btn btn-warning" onclick="location.href='/cafe/cafe/toggleFavorite?cafe_id=${cafe.getCafe_id() }'">즐겨찾기</button>
 
 	<hr/>
 	</c:forEach>

@@ -194,4 +194,19 @@ public class CafeController {
 		return "main";
 	}
 
-}
+	// 즐겨찾기 추가하기 버튼.
+	@RequestMapping(value = "/cafe/toggleFavorite", method = RequestMethod.GET)
+	public String toggleFavorite(Model model, @RequestParam("cafe_id") String cafe_id, @SessionAttribute MemberVO signedMember) {
+		
+		// 즐겨찾기 주차됨.
+		if(cafeService.toFavorite(signedMember.getId(), cafe_id) == 1) {
+			model.addAttribute("msg","즐겨찾기에 추가되었습니다.");
+			
+		} else if(cafeService.toFavorite(signedMember.getId(), cafe_id) == 0) {
+			cafeService.deleteFavorite(signedMember.getId(), cafe_id);
+			model.addAttribute("msg","즐겨찾기에서 제외되었습니다.");
+		}
+		// 리스폰즈 바디 사용해서 history.go(1)?
+		return null;
+	}
+	}

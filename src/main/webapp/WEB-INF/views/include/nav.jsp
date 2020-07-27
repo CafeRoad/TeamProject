@@ -13,7 +13,7 @@
 	<c:if test="${signedMember.getId() != null}">
 		<li><c:out value="${signedMember.getId() }" />님 환영합니다.</li>
 		<li><a href="/cafe/myPage">마이페이지</a></li>
-		<li><a href="/cafe/logout">로그아웃.</a></li>
+		<li><a href="/cafe/logout">로그아웃</a></li>
 	</c:if>
 		
 	</ul>

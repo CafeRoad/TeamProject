@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
-    
+    <br/>
 <center>
 	<c:url var="user" value="USER"/>
 	<c:url var="owner" value="OWNER"/>

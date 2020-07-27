@@ -30,7 +30,10 @@ public class CafeVO {
 	private String img07;
 	private String img08;
 	private String img09;
-
+	
+	//즐겨찾기용 유저 아이디
+	private String user_id;
+	
 	public String getCafe_id() {
 		return cafe_id;
 	}
@@ -230,5 +233,15 @@ public class CafeVO {
 	public void setImg09(String img09) {
 		this.img09 = img09;
 	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	
+	
 
 }

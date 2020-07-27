@@ -228,6 +228,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public String myPage(Model model) {
+		model.addAttribute("myPage", "마이페이지");
 		model.addAttribute("content", "member/info");
 		
 		return "main";
@@ -237,6 +238,7 @@ public class MemberController {
 	@RequestMapping(value = "/deleteForm", method = RequestMethod.GET)
 	public String delete(Model model, @SessionAttribute MemberVO signedMember) {
 		signedMember.setPassword(null);
+		model.addAttribute("myPage", "마이페이지");
 		model.addAttribute("content", "member/deleteForm");
 		return "main";
 

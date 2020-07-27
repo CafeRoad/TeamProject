@@ -4,7 +4,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        if(${signedMember.getId() > 0 }){
+        if(${signedMember.getId().length() > 0 }){
         } else if {
             alert('로그인 해주세요.');        	
         }
@@ -28,7 +28,6 @@
 }
 </style>
 
-<jsp:include page="/WEB-INF/views/include/contents/member/myPageTopButton.jsp"></jsp:include>
 
 
 <center>
