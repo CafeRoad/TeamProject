@@ -4,30 +4,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
-<script>
-	function submitloginForm(form) {
-		form.loginId.value = form.loginId.value.trim();
-
-		if (form.loginId.value.length == 0) {
-			alert('아이디를 입력해 주세요.');
-			form.loginId.focus();
-
-			return false;
-		}
-
-		form.loginPasswd.value = form.loginPasswd.value.trim();
-
-		if (form.loginPasswd.value.length == 0) {
-			alert('비밀번호를 입력해 주세요.');
-			form.loginPasswd.focus();
-
-			return false;
-		}
-
-		form.submit();
-	}
-</script>
-
 <style type="text/css">
 #login {
 	width: 700px;
