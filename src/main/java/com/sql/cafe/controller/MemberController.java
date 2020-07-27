@@ -76,9 +76,8 @@ public class MemberController {
 	@RequestMapping(value = "/userSignUpAction", method = RequestMethod.POST)
 	public String userSignUpAction(@ModelAttribute("signUpMemberVO") @Valid MemberVO signUpMemberVO, BindingResult bidingResult,
 			Model model, RedirectAttributes rttr) throws Exception {
-
+		System.out.println("값 오나 확인." + signUpMemberVO.getPasswordcheck());
 		logger.info(" signUpAction called!");
-
 		if (bidingResult.hasErrors()) {
 			System.out.println("----------------------------error----------------------------");
 
@@ -90,18 +89,24 @@ public class MemberController {
 			}
 			// 에러가 있으면 돌려보냄. 문구 띄워야 함.
 			model.addAttribute("signUpMemberVO", signUpMemberVO);
-		} else {
+			model.addAttribute("content", "member/signUpForm_user");
+		} else if(!signUpMemberVO.getPassword().equals(signUpMemberVO.getPasswordcheck())) {
 
+			model.addAttribute("msg", "비밀번호가 일치하지 않습니다.");
+			model.addAttribute("signUpMemberVO", signUpMemberVO);
+			model.addAttribute("content", "member/signUpForm_user");
+		}else {
 			// 에러가 없으면 Authority는 난수로 설정하고 insert.
-			memberService.insertNewMemberToUser(signUpMemberVO);
+						memberService.insertNewMemberToUser(signUpMemberVO);
 
-			rttr.addFlashAttribute("msg", "가입시 사용한 이메일로 인증해주세요.");
-			// 가입되었고 이메일 인증하라는 폼을 만들어서 수정해야 함.
-			model.addAttribute("content", "member/checkEmailPlease");
-			return "main";
-
+						rttr.addFlashAttribute("msg", "가입시 사용한 이메일로 인증해주세요.");
+						// 가입되었고 이메일 인증하라는 폼을 만들어서 수정해야 함.
+						model.addAttribute("content", "member/checkEmailPlease");
+						return "main";
+			
 		}
-		return "redirect:/signUp";
+		
+		return "main";
 	}
 	
 	// 회원가입 오너동작.
@@ -122,6 +127,7 @@ public class MemberController {
 				}
 				// 에러가 있으면 돌려보냄. 문구 띄워야 함.
 				model.addAttribute("signUpMemberVO", signUpMemberVO);
+				model.addAttribute("content", "member/signUpForm_owner");
 			} else {
 
 				// 에러가 없으면 Authority는 난수로 설정하고 insert.
@@ -130,10 +136,10 @@ public class MemberController {
 				rttr.addFlashAttribute("msg", "가입시 사용한 이메일로 인증해주세요.");
 				// 가입되었고 이메일 인증하라는 폼을 만들어서 수정해야 함.
 				model.addAttribute("content", "member/checkEmailPlease");
-				return "redirect:/main";
+				return "main";
 
 			}
-			return "redirect:/signUp";
+			return "main";
 		}
 	
 
@@ -198,15 +204,17 @@ public class MemberController {
 
 	// 로그인 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 VO담아서 리턴.
 	@RequestMapping(value = "/loginAction", method = RequestMethod.POST)
-	public String loginAction(@ModelAttribute("memberVO") @Valid MemberVO memberVO, @RequestParam("id") String id,
+	public String loginAction(@ModelAttribute("memberVO") MemberVO memberVO, @RequestParam("id") String id,
 			@RequestParam("password") String password, Model model) {
 		logger.info("Welcome loginAction!");
 
 		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
 		model.addAttribute("signedMember", memberService.login(id, password));
+		model.addAttribute("message","로그인 되었습니다.");
+
 		// redirect를 해야 주소창도 바뀜.
 		
-		return "redirect:/main";
+		return "main";
 	}
 	
 	//로그아웃.
@@ -215,11 +223,12 @@ public class MemberController {
 
 		// 세션의 상태를 클리어.
 		sessionStatus.setComplete();
+		model.addAttribute("message","로그아웃 되었습니다.");
 
 		// 알러트? 팝업? 메세지를 띄울 필요는 있는 듯.
 		// rttr.addFlashAttribute("msg", "로그아웃 되었습니다.");
 
-		return "redirect:/main";
+		return "main";
 	}
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
@@ -237,7 +246,7 @@ public class MemberController {
 		
 	}
 	
-	// 로그인 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 VO담아서 리턴.
+	// 회원탈퇴 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 VO담아서 리턴.
 	@RequestMapping(value = "/deleteAction", method = RequestMethod.POST)
 	public String deleteAction(@ModelAttribute("signedMember") @Valid MemberVO signedMember,
 		@RequestParam("id") String id, @RequestParam("password") String password, Model model, SessionStatus sessionStatus) {
@@ -246,8 +255,9 @@ public class MemberController {
 		sessionStatus.setComplete();
 		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
 		model.addAttribute("signedMember", memberService.delete(id, password));
+		model.addAttribute("message","탈퇴가 완료되었습니다.");
 		// redirect를 해야 주소창도 바뀜.
-		return "redirect:/main";
+		return "main";
 	}
-
+	
 }

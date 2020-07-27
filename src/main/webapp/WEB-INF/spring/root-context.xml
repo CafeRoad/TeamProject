@@ -71,4 +71,5 @@
 		<property name="mapperInterface" value="com.sql.cafe.mapper.CafeMapper"/>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
+	
 </beans>

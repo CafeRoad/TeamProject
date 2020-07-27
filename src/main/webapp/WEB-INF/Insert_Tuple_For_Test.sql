@@ -9,6 +9,7 @@ insert into member values("totoro","1234","sun_juho@naver.com", "토토로","또
 insert into member values("hong","1234","hong@naver.com", "홍길동", "홍번쩍", "조선", "010-7890-1234","OWNER", now());
 insert into member values("nobita","toraemonn","nobita@naver.com", "노진구", "노징징", "도쿄", "010-1234-5678", "USER", now());
 insert into member values("test11","1234","nobita@naver.com","테스터","테슽ㅅ","서울시","010-1234-5678", "OWNER", now());
+insert into member values("test22","1234","nobita@naver.com","테스터","테슽ㅅ","서울시","010-1234-5678", "OWNER", now());
 
 select * from member;
 
@@ -23,9 +24,10 @@ desc waiting_cafe;
 select * from waiting_cafe;
 
 -- 카페 관련 
-insert into waiting_cafe (owner_id, cafe_name, gu, address, event, homepage, intro, create_time)values("test11","스타벅스 관철점", "종로구","관철동 솔데스크 8층","facebook", 0, "cafe11.com", "테스트용 카페 입니다.", now());
+insert into waiting_cafe (owner_id, cafe_name, gu, address, event, homepage, intro, create_time)values("test11","스타벅스 관철점", "종로구","관철동 솔데스크 8층",0, "cafe11.com", "테스트용 카페 입니다.", now());
 insert into waiting_cafe_option values(1, 1, 0, 53, 1, 1, 1, "내부에 별도");
 
 select * from waiting_cafe natural join waiting_cafe_option;
+
 	
 

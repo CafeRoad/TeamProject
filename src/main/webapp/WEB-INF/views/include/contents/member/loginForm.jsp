@@ -4,29 +4,18 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
-<script>
-	function submitloginForm(form) {
-		form.loginId.value = form.loginId.value.trim();
 
-		if (form.loginId.value.length == 0) {
-			alert('아이디를 입력해 주세요.');
-			form.loginId.focus();
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-			return false;
-		}
+<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+    <font color="red">
+        <p>Your login attempt was not successful due to <br/>
+            ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</p>
+        <c:remove var="SPRING_SECURITY_LAST_EXCEPTION" scope="session"/>
+    </font>
+</c:if>
 
-		form.loginPasswd.value = form.loginPasswd.value.trim();
 
-		if (form.loginPasswd.value.length == 0) {
-			alert('비밀번호를 입력해 주세요.');
-			form.loginPasswd.focus();
-
-			return false;
-		}
-
-		form.submit();
-	}
-</script>
 
 <style type="text/css">
 #login {

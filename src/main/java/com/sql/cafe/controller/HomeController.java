@@ -63,8 +63,8 @@ public class HomeController {
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String include(Model model) {
 		logger.info("Welcome include!");
-		
 		model.addAttribute("banner_full", "True");
+
 		return "main";
 	}
 	
