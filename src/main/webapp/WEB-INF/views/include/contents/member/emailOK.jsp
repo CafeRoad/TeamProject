@@ -42,6 +42,13 @@ border:1px orange;
 background-color:orange;
 font-size:20px;
 
+border:1px solid black;
+
+font-size:20px;
+border-top-right-radius: 5px;
+border-top-left-radius: 5px;
+border-bottom-right-radius: 5px;
+border-bottom-left-radius: 5px;
 
 
 }

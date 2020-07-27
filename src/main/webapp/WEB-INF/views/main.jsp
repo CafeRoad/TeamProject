@@ -43,7 +43,7 @@
 	<!-- One -->
 	
 	<c:if test="${content != null}">
-		<jsp:include page="/WEB-INF/views/include/contents/${content }.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/include/contents/member/emailOK.jsp"></jsp:include>
 	</c:if>
 	<c:if test="${content == null}">
 		<jsp:include page="/WEB-INF/views/include/contents/one.jsp"></jsp:include>
