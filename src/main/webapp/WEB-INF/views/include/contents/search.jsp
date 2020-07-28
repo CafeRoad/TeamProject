@@ -1,76 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	
-<style type="text/css">
- 
-.box_search_1{
-  margin: 0px auto;
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<style>
+
+.form1 {
+  position: relative;
   width: 300px;
-  height: 50px;
-  }
-  
-.box_search_1 input#search{
-  width: 300px;
-  height: 50px;
-  background: #ffffff;
-  border: none;
-  font-size: 10pt;
-  float: left;
-  color: #262626;
-  padding-left: 45px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  margin: 0 auto;
+}
+.d1 {background: #ef8c48;}
+
+.d1 input {
+  width: 100%;
+  height: 42px;
+  padding-left: 5px;
+  border: 2px solid #7BA7AB;
   border-radius: 5px;
- 
-   
-  -webkit-transition: background .55s ease;
-  -moz-transition: background .55s ease;
-  -ms-transition: background .55s ease;
-  -o-transition: background .55s ease;
-  transition: background .55s ease;
+  outline: none;
+  background: #ffffff;
+  color: #000000;
 }
+.d1 button {
+  position: absolute; 
+  top: 0;
+  right: 0px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: #7BA7AB;
+  border-radius: 0 5px 5px 0;
 
-.box_search_1 input#search::-webkit-input-placeholder {
-   color: #dcdcdc;
 }
- 
-.box_search_1 input#search:-moz-placeholder { /* Firefox 18- */
-   color: #dcdcdc;  
+.d1 button:before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: #ffffff;
 }
- 
-.box_search_1 input#search::-moz-placeholder {  /* Firefox 19+ */
-   color: #dcdcdc;  
-}
- 
-.box_search_1 input#search:-ms-input-placeholder {  
-   color: #dcdcdc;  
-}
-
-.box_search_1 .icon{
-
-  position: absolute;
-  top: 50%;
-  margin-left: 17px;
-  margin-top: -10px;
-  z-index: 1;
-  color: #4f5b66;
-}
-
-.box_search_1 input#search:hover, .box_search_1 input#search:focus, .box_search_1 input#search:active{
-    outline:none;
-    background: #FFDAB9;
-  }
 </style>
-	<!-- Two -->
-	<section id="two" class="wrapper style3">
-		<div class="inner">
-			<header class="align-center">
-			<div class="box_search_1">
-				<div class="search">
-					<span class="icon"><i class="fa fa-search"></i></span>
-      				<input type="search" id="search" placeholder="Search..." />
-				</div>
-			</div>
-			</header>
-		</div>
-	</section>
+
+</head>
+<body>
+<div class="d1">
+<br><br>
+  <form class="form1">
+  <input type="text" placeholder="search...">
+  <button type="submit"></button>
+  </form>
+  <br><br>
+</div>
+</body>
+</html>

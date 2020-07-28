@@ -19,6 +19,9 @@
 	height: 50px;
 	width: 150px;
 }
+.idpw {
+font-size: 3;
+}
 </style>
 
 <c:url var="loginUrl" value="/loginAction" />
@@ -42,8 +45,8 @@
 			</tr>
 
 		</table>
-		<input type="submit" value="로그인">
+		<input type="submit" value="로그인"><br><br>
+		<a class="idpw" onclick="location.href='/cafe/idpw'">아이디/비밀번호를 잊어버리셨습니까?</a>
 	</center>
 </sf:form>
 
-<br>

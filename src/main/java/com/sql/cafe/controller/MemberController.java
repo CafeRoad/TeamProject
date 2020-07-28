@@ -256,5 +256,14 @@ public class MemberController {
 		// redirect를 해야 주소창도 바뀜.
 		return "main";
 	}
+	
+	
+	// 아이디,비밀번호 찾는 폼으로 이동.
+	@RequestMapping(value = "/idpw")
+	public String idpw(Model model) {
+		model.addAttribute("memberVO", new MemberVO());
+		model.addAttribute("content", "member/idpwForm");
+		return "main";
+	}
 
 }
