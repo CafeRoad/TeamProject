@@ -266,18 +266,14 @@ public class MemberController {
 		return "main";
 
 	}
+	
+	
+	// 아이디,비밀번호 찾는 폼으로 이동.
+	@RequestMapping(value = "/idpw")
+	public String idpw(Model model) {
+		model.addAttribute("memberVO", new MemberVO());
+		model.addAttribute("content", "member/idpwForm");
+		return "main";
+	}
 
-	// 회원정보 수정 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 update하고 모델에 다시 add. rls
-//	@RequestMapping(value = "/updateAction", method = RequestMethod.POST)
-//	public String updateAction(@ModelAttribute("updateMemberVO") @Valid MemberVO updateMemberVO,
-//			@RequestParam("id") String id, @RequestParam("password") String password, Model model,
-//			@SessionAttribute MemberVO signedMember) {
-//		logger.info("Welcome updateAction!");
-//		memberService.updateMemberInfo(memberVO);
-//		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
-//		model.addAttribute("signedMember", memberService.delete(id, password));
-//		model.addAttribute("message", id + "님의 회원 정보가 수정되었습니다.");
-//		// redirect를 해야 주소창도 바뀜.
-//		return "main";
-//	}
 }
