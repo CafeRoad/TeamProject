@@ -51,10 +51,14 @@
 	<jsp:include page="/WEB-INF/views/include/banner_half.jsp"></jsp:include>
 	</c:if>
 	
-
 	<!-- Search -->
-	<jsp:include page="/WEB-INF/views/include/contents/search.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/search.jsp"></jsp:include>	
 	
+	<!-- My Page Button -->
+	<c:if test="${myPage != null}">
+	<jsp:include page="/WEB-INF/views/include/contents/member/myPageTopButton.jsp"></jsp:include>
+	</c:if>
+
 	<!-- One -->
 	<c:if test="${content != null}">
 		<jsp:include page="/WEB-INF/views/include/contents/${content }.jsp"></jsp:include>

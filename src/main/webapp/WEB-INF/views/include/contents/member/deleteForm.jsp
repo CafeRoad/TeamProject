@@ -20,7 +20,6 @@
 	
 }
 </style>
-<jsp:include page="myPageTopButton.jsp" flush="false"/>
 
 <center>
 	<br> <br> <b><font size="6" color="gray">회원탈퇴</font></b> <br>

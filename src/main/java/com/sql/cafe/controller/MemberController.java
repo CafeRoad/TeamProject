@@ -209,7 +209,7 @@ public class MemberController {
 		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
 		model.addAttribute("signedMember", memberService.login(id, password));
 		// redirect를 해야 주소창도 바뀜.
-		rttr.addFlashAttribute("msg",id+"님 로그인 되었습니다.");
+		rttr.addFlashAttribute("msg", id + "님 로그인 되었습니다.");
 		return "redirect:/main";
 
 	}
@@ -221,7 +221,7 @@ public class MemberController {
 		// 세션의 상태를 클리어.
 		sessionStatus.setComplete();
 
-		rttr.addFlashAttribute("msg","안전하게 로그아웃 되었습니다.");
+		rttr.addFlashAttribute("msg", "안전하게 로그아웃 되었습니다.");
 		return "redirect:/main";
 
 	}
@@ -229,7 +229,7 @@ public class MemberController {
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public String myPage(Model model) {
 		model.addAttribute("content", "member/info");
-		
+
 		return "main";
 	}
 
@@ -246,15 +246,38 @@ public class MemberController {
 	@RequestMapping(value = "/deleteAction", method = RequestMethod.POST)
 	public String deleteAction(@ModelAttribute("signedMember") @Valid MemberVO signedMember,
 			@RequestParam("id") String id, @RequestParam("password") String password, Model model,
-			SessionStatus sessionStatus) {
+			SessionStatus sessionStatus, RedirectAttributes rttr) {
 		logger.info("Welcome deleteAction!");
 
 		sessionStatus.setComplete();
+		memberService.delete(id, password);
 		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
-		model.addAttribute("signedMember", memberService.delete(id, password));
-		model.addAttribute("message", id+"님의 회원 탈퇴가 완료되었습니다.");
+		rttr.addFlashAttribute("message", id + "님의 회원 탈퇴가 완료되었습니다.");
 		// redirect를 해야 주소창도 바뀜.
-		return "main";
+		return "redirect:/main";
 	}
 
+	// 회원정보 수정.
+	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
+	public String updateForm(Model model, @SessionAttribute MemberVO signedMember) {
+		signedMember.setPassword(null);
+		model.addAttribute("content", "member/updateForm");
+		model.addAttribute("updateMemberVO", signedMember);
+		return "main";
+
+	}
+
+	// 회원정보 수정 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 update하고 모델에 다시 add. rls
+//	@RequestMapping(value = "/updateAction", method = RequestMethod.POST)
+//	public String updateAction(@ModelAttribute("updateMemberVO") @Valid MemberVO updateMemberVO,
+//			@RequestParam("id") String id, @RequestParam("password") String password, Model model,
+//			@SessionAttribute MemberVO signedMember) {
+//		logger.info("Welcome updateAction!");
+//		memberService.updateMemberInfo(memberVO);
+//		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
+//		model.addAttribute("signedMember", memberService.delete(id, password));
+//		model.addAttribute("message", id + "님의 회원 정보가 수정되었습니다.");
+//		// redirect를 해야 주소창도 바뀜.
+//		return "main";
+//	}
 }

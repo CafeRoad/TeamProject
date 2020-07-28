@@ -138,7 +138,7 @@ public class CafeController {
 
 		String user_id = signedMember.getId();
 
-		model.addAttribute("cafeList", cafeService.myFavoriteCafes(user_id));
+		model.addAttribute("CafeList", cafeService.myFavoriteCafes(user_id));
 		model.addAttribute("content", "cafe/cafeList");
 
 		return "main";
@@ -194,4 +194,31 @@ public class CafeController {
 		return "main";
 	}
 
+	// 즐겨찾기 추가하기 버튼.
+	@RequestMapping(value = "/cafe/toggleFavorite", method = RequestMethod.GET)
+	public String toggleFavorite(Model model, @RequestParam("cafe_id") String cafe_id, @SessionAttribute MemberVO signedMember) {
+		
+		// 즐겨찾기 주차됨.
+		if(cafeService.toFavorite(signedMember.getId(), cafe_id) == 1) {
+			model.addAttribute("msg","즐겨찾기에 추가되었습니다.");
+			
+		} else if(cafeService.toFavorite(signedMember.getId(), cafe_id) == 0) {
+			cafeService.deleteFavorite(signedMember.getId(), cafe_id);
+			model.addAttribute("msg","즐겨찾기에서 제외되었습니다.");
+		}
+		// 리스폰즈 바디 사용해서 history.go(1)?
+		return null;
+	}
+	
+	// 이름이나 지역으로 검색하기.
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String search(Model model, @RequestParam("search") String search) {
+		System.out.println(search);
+		model.addAttribute("CafeList", cafeService.searchByCafe(search));
+		System.out.println(cafeService.searchByCafe(search).toString());
+		model.addAttribute("content", "cafe/cafeList");
+		model.addAttribute("cafeListTitle", "검색 카페");
+		return "main";
+	}
+	
 }

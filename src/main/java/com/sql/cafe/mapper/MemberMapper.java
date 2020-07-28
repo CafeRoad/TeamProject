@@ -7,7 +7,7 @@ import com.sql.cafe.vo.MemberVO;
 
 @Repository
 public interface MemberMapper {
-	// 아이디로 정보 검색.
+	// 로그인된 아이디로 정보 검색.
 	final String SELECT_BY_ID = "select * from member where id = #{id}";
 
 	@Select(SELECT_BY_ID)
@@ -69,5 +69,5 @@ public interface MemberMapper {
 	final String UPDATE_MEMBER_INFO = "update member set password = #{password}, nickname = #{nickname}, tel = #{tel}, gu = #{gu} where id = #{id}";
 	
 	@Update(UPDATE_MEMBER_INFO)
-	int updateMemberInfo(@Param("id") String id);
+	int updateMemberInfo(MemberVO memberVO);
 }
