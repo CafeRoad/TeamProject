@@ -281,12 +281,12 @@ ul, li, td {
 
 <script>
 var map = new naver.maps.Map('map', {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    center: new naver.maps.LatLng(37.5707075, 126.9813879),
     zoom: 15
 });
 
 var marker = new naver.maps.Marker({
-    position: new naver.maps.LatLng(37.3595704, 127.105399),
+    position: new naver.maps.LatLng(37.5707075, 126.9813879),
     map: map
 });
 </script>
