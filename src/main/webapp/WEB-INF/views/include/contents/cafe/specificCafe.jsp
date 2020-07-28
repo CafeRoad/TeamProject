@@ -136,8 +136,12 @@ ul, li, td {
 	
 	<hr/>
 	<!-- 반복문으로 현재 cafe의 id로 리뷰 뽑아서 반복문 출력. include -->
+	<jsp:include page="/WEB-INF/views/include/contents/review/reviewsList.jsp"></jsp:include>	
+	
 	<!-- 리뷰 쓰는 폼 . include -->
+	<c:if test="${newReviewVO != null }">
 	<jsp:include page="/WEB-INF/views/include/contents/review/newReviewForm.jsp"></jsp:include>	
+	</c:if>
 	<br>
 	<c:if test="${approveCafe != null}">
 	<c:if test="${signedMember.getAuthority().equals(admin)}">

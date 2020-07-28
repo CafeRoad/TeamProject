@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sql.cafe.service.CafeService;
+import com.sql.cafe.service.ReviewService;
 import com.sql.cafe.vo.CafeVO;
 import com.sql.cafe.vo.MemberVO;
 import com.sql.cafe.vo.ReviewVO;
@@ -29,7 +30,8 @@ public class CafeController {
 	@Autowired
 	private CafeService cafeService;
 	
-	
+	@Autowired
+	private ReviewService reviewService;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -189,10 +191,10 @@ public class CafeController {
 		if (cafeService.searchSpecificWaitingCafe(cafe_id) != null) { // 대기중인 카페에서 뽑음.
 			model.addAttribute("thisCafe", cafeService.searchSpecificWaitingCafe(cafe_id));
 			model.addAttribute("approveCafe", "카페 승인버튼 활성화");
-
 		} else { // 등록된 카페에서 뽑음.
 			model.addAttribute("thisCafe", cafeService.selectAddedCafeByCafeId(cafe_id));
 			model.addAttribute("newReviewVO", new ReviewVO());
+			model.addAttribute("Reveiws", reviewService.selectByCafeId(cafe_id));
 		}
 		model.addAttribute("content", "cafe/specificCafe");
 		return "main";

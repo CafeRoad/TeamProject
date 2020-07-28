@@ -23,6 +23,12 @@ delete from member where id like '?%';
 desc waiting_cafe;
 
 select * from waiting_cafe;
+select * from added_cafe;
+
+delete from waiting_cafe where cafe_id = 1;
+delete from added_cafe where cafe_id = 1;
+delete from favorite;
+delete from review;
 
 -- 카페 관련 여기 안 됨. 
 insert into waiting_cafe (owner_id, cafe_name, gu, address, event, homepage, intro, create_time)values("test11","스타벅스 관철점", "종로","관철동 솔데스크 8층", 0, "cafe11.com", "테스트용 카페 입니다.", now());

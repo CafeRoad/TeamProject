@@ -23,7 +23,7 @@ public interface ReviewMapper {
 	int insertIntoReview(ReviewVO reviewVO);
 	
 	// 유저의 아이디로 내가 쓴 리뷰 모아보기.
-	final String SELECT_BY_USER_ID = "select * from review where user_id = #{user_id}";
+	final String SELECT_BY_USER_ID = "select * from review where user_id = #{user_id} order by create_time desc";
 
 	@Select(SELECT_BY_USER_ID)
 	@Results(value = { @Result(property = "review_id", column = "review_id"),

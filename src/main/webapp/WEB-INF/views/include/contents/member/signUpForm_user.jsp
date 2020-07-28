@@ -29,7 +29,7 @@ color: red;
 
 
 <c:url var="signUpUrl" value="/userSignUpAction"/>
-<sf:form modelAttribute="signedMember" method="POST" action="${signUpUrl }">
+<sf:form modelAttribute="signUpMemberVO" method="POST" action="${signUpUrl }">
 	<center>
 	<br> <b><font size="6" color="gray">일반 회원가입</font></b> <br><br>
 	<table id="signUp" width=400 border=1 cellpadding=5>
