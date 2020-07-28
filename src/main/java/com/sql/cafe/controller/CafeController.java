@@ -21,12 +21,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sql.cafe.service.CafeService;
 import com.sql.cafe.vo.CafeVO;
 import com.sql.cafe.vo.MemberVO;
+import com.sql.cafe.vo.ReviewVO;
 
 @Controller
 public class CafeController {
 
 	@Autowired
 	private CafeService cafeService;
+	
+	
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -189,6 +192,7 @@ public class CafeController {
 
 		} else { // 등록된 카페에서 뽑음.
 			model.addAttribute("thisCafe", cafeService.selectAddedCafeByCafeId(cafe_id));
+			model.addAttribute("newReviewVO", new ReviewVO());
 		}
 		model.addAttribute("content", "cafe/specificCafe");
 		return "main";

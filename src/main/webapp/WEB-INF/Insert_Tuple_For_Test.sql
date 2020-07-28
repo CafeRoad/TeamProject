@@ -30,3 +30,6 @@ update waiting_cafe set img_main = "main", img01 = "01", img02 = "02", img03 = "
 
 	
 select * from added_cafe where cafe_name like '%이디%';
+select * from added_cafe where cafe_name like '%용%' or gu like '%용%' ;
+
+select * from review;

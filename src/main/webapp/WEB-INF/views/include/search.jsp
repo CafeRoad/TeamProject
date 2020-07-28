@@ -46,7 +46,7 @@ form {
 <div class="d1">
 <br>
   <form action="/cafe/search">
-  <input type="text" name="search" placeholder="search...">
+  <input type="text" name="search" placeholder="search..."/>
   <button type="submit"></button>
   </form>
   <br>
