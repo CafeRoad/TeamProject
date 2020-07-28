@@ -15,10 +15,9 @@ public class CafeService {
 	private CafeMapper cafeMapper;
 
 	// 카페 등록 폼에서 받은 정보로 waiting_cafe에 insert
-	public void insertNewCafe(CafeVO cafeVO) {
+	public int insertNewCafe(CafeVO cafeVO) {
 
-		cafeMapper.insertToWaitingCafe(cafeVO);
-		cafeVO.setCafe_id(cafeMapper.getNowCafeId());
+		return cafeMapper.insertToWaitingCafe(cafeVO);
 	}
 
 	// 접속한 오너의 아이디로 승인 대기중인 카페들 검색.
@@ -81,5 +80,11 @@ public class CafeService {
 	// 다시 즐겨찾기 버튼으로 즐겨찾기 취소. 즐겨찾기 테이블에서 삭제.
 	public int deleteFavorite(String user_id, String cafe_id) {
 		return cafeMapper.deleteFavorite(user_id, cafe_id);
+	}
+	
+	//이름이나 지역으로 검색하기
+	public ArrayList<CafeVO> searchByCafe(String search) {
+		return cafeMapper.searchByCafe(search);
+		
 	}
 }

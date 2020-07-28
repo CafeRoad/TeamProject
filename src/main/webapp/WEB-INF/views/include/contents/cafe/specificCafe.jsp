@@ -30,7 +30,6 @@ ul, li, td {
 	vertical-align: baseline;
 }
 </style>
-<jsp:include page="/WEB-INF/views/include/contents/member/myPageTopButton.jsp"></jsp:include>
 <center>
 	<br> <br> <b><font size="6" color="gray">${thisCafe.getCafe_name() }</font></b>
 	<br><br> <br>

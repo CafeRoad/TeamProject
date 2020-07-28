@@ -37,7 +37,7 @@
 	<jsp:include page="/WEB-INF/views/include/contents/one.jsp"></jsp:include>
 
 	<!-- Two -->
-	<jsp:include page="/WEB-INF/views/include/contents/search.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/include/search.jsp"></jsp:include>
 
 	<!-- Three -->
 	<jsp:include page="/WEB-INF/views/include/contents/three.jsp"></jsp:include>

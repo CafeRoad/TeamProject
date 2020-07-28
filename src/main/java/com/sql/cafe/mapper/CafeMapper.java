@@ -15,7 +15,7 @@ public interface CafeMapper {
 			+ "values (#{owner_id}, #{cafe_name}, #{gu}, #{address}, #{event}, #{homepage}, #{intro}, now(), #{concent}, #{pet}, #{wifi}, #{parking_zone}, #{smoking_room}, #{toilet}, #{img_main}, #{img01}, #{img02}, #{img03}, #{img04}, #{img05}, #{img06}, #{img07}, #{img08}, #{img09})";
 
 	@Insert(INSERT_TO_WAITING_CAFE)
-	void insertToWaitingCafe(CafeVO cafeVO);
+	int insertToWaitingCafe(CafeVO cafeVO);
 
 	// 승인된 카페 테이블에 넣기 위해 대기중인 카페의 id를 겟.
 	final String GET_NOW_CAFE_ID = "select max(cafe_id) as cafe_id from waiting_cafe";
@@ -200,4 +200,23 @@ public interface CafeMapper {
 	@Delete(DELETE_FROM_ADDED_CAFE)
 	int deleteFromAddedCafe(@Param("cafe_id") String cafe_id);
 
+	// 지역이나 이름으로 카페 검색.
+	final String SEARCH_BY_CAFE_NAME = "select * from added_cafe where cafe_name like '%'||#{search}||'%' or gu like '%'||#{search}||'%'";
+	@Select(SEARCH_BY_CAFE_NAME)
+	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
+			@Result(property = "owner_id", column = "owner_id"), @Result(property = "cafe_name", column = "cafe_name"),
+			@Result(property = "gu", column = "gu"), @Result(property = "address", column = "address"),
+			@Result(property = "event", column = "event"), @Result(property = "homepage", column = "homepage"),
+			@Result(property = "intro", column = "intro"), @Result(property = "create_time", column = "create_time"),
+			@Result(property = "concent", column = "concent"), @Result(property = "pet", column = "pet"),
+			@Result(property = "wifi", column = "wifi"), @Result(property = "smoking_room", column = "smoking_room"),
+			@Result(property = "parking_zone", column = "parking_zone"),
+			@Result(property = "toilet", column = "toilet"), @Result(property = "img_main", column = "img_main"),
+			@Result(property = "img01", column = "img01"), @Result(property = "img02", column = "img02"),
+			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
+			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
+			@Result(property = "img07", column = "img07"), @Result(property = "img08", column = "img08"),
+			@Result(property = "img09", column = "img09") })
+	ArrayList<CafeVO> searchByCafe(@Param("search") String search);
+	
 }

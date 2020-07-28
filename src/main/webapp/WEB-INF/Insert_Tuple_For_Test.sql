@@ -29,4 +29,4 @@ insert into waiting_cafe (owner_id, cafe_name, gu, address, event, homepage, int
 update waiting_cafe set img_main = "main", img01 = "01", img02 = "02", img03 = "03", img04 = "04", img05 = "05", img06 = "06", img07 = "07", img08 = "08", img09 = "09" where cafe_id = "1";
 
 	
-
+select * from added_cafe where cafe_name like '%이디%';

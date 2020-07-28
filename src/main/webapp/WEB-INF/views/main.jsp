@@ -52,7 +52,7 @@
 	</c:if>
 	
 	<!-- Search -->
-	<jsp:include page="/WEB-INF/views/include/contents/search.jsp"></jsp:include>	
+	<jsp:include page="/WEB-INF/views/include/search.jsp"></jsp:include>	
 	
 	<!-- My Page Button -->
 	<c:if test="${myPage != null}">

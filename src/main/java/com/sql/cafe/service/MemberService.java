@@ -123,8 +123,8 @@ public class MemberService {
 	}
 	
 	// 회원 정보 수정.
-	public int updateMemberInfo(String id) {
+	public int updateMemberInfo(MemberVO memberVO) {
 		
-		return memberMapper.updateMemberInfo(id);
+		return memberMapper.updateMemberInfo(memberVO);
 	}
 }

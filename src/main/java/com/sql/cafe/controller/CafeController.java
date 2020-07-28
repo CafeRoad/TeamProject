@@ -138,7 +138,7 @@ public class CafeController {
 
 		String user_id = signedMember.getId();
 
-		model.addAttribute("cafeList", cafeService.myFavoriteCafes(user_id));
+		model.addAttribute("CafeList", cafeService.myFavoriteCafes(user_id));
 		model.addAttribute("content", "cafe/cafeList");
 
 		return "main";
@@ -209,4 +209,16 @@ public class CafeController {
 		// 리스폰즈 바디 사용해서 history.go(1)?
 		return null;
 	}
+	
+	// 이름이나 지역으로 검색하기.
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String search(Model model, @RequestParam("search") String search) {
+		System.out.println(search);
+		model.addAttribute("CafeList", cafeService.searchByCafe(search));
+		System.out.println(cafeService.searchByCafe(search).toString());
+		model.addAttribute("content", "cafe/cafeList");
+		model.addAttribute("cafeListTitle", "검색 카페");
+		return "main";
 	}
+	
+}

@@ -29,7 +29,6 @@ ol, ul {
 	vertical-align: baseline;
 }
 </style>
-<jsp:include page="/WEB-INF/views/include/contents/member/myPageTopButton.jsp"></jsp:include>
 
 <center>
 	<br> <br> <b><font size="6" color="gray">${cafeListTitle}</font></b>

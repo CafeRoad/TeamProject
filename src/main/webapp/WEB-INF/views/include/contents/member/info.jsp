@@ -4,9 +4,9 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        if(${signedMember.getId().length() > 0 }){
-        } else if {
+        if(${signedMember.getId().equals("") }){
             alert('로그인 해주세요.');        	
+        } else if {
         }
     });
 </script>
@@ -72,7 +72,6 @@
 </center>
 <br>
 <center>
-	<input type="button" value="뒤로" onclick="history.go(-1)"> 
-	<input type="button" value="회원정보 변경" onclick="changeForm(0)"> 
+	<input type="button" value="회원정보 변경" onclick="location.href='/cafe/updateForm'"> 
 	<input type="button" value="회원탈퇴" onclick="location.href='/cafe/deleteForm'">
 </center>

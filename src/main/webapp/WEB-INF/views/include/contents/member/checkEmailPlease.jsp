@@ -29,12 +29,6 @@ font-size: 20px;
 
 </Style>
 
-
-
-
-
-
-
 <div>
 <img src="${pageContext.request.contextPath}/resources/assets/css/images/airplane.png" alt="" />
 
