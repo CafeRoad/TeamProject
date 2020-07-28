@@ -25,8 +25,8 @@
 </table> -->
 <style>
 	table{
-	margin-left:400px;
-	width:800px;
+	margin-left:200px;
+	width:1100px;
 	}
 	th{
 	width:300px;
@@ -49,26 +49,15 @@
 		<td>카페이름1</td>
 	</tr>
 	<tr>
-		<td>기문</td>
+		<td>인트로</td>
 	</tr>
-	<tr>
-		<td>운남</td>
-	</tr>
-	<tr>
-		<th rowspan="4">
-		<img
-			src="${pageContext.request.contextPath}/resources/assets/cafeimg/im1.jpg"
-			alt="" style="width:300px; height:300px;"/>
-		</th>
-		<td>아삼</td>
-	</tr>
-	<tr>
-		<td>실론</td>
-	</tr>
-	<tr>
-		<td>다질링</td>
-	</tr>
-	<tr>
-		<td>닐기리</td>
-	</tr>
+	
+</table>
+<table>
+<tr>
+<th rowspan="4">
+
+
+</th>
+
 </table>
