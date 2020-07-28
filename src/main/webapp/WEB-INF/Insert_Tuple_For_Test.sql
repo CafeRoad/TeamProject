@@ -30,5 +30,5 @@ insert into waiting_cafe_option values(1, 1, 0, 53, 1, 1, 1, "내부에 별도")
 
 select * from waiting_cafe natural join waiting_cafe_option;
 
-	
+
 
