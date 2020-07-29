@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 
 <style>
-* {box-sizing: border-box;}
-body{margin: 0;}
-div {padding: 30px 0}
-form {
+
+.form1 {
   position: relative;
   width: 300px;
   margin: 0 auto;
 }
-.d1 {background: #ed7d31;}
+.d1 {background: #ef8c48;}
 
 .d1 input {
   width: 100%;
@@ -43,11 +44,15 @@ form {
 }
 </style>
 
+</head>
+<body>
 <div class="d1">
-<br>
-  <form action="/cafe/search">
-  <input type="text" name="search" placeholder="search..."/>
+<br><br>
+  <form class="form1">
+  <input  type="text" placeholder="search...">
   <button type="submit"></button>
   </form>
-  <br>
+  <br><br>
 </div>
+</body>
+</html>
