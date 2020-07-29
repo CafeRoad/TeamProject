@@ -135,14 +135,15 @@ ul, li, td {
 		<th rowspan="3"><img
 			src="${pageContext.request.contextPath}/resources/assets/cafeimg/im1.jpg"
 			alt="" style="width: 300px; height: 300px;" /></th>
-		<td>카페이름1</td>
+		<td>카페이름</td>
 	</tr>
 	<tr>
 		<td>인트로</td>
 	</tr>
 
 </table>
-<table id="tst">
+<div id="tst">
+<table>
 	<tr>
 		<th rowspan="4" id="tst">
 			<ul class="gallery">
@@ -176,7 +177,7 @@ ul, li, td {
 						data-lightbox="2" title="???"><img width="200" height="200"
 							src="/cafe/resources/assets/cafeimg/2/05.jpg" /></a></li>
 				</td>
-				<td>
+				<!--  <td>
 					<li><a href="/cafe/resources/assets/cafeimg/2/06.jpg"
 						data-lightbox="2" title="???"><img width="200" height="200"
 							src="/cafe/resources/assets/cafeimg/2/06.jpg" /></a></li>
@@ -197,9 +198,10 @@ ul, li, td {
 							src="/cafe/resources/assets/cafeimg/2/09.jpg" /></a></li>
 				</td>
 			</ul>
-		</th>
+		</th>-->
 	</tr>
-</table>
+	</table>
+</div>
 <br>
 <br>
 <table id="cell">
@@ -235,13 +237,11 @@ ul, li, td {
 <br>
 <br>
 <br>
-<table>
-	<tr>
-		<td>
-			<h1>소소한리뷰</h1>
-		</td>
-	</tr>
-</table>
+<div align="center">
+<td>
+소소한리뷰
+</td>
+</div>
 <br>
 <br>
 <table>
@@ -291,7 +291,9 @@ var marker = new naver.maps.Marker({
 });
 </script>
 
-
+<div>
+<br><br><br>
+</div>
 
 
 
