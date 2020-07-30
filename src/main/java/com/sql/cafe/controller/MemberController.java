@@ -261,10 +261,11 @@ public class MemberController {
 
 	// 회원정보 수정.
 	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
-	public String updateForm(Model model, @SessionAttribute MemberVO signedMember) {
+	public String updateAction(Model model, @SessionAttribute MemberVO signedMember, RedirectAttributes rttr) {
 		signedMember.setPassword(null);
 		model.addAttribute("content", "member/updateForm");
 		model.addAttribute("updateMemberVO", signedMember);
+		rttr.addFlashAttribute("message", "회원정보가 변경되었습니다.");
 		return "main";
 
 	}
