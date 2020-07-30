@@ -66,7 +66,7 @@ public interface MemberMapper {
 	int delete(@Param("id") String id, @Param("password") String password);
 
 	// 정보 수정. 아이디, 이메일, 이름, 권한은 변경하지 않음.
-	final String UPDATE_MEMBER_INFO = "update member set password = #{password}, nickname = #{nickname}, tel = #{tel}, gu = #{gu} where id = #{id}";
+	final String UPDATE_MEMBER_INFO = "update member set nickname = #{nickname}, tel = #{tel}, gu = #{gu} where id = #{id}";
 	
 	@Update(UPDATE_MEMBER_INFO)
 	int updateMemberInfo(MemberVO memberVO);

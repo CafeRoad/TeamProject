@@ -260,24 +260,30 @@ public class MemberController {
 	// 회원정보 수정 폼으로 이동.
 	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
 	public String updateFrom(Model model, @SessionAttribute MemberVO signedMember) {
-		signedMember.setPassword(null);
 		model.addAttribute("content", "member/updateForm");
 		model.addAttribute("updateMemberVO", signedMember);
 		return "main";
 
 	}
-	
+
 	// 회원정보 수정 동작.
-	@RequestMapping(value = "/updateAction", method = RequestMethod.GET)
-	public String updateAction(Model model, @SessionAttribute MemberVO signedMember) {
-		signedMember.setPassword(null);
+	@RequestMapping(value = "/updateAction", method = RequestMethod.POST)
+	public String updateAction(Model model, @SessionAttribute MemberVO signedMember,
+			@ModelAttribute("updateMemberVO") @Valid MemberVO updateMemberVO) {
 		logger.info("Welcome updateAction!");
-		model.addAttribute("content", "member/updateForm");
-		model.addAttribute("updateMemberVO", signedMember);
+
+		if (signedMember.getPassword().equals(updateMemberVO.getPasswordcheck())) {
+			memberService.updateMemberInfo(updateMemberVO);
+			model.addAttribute("content", "member/info");
+			model.addAttribute("msg","회원정보가 수정되었습니다.");
+			model.addAttribute("signedMember", memberService.login(signedMember.getId(), signedMember.getPassword()));
+		} else {
+			model.addAttribute("content", "member/info");
+			model.addAttribute("msg","비밀번호가 틀렸습니다.");
+		}
 		return "main";
 	}
-	
-	
+
 	// 아이디,비밀번호 찾는 폼으로 이동.
 	@RequestMapping(value = "/idpw")
 	public String idpw(Model model) {

@@ -4,7 +4,7 @@ insert into member values("totoro","1234","sun_juho@naver.com", "토토로","또
 insert into member values("hong","1234","hong@naver.com", "홍길동", "홍번쩍", "조선", "010-7890-1234", now(),"OWNER");
 insert into member values("nobita","toraemonn","nobita@naver.com", "노진구", "노징징", "도쿄", "010-1234-5678", now(), "USER");
 insert into member values("test11","1234","nobita@naver.com","테스터","테슽ㅅ","서울시","010-1234-5678", now(), "OWNER");
-
+insert into member values("test22","aa1234","nobita@naver.com","테스터","실험체","서울시","010-1234-5678", now(), "USER");
 
 insert into gu values("강서구"); 
 insert into gu values("강동구"); 
