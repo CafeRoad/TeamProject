@@ -83,6 +83,20 @@
 		</tr>
 		
 		<tr>
+			<td id="title"><b>영업시간</b></td>
+			<td><sf:input path="operating_time" size="50" maxlength="50"/> <br/>
+			<sf:errors path="operating_time" cssClass="error"/>
+			</td>
+		</tr>
+	
+		<tr>
+			<td id="title"><b>카페 연락처</b></td>
+			<td><sf:input path="cafe_tel" size="50" maxlength="50"/> <br/>
+			<sf:errors path="cafe_tel" cssClass="error"/>
+			</td>
+		</tr>
+		
+		<tr>
 			<td id="title"><b>홈페이지</b></td>
 			<td><sf:input path="homepage" size="50" maxlength="50"/> <br/>
 			<sf:errors path="homepage" cssClass="error"/>
@@ -94,6 +108,14 @@
 			<td><sf:radiobutton path="event" value="true" label="있음" size="50" maxlength="50"/>
 			<sf:radiobutton path="event" value="false" label="없음" size="50" maxlength="50"/> <br/>
 			<sf:errors path="event" cssClass="error"/>
+			</td>
+		</tr>
+		
+			<tr>
+			<td id="title"><b>콘센트</b></td>
+			<td><sf:radiobutton path="concent" value="true" label="돼요" size="50" maxlength="50"/>
+			<sf:radiobutton path="concent" value="false" label="안 돼요" size="50" maxlength="50"/> <br/>
+			<sf:errors path="concent" cssClass="error"/>
 			</td>
 		</tr>
 		

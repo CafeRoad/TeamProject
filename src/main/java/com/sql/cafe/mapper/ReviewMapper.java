@@ -23,7 +23,7 @@ public interface ReviewMapper {
 	int insertIntoReview(ReviewVO reviewVO);
 	
 	// 유저의 아이디로 내가 쓴 리뷰 모아보기.
-	final String SELECT_BY_USER_ID = "select * from (select * from review where user_id = #{user_id}) a, (select cafe_id, cafe_name from added_cafe) b where a.cafe_id = b.cafe_id order by create_time;";
+	final String SELECT_BY_USER_ID = "select * from (select * from review where user_id = #{user_id}) a, (select cafe_id, cafe_name from cafe) b where a.cafe_id = b.cafe_id order by create_time;";
 	@Select(SELECT_BY_USER_ID)
 	@Results(value = { @Result(property = "review_id", column = "review_id"),
 			@Result(property = "review_name", column = "review_name"), @Result(property = "user_id", column = "user_id"),
@@ -35,7 +35,7 @@ public interface ReviewMapper {
 	ArrayList<ReviewVO> selectByUserID(@Param("user_id") String user_id);
 	
 	// 특정 카페 보면서 같이 뽑힐 카페 아이디로 카페에 쓰여진 리뷰 보기.
-	final String SELECT_BY_CAFE_ID = "select * from (select * from review where cafe_id = #{cafe_id}) a, (select cafe_id, cafe_name from added_cafe) b where a.cafe_id = b.cafe_id order by create_time";
+	final String SELECT_BY_CAFE_ID = "select * from (select * from review where cafe_id = #{cafe_id}) a, (select cafe_id, cafe_name from cafe) b where a.cafe_id = b.cafe_id order by create_time";
 	@Select(SELECT_BY_CAFE_ID)
 	@Results(value = { @Result(property = "review_id", column = "review_id"),
 			@Result(property = "review_name", column = "review_name"), @Result(property = "user_id", column = "user_id"),

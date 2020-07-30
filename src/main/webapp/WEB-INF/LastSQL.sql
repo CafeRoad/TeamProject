@@ -1,7 +1,7 @@
 -- MySQL Workbench Forward Engineering
 
 -- -----------------------------------------------------
--- Schema mydb_caferoad
+-- Schema mydb_caferoad 
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `cafe` (
   `cafe_name` VARCHAR(45) NOT NULL,
   `gu` VARCHAR(5) NOT NULL,
   `address` VARCHAR(45) NOT NULL,
+   `cafe_tel` VARCHAR(45) NULL,
   `event` TINYINT(1) NULL,
   `homepage` VARCHAR(45) NULL,
   `intro` VARCHAR(200) NULL,

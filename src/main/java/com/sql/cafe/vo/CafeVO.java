@@ -31,6 +31,7 @@ public class CafeVO {
 	private String lat;
 	private String lng;
 	private boolean approval;
+	private String cafe_tel;
 	
 	
 	//즐겨찾기용 유저 아이디
@@ -250,6 +251,14 @@ public class CafeVO {
 
 	public void setApproval(boolean approval) {
 		this.approval = approval;
+	}
+
+	public String getCafe_tel() {
+		return cafe_tel;
+	}
+
+	public void setCafe_tel(String cafe_tel) {
+		this.cafe_tel = cafe_tel;
 	}
 	
 	

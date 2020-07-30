@@ -48,8 +48,8 @@
 <body>
 <div class="d1">
 <br><br>
-  <form class="form1">
-  <input  type="text" placeholder="search...">
+  <form class="form1" action="/cafe/search">
+  <input type="text" name="search" placeholder="search..."/>
   <button type="submit"></button>
   </form>
   <br><br>

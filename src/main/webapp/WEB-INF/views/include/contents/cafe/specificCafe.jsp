@@ -156,11 +156,11 @@ ul, li, td {
 		<td>홈페이지: ${thisCafe.getHomepage() }</td>
 	</tr>
 	<tr>
-		<td colspan=2>TEL: 카페에도 tel 칼럼 추가해야함.</td>
+		<td colspan=2>TEL: ${thisCafe.getCafe_tel() }</td>
 	</tr>
 	<tr>
-		<td>영업시간: 연업시간 칼럼 추가해야함.</td>
-		<td>행사여부: <c:if test="${thisCafe.isEvent() }">행사중이예요</c:if><c:if test="${!thisCafe.isEvent() }">행사중이 아니예요</c:if></td>
+		<td>영업시간: ${thisCafe.getOperating_time() }</td>
+		<td>행사여부: <c:if test="${thisCafe.isEvent() }">행사중이에요</c:if><c:if test="${!thisCafe.isEvent() }">행사중이 아니예요</c:if></td>
 	</tr>
 </table>
 <table>
