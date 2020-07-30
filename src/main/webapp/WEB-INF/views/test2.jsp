@@ -112,7 +112,7 @@
 
 
 									<a href="/cafeimg/im1.jpg" class="btn-detail"
-										onclick="trackEvent('CLICK_RESTAURANT', {&quot;position&quot;:0,&quot;restaurant_key&quot;:&quot;vsh3qH5c6Q&quot;})">
+										onclick="location.href='/cafe/idpw'">
 										<div class="restaurant-more-name">민성살롱</div>
 										<div class="restaurant-more-text">더보기 ></div>
 									</a>
