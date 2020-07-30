@@ -31,6 +31,10 @@ ol, ul {
 </style>
 
 <center>
+		<c:if test="${myReview != null}">
+		<b><font size="6" color="gray">내가 쓴 리뷰</font></b>
+		</c:if>
+
 		<c:if test="${Reveiws.size() == 0}">
 		등록된 리뷰가 없습니다.
 		</c:if>
@@ -45,7 +49,7 @@ ol, ul {
 		</tr>
 		<tr>
 			<td id="title">카페 이름</td>
-			<td>${thisCafe.getCafe_name() }</td>
+			<td>${review.getCafe_name() }</td>
 			<td id="title">별점</td>
 			<td>${review.getStars() }</td>
 		</tr>

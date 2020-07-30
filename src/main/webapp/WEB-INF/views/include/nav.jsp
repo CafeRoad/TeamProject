@@ -33,6 +33,7 @@
 		<li><a href="/cafe/searchWaitingCafes">승인 대기중인 카페</a></li>
 	</c:if>
 	
+		<li><a href="/cafe/myReview">내가 쓴 리뷰</a></li>
 		<li><a href="/cafe/deleteForm">회원 탈퇴</a></li>
 		<li><a href="/cafe/logout">로그아웃</a></li>
 	</c:if>

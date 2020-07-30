@@ -21,6 +21,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sql.cafe.service.MemberService;
+import com.sql.cafe.service.ReviewService;
 import com.sql.cafe.vo.MemberVO;
 
 @Controller
@@ -31,7 +32,8 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
-
+	@Autowired
+	private ReviewService reviewService;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	// 회원가입 폼으로 이동.
@@ -273,6 +275,16 @@ public class MemberController {
 	public String idpw(Model model) {
 		model.addAttribute("memberVO", new MemberVO());
 		model.addAttribute("content", "member/idpwForm");
+		return "main";
+	}
+	
+	// 내 리뷰 보는 페이지로 이동.
+	@RequestMapping(value = "/myReview")
+	public String myReview(Model model, @SessionAttribute MemberVO signedMember) {
+		signedMember.getId();
+		model.addAttribute("Reveiws", reviewService.selectByUserID(signedMember.getId()));
+		model.addAttribute("myReview", "내가 쓴 리뷰 목록");
+		model.addAttribute("content", "review/reviewsList");
 		return "main";
 	}
 

@@ -39,3 +39,5 @@ select * from added_cafe where cafe_name like '%이디%';
 select * from added_cafe where cafe_name like '%용%' or gu like '%용%' ;
 
 select * from review;
+
+select * from (select * from review where user_id = 'test11') a, (select cafe_id, cafe_name from added_cafe) b where a.cafe_id = b.cafe_id order by create_time;

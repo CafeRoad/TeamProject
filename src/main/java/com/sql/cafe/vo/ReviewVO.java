@@ -18,6 +18,9 @@ public class ReviewVO {
 	private double star_mood;
 	private double star_service;
 	private double star_clean;
+	
+	private String cafe_name;
+	
 	public int getReview_id() {
 		return review_id;
 	}
@@ -89,6 +92,12 @@ public class ReviewVO {
 	}
 	public void setStar_clean(double star_clean) {
 		this.star_clean = star_clean;
+	}
+	public String getCafe_name() {
+		return cafe_name;
+	}
+	public void setCafe_name(String cafe_name) {
+		this.cafe_name = cafe_name;
 	}
 	
 	

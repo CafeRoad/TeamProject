@@ -23,8 +23,7 @@ public interface ReviewMapper {
 	int insertIntoReview(ReviewVO reviewVO);
 	
 	// 유저의 아이디로 내가 쓴 리뷰 모아보기.
-	final String SELECT_BY_USER_ID = "select * from review where user_id = #{user_id} order by create_time desc";
-
+	final String SELECT_BY_USER_ID = "select * from (select * from review where user_id = #{user_id}) a, (select cafe_id, cafe_name from added_cafe) b where a.cafe_id = b.cafe_id order by create_time;";
 	@Select(SELECT_BY_USER_ID)
 	@Results(value = { @Result(property = "review_id", column = "review_id"),
 			@Result(property = "review_name", column = "review_name"), @Result(property = "user_id", column = "user_id"),
@@ -32,11 +31,11 @@ public interface ReviewMapper {
 			@Result(property = "create_time", column = "create_time"), @Result(property = "content", column = "content"),
 			@Result(property = "stars", column = "stars"), @Result(property = "star_taste", column = "star_taste"),
 			@Result(property = "star_mood", column = "star_mood"), @Result(property = "star_service", column = "star_service"),
-			@Result(property = "star_clean", column = "star_clean") })
+			@Result(property = "star_clean", column = "star_clean"), @Result(property = "cafe_name", column = "cafe_name") })
 	ArrayList<ReviewVO> selectByUserID(@Param("user_id") String user_id);
 	
 	// 특정 카페 보면서 같이 뽑힐 카페 아이디로 카페에 쓰여진 리뷰 보기.
-	final String SELECT_BY_CAFE_ID = "select * from review where cafe_id = #{cafe_id}";
+	final String SELECT_BY_CAFE_ID = "select * from (select * from review where cafe_id = #{cafe_id}) a, (select cafe_id, cafe_name from added_cafe) b where a.cafe_id = b.cafe_id order by create_time";
 	@Select(SELECT_BY_CAFE_ID)
 	@Results(value = { @Result(property = "review_id", column = "review_id"),
 			@Result(property = "review_name", column = "review_name"), @Result(property = "user_id", column = "user_id"),
@@ -44,12 +43,15 @@ public interface ReviewMapper {
 			@Result(property = "create_time", column = "create_time"), @Result(property = "content", column = "content"),
 			@Result(property = "stars", column = "stars"), @Result(property = "star_taste", column = "star_taste"),
 			@Result(property = "star_mood", column = "star_mood"), @Result(property = "star_service", column = "star_service"),
-			@Result(property = "star_clean", column = "star_clean") })
+			@Result(property = "star_clean", column = "star_clean"), @Result(property = "cafe_name", column = "cafe_name") })
 	ArrayList<ReviewVO> selectByCafeID(@Param("cafe_id") String cafe_id);
 	
 	// 내가 쓴 리뷰 지우기. 수정은 미구현.
 	final String DELETE_FROM_REVIEW = "delete from review where user_id = #{user_id} and password = #{password}";
 	@Delete(DELETE_FROM_REVIEW)
 	int deleteFromReview(@Param("user_id") String user_id, @Param("password") String password);
+	
+	
+	
 	
 }
