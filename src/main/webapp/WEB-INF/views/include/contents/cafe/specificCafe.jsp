@@ -94,7 +94,7 @@ ul, li, td {
 
 .box {
 	margin:0px auto;
-	margin-left:208px;
+	
 	width:1100px;
 }
 
@@ -113,10 +113,10 @@ ul, li, td {
 
 	<tr>
 		<th rowspan="3"><a href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg_main() }.jpg" data-lightbox="${thisCafe.getCafe_id() }" title="${thisCafe.getCafe_name() }"><img width="300" height="300" src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg_main() }.jpg" /></a></th>
-		<td>카페이름<br/><font size="6" color="gray">${thisCafe.getCafe_name() }</font></td>
+		<td height="30px"><br/><h2>${thisCafe.getCafe_name() }</h2></td>
 	</tr>
 	<tr>
-		<td>인트로<br>${thisCafe.getIntro() }</td>
+		<td>카페소개<br>${thisCafe.getIntro() }</td>
 	</tr>
 
 </table>
@@ -203,6 +203,22 @@ ul, li, td {
 			<h4>작성자</h4>
 		</td>
 	</tr>
+</table>
+<table>
+<tr>
+<td>
+<font size="4">맛<img src="${pageContext.request.contextPath}/resources/assets/cafeimg/star.png" width="20px" height="20px"/></font>
+</td>
+<td>
+<font size="4">청결<img src="${pageContext.request.contextPath}/resources/assets/cafeimg/star.png" width="20px" height="20px"/></font>
+</td>
+<td>
+<font size="4">서비스<img src="${pageContext.request.contextPath}/resources/assets/cafeimg/star.png" width="20px" height="20px"/></font>
+</td>
+<td>
+<font size="4">분위기<img src="${pageContext.request.contextPath}/resources/assets/cafeimg/star.png" width="20px" height="20px"/></font>
+</td>
+</tr>
 
 </table>
 <div class="box">
