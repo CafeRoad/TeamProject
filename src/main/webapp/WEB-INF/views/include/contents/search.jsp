@@ -50,7 +50,7 @@
 <br><br>
   <form class="form1">
   <input type="text" placeholder="search...">
-  <button type="submit"></button>
+  <button type="submit" onClick="location.href='/cafe/search'"></button>
   </form>
   <br><br>
 </div>

@@ -119,8 +119,7 @@ public class CafeController {
 	@RequestMapping(value = "/approveCafeAction", method = RequestMethod.GET)
 	public String myPage(Model model, @RequestParam("cafe_id") String cafe_id) {
 
-		int approved = cafeService.approveCafe(cafe_id);
-		System.out.println("승인되어 added cafe로 들어간 카페 수 : " + approved);
+		cafeService.approveCafe(cafe_id);
 		// 특정 카페 승인 이후, 다시 승인대기 중인 카페의 리스트로 이동.
 		return "redirect:/searchWaitingCafes";
 	}

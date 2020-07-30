@@ -51,14 +51,11 @@ public class CafeService {
 	}
 
 	// 어드민이 카페를 승인하면 waiting_cafe 에서 added_cafe 로 이동. 옵션도.
-	public int approveCafe(String cafe_id) {
+	public void approveCafe(String cafe_id) {
 
 		CafeVO cafeVO = cafeMapper.selectWaitingCafeByCafeId(cafe_id);
 
 		cafeMapper.insertToAddedCafe(cafeVO);
-
-		// 리턴되는 인트가 1이면 1개의 행이 삭제됨. 정상.
-		return cafeMapper.deleteFromWaitingCafe(cafe_id);
 
 	}
 

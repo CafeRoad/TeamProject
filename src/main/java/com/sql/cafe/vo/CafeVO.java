@@ -27,9 +27,11 @@ public class CafeVO {
 	private String img04;
 	private String img05;
 	private String img06;
-	private String img07;
-	private String img08;
-	private String img09;
+	private String operating_time;
+	private String lat;
+	private String lng;
+	private boolean approval;
+	
 	
 	//즐겨찾기용 유저 아이디
 	private String user_id;
@@ -210,36 +212,44 @@ public class CafeVO {
 		this.img06 = img06;
 	}
 
-	public String getImg07() {
-		return img07;
-	}
-
-	public void setImg07(String img07) {
-		this.img07 = img07;
-	}
-
-	public String getImg08() {
-		return img08;
-	}
-
-	public void setImg08(String img08) {
-		this.img08 = img08;
-	}
-
-	public String getImg09() {
-		return img09;
-	}
-
-	public void setImg09(String img09) {
-		this.img09 = img09;
-	}
-
 	public String getUser_id() {
 		return user_id;
 	}
 
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
+	}
+
+	public String getOperating_time() {
+		return operating_time;
+	}
+
+	public void setOperating_time(String operating_time) {
+		this.operating_time = operating_time;
+	}
+
+	public String getLat() {
+		return lat;
+	}
+
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+
+	public String getLng() {
+		return lng;
+	}
+
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
+
+	public boolean isApproval() {
+		return approval;
+	}
+
+	public void setApproval(boolean approval) {
+		this.approval = approval;
 	}
 	
 	
