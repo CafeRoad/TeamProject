@@ -5,10 +5,11 @@
    
   .main_1{
   width:1200px;
+  height:500px;
   margin: 0 auto;
-  margin-top:-90px;
-    
-  height:850px;
+  margin-top:60px;
+   
+  
   }
   
   
@@ -22,16 +23,17 @@
    width: 1000px;
    height:200px;
    margin-top:-60px;
-   margin:60px;
-   margin-left:-30px;
+   margin:100px;
+   margin-left:-48px;
    margin-bottom:-20px;
    }
    
-   .subtitle{
-     margin-bottom:-140px;
+   .subtitle1{
+  
      font-size: 30px;
    font-weight: bold;
    color:orange;
+   margin-bottom:-60px;
    }
    
    </style>
@@ -39,10 +41,8 @@
    <!-- Three -->
    
    <div class="main_1">
-   <div class="title">
-   
-   </div>
-   <div class="subtitle">
+  
+   <br><br><div class="subtitle1">
     카페로드 추천 리스트
    </div>
    
@@ -74,7 +74,8 @@
   
    </div>
    </div>
+   </div><br><br><br><br><br><br><br><br><br><br><br><br><br>
    
      
-   </div>
+   
  
