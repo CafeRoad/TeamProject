@@ -48,7 +48,7 @@
 <body>
 <div class="d1">
 <br><br>
-  <form class="form1">
+  <form class="form1" >
   <input type="text" placeholder="search...">
   <button type="submit" onClick="location.href='/cafe/search'"></button>
   </form>
