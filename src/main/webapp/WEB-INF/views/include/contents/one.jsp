@@ -52,21 +52,21 @@
   
    </div>
    <div class="price-item">
-   <img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+   <img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/BestAmericano.jpg"> 
   
    </div>
    <div class="price-item">
-<img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+<img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestBingsu.jpg"> 
   
    </div>
    </div>
     <div class="prices">
    <div class="price-item">
-  <img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+  <img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestDesert.jpg"> 
   
    </div>
    <div class="price-item">
-   <img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+   <img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/BestJonggak.jpg"> 
   
    </div>
    <div class="price-item">
