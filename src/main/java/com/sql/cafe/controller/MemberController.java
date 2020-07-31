@@ -94,6 +94,12 @@ public class MemberController {
 			signUpMemberVO.setPassword(null);
 			model.addAttribute("signUpMemberVO", signUpMemberVO);
 			model.addAttribute("content", "member/signUpForm_user");
+		} else if (memberService.idcheck(signUpMemberVO) > 0) {
+
+			model.addAttribute("msg", "이미 등록된 아이디입니다.");
+			signUpMemberVO.setPassword(null);
+			model.addAttribute("signUpMemberVO", signUpMemberVO);
+			model.addAttribute("content", "member/signUpForm_user");
 		} else {
 			// 에러가 없으면 Authority는 난수로 설정하고 insert.
 			memberService.insertNewMemberToUser(signUpMemberVO);
@@ -132,6 +138,12 @@ public class MemberController {
 			signUpMemberVO.setPassword(null);
 			model.addAttribute("signUpMemberVO", signUpMemberVO);
 			model.addAttribute("content", "member/signUpForm_owner");
+		} else if (memberService.idcheck(signUpMemberVO) > 0) {
+			signUpMemberVO.setPassword(null);
+			model.addAttribute("msg", "이미 등록된 아이디입니다.");
+			model.addAttribute("signUpMemberVO", signUpMemberVO);
+			model.addAttribute("content", "member/signUpForm_user");
+
 		} else {
 
 			// 에러가 없으면 Authority는 난수로 설정하고 insert.
@@ -293,7 +305,7 @@ public class MemberController {
 		model.addAttribute("content", "member/idpwForm");
 		return "main";
 	}
-	
+
 	// 내 리뷰 보는 페이지로 이동.
 	@RequestMapping(value = "/myReview")
 	public String myReview(Model model, @SessionAttribute MemberVO signedMember) {
