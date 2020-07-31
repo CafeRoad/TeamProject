@@ -259,18 +259,33 @@ public class MemberController {
 		return "redirect:/main";
 	}
 
-	// 회원정보 수정.
+	// 회원정보 수정 폼으로 이동.
 	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
-	public String updateAction(Model model, @SessionAttribute MemberVO signedMember, RedirectAttributes rttr) {
-		signedMember.setPassword(null);
+	public String updateFrom(Model model, @SessionAttribute MemberVO signedMember) {
 		model.addAttribute("content", "member/updateForm");
 		model.addAttribute("updateMemberVO", signedMember);
-		rttr.addFlashAttribute("message", "회원정보가 변경되었습니다.");
 		return "main";
 
 	}
-	
-	
+
+	// 회원정보 수정 동작.
+	@RequestMapping(value = "/updateAction", method = RequestMethod.POST)
+	public String updateAction(Model model, @SessionAttribute MemberVO signedMember,
+			@ModelAttribute("updateMemberVO") @Valid MemberVO updateMemberVO) {
+		logger.info("Welcome updateAction!");
+
+		if (signedMember.getPassword().equals(updateMemberVO.getPasswordcheck())) {
+			memberService.updateMemberInfo(updateMemberVO);
+			model.addAttribute("content", "member/info");
+			model.addAttribute("msg","회원정보가 수정되었습니다.");
+			model.addAttribute("signedMember", memberService.login(signedMember.getId(), signedMember.getPassword()));
+		} else {
+			model.addAttribute("content", "member/info");
+			model.addAttribute("msg","비밀번호가 틀렸습니다.");
+		}
+		return "main";
+	}
+
 	// 아이디,비밀번호 찾는 폼으로 이동.
 	@RequestMapping(value = "/idpw")
 	public String idpw(Model model) {

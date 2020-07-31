@@ -42,11 +42,6 @@
 		</tr>
 
 		<tr>
-			<td id="title">비밀번호</td>
-			<td>${signedMember.getPassword() }</td>
-		</tr>
-
-		<tr>
 			<td id="title">이메일</td>
 			<td>${signedMember.getEmail() }</td>
 		</tr>

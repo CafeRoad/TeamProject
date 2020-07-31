@@ -66,12 +66,8 @@ color: red;
 			</td>
 		</tr>
 	
-		<tr>
-			<td id="title"><b>비밀번호</b></td>
-			<td><sf:input type="password" path="password" size="50" maxlength="50" placeholder="${updateMemberVO.getPassword() }"/> <br/>
+			<sf:input type="hidden" path="password" size="50" maxlength="50" placeholder="${updateMemberVO.getPassword() }"/> <br/>
 			<sf:errors path="password" cssClass="error"/>
-			</td>
-		</tr>
 		
 		<tr>
 			<td id="title"><b>비밀번호 확인</b></td>
