@@ -4,6 +4,36 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
+<<script type="text/javascript">
+
+  $(document).ready(function() {
+      // 팝업 창 크기를 HTML 크기에 맞추어 자동으로 크기를 조정하는 함수.
+      var strWidth;
+      var strHeight;
+
+      //innerWidth / innerHeight / outerWidth / outerHeight 지원 브라우저 
+      if ( window.innerWidth && window.innerHeight && window.outerWidth && window.outerHeight ) {
+          strWidth = $('.userInfoPop').outerWidth() + (window.outerWidth - window.innerWidth);
+          strHeight = $('.userInfoPop').outerHeight() + (window.outerHeight - window.innerHeight);
+      }
+      else {
+          var strDocumentWidth = $(document).outerWidth();
+          var strDocumentHeight = $(document).outerHeight();
+
+          window.resizeTo ( strDocumentWidth, strDocumentHeight );
+
+          var strMenuWidth = strDocumentWidth - $(window).width();
+          var strMenuHeight = strDocumentHeight - $(window).height();
+
+          strWidth = $('.userInfoPop').outerWidth() + strMenuWidth;
+          strHeight = $('.userInfoPop').outerHeight() + strMenuHeight;
+      }
+
+      //resize 
+      window.resizeTo( strWidth, strHeight );
+
+  });
+</script>
 
 
 <style type="text/css">
@@ -37,6 +67,7 @@ color: red;
 			<td id="title"><b>아이디</b></td>
 			<td><sf:input path="id" size="50" maxlength="50" placeholder="아이디는 6~15자 이내로 설정해 주세요."/> <br/>
 			<sf:errors path="id" cssClass="error"/>
+			<input type="button" name="idcheck" value="중복확인" onclick="window.open('/cafe/idcheckAction','중복확인','width=300, height=5, scrollbars=no, resizable=no, toolbars=no, menubar=no')">
 			</td>
 		</tr>
 	

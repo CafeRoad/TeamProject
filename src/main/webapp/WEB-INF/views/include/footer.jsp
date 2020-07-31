@@ -10,8 +10,10 @@
 				<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 			</ul>
 		</div>
+		서울특별시 종로구 종로 12길 8층 801F(관철동13-13)<br>
+		Team CafeRoad　　　　　　TEL : 02-1234-5678 
 		<div class="copyright">
-			&copy; Untitled. All rights reserved.
+			&copy; 2020 Untitled. All rights reserved.
 		</div>
 	</footer>
 	

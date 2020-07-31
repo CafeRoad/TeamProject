@@ -277,11 +277,11 @@ public class MemberController {
 		if (signedMember.getPassword().equals(updateMemberVO.getPasswordcheck())) {
 			memberService.updateMemberInfo(updateMemberVO);
 			model.addAttribute("content", "member/info");
-			model.addAttribute("msg","회원정보가 수정되었습니다.");
+			model.addAttribute("msg", "회원정보가 수정되었습니다.");
 			model.addAttribute("signedMember", memberService.login(signedMember.getId(), signedMember.getPassword()));
 		} else {
 			model.addAttribute("content", "member/info");
-			model.addAttribute("msg","비밀번호가 틀렸습니다.");
+			model.addAttribute("msg", "비밀번호가 틀렸습니다.");
 		}
 		return "main";
 	}
@@ -302,6 +302,21 @@ public class MemberController {
 		model.addAttribute("myReview", "내가 쓴 리뷰 목록");
 		model.addAttribute("content", "review/reviewsList");
 		return "main";
+	}
+
+	// 아이디 중복체크 동작
+	@RequestMapping(value = "/idcheckAction", method = RequestMethod.GET)
+	public String checkSignup(Model model, @ModelAttribute("signUpMemberVO") MemberVO memberVO) {
+
+		if (memberService.idcheck(memberVO) == 0) {
+			model.addAttribute("msg", "가입할 수 있는 아이디 입니다.");
+
+		} else { // 중복되는 아이디가 있음.
+
+			model.addAttribute("msg", "비밀번호가 틀렸습니다.");
+		}
+
+		return "idcheck";
 	}
 
 }
