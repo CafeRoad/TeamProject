@@ -2,6 +2,7 @@ package com.sql.cafe.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -268,16 +270,19 @@ public class MemberController {
 	}
 
 	// 회원정보 수정 동작. id와 password를 받아서 둘 다 일치하는 행을 검색 후 update하고 모델에 다시 add. rls
-//	@RequestMapping(value = "/updateAction", method = RequestMethod.POST)
-//	public String updateAction(@ModelAttribute("updateMemberVO") @Valid MemberVO updateMemberVO,
-//			@RequestParam("id") String id, @RequestParam("password") String password, Model model,
-//			@SessionAttribute MemberVO signedMember) {
-//		logger.info("Welcome updateAction!");
-//		memberService.updateMemberInfo(memberVO);
-//		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
-//		model.addAttribute("signedMember", memberService.delete(id, password));
-//		model.addAttribute("message", id + "님의 회원 정보가 수정되었습니다.");
-//		// redirect를 해야 주소창도 바뀜.
-//		return "main";
-//	}
+	@RequestMapping(value = "/updateAction", method = RequestMethod.POST)
+	public String updateAction(@ModelAttribute("updateMemberVO") @Valid MemberVO updateMemberVO,
+			@RequestParam("id") String id, @RequestParam("password") String password, Model model,
+			@SessionAttribute MemberVO signedMember) {
+		logger.info("Welcome updateAction!");
+		
+		// 비밀번호 비교
+		memberService.updateMemberInfo(updateMemberVO);
+
+		// 새롭게 바뀐 정보로 다시 로그인??
+		model.addAttribute("signedMember", memberService.updateMemberInfo(updateMemberVO));
+		model.addAttribute("message", id + "님의 회원 정보가 수정되었습니다.");
+		// redirect를 해야 주소창도 바뀜.
+		return "redirect:/main";
+	}
 }

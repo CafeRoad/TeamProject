@@ -54,6 +54,14 @@ color: red;
 }
 </style>
 
+
+
+
+
+
+
+
+
 <c:url var="updateUrl" value="updateAction"/>
 <sf:form modelAttribute="updateMemberVO" method="POST" action="${updateUrl }">
 	<center>
@@ -66,19 +74,7 @@ color: red;
 			</td>
 		</tr>
 	
-		<tr>
-			<td id="title"><b>비밀번호</b></td>
-			<td><sf:input type="password" path="password" size="50" maxlength="50" placeholder="${updateMemberVO.getPassword() }"/> <br/>
-			<sf:errors path="password" cssClass="error"/>
-			</td>
-		</tr>
-		
-		<tr>
-			<td id="title"><b>비밀번호 확인</b></td>
-			<td><input type="password" name="passwordcheck" size="50" maxlength="50" placeholder="비밀번호를 다시 한번 입력해 주세요."/> <br/>
-			</td>
-		</tr>
-	
+
 		<tr>
 			<td id="title"><b>이메일</b></td>
 			<td><sf:input path="email" size="50" maxlength="50" placeholder="${updateMemberVO.getEmail() }" readonly="true"/> <br/>
@@ -114,7 +110,12 @@ color: red;
 			</td>
 		</tr>
 	
-	
+		<tr>
+			<td id="title"><b>비밀번호 확인</b></td>
+			<td><input type="password" name="passwordcheck" size="50" maxlength="50" placeholder="비밀번호를 다시 한번 입력해 주세요."/> <br/>
+			</td>
+		</tr>
+		
 	</table>
 	<input type="submit" value="정보 수정">
 	</center>
