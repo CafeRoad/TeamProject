@@ -70,4 +70,11 @@ public interface MemberMapper {
 	
 	@Update(UPDATE_MEMBER_INFO)
 	int updateMemberInfo(MemberVO memberVO);
+	
+	//아이디 중복 체크
+	final String ID_CHECK = "select count(id) from member where id = #{id}";
+	
+	@Select(ID_CHECK)
+	int idcheck(MemberVO memberVo);
+
 }

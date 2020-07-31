@@ -127,4 +127,9 @@ public class MemberService {
 		
 		return memberMapper.updateMemberInfo(memberVO);
 	}
+	
+	// 아이디 중복 체크.
+	public int idcheck(MemberVO memberVo) {
+		return memberMapper.idcheck(memberVo);
+	}
 }
