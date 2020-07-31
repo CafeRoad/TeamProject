@@ -63,7 +63,7 @@ ol, ul {
 							<img
 								src="${pageContext.request.contextPath}/resources/assets/css/images/oneStar.jpg"
 								width="20px" height="20px">
-						</c:if> <c:if test="${review.getStar_taste() == 2.0} ">
+						</c:if> <c:if test="${review.getStar_taste() > 1} ">
 							<img
 								src="${pageContext.request.contextPath}/resources/assets/css/images/twoStar.jpg"
 								width="40px" height="20px">
