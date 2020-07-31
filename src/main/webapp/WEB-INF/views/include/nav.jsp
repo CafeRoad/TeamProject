@@ -19,7 +19,7 @@
 		<li><a href="/cafe/myPage">마이페이지</a></li>
 
 	<c:if test="${signedMember.getAuthority().equals(user)}">
-		<li><a href="/cafe/myReview">내 가쓴 리뷰</a></li>
+		<li><a href="/cafe/myReview">내가쓴 리뷰</a></li>
 		<li><a href="/cafe/컨트롤러 미구현">즐겨찾기</a></li>
 	</c:if>
 	
