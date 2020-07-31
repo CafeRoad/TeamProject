@@ -21,7 +21,7 @@
 }
 </style>
 
-
+<hr/>
 <c:url var="writeReview" value="/review/writeAction"/>
 <sf:form modelAttribute="newReviewVO" method="POST" action="${writeReview }">
 	<center>
