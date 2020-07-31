@@ -50,7 +50,7 @@ ol, ul {
 		<br>
 		<table>
 			<tr>
-				<td width="80%"><font size="5" color="ed7d31">${review.getStars() }</font>${review.getCafe_name() }
+				<td width="80%"><font size="5" color="ed7d31">${review.getStars() }</font> ${review.getCafe_name() }
 					/ ${review.getReview_name() }</td>
 
 				<td width="20%"><font size="3">작성자 ${review.getUser_id() }</font></td>
@@ -58,7 +58,7 @@ ol, ul {
 		</table>
 		<table>
 			<tr>
-				<td width="25%"><font size="4">맛${review.getStar_taste()} <c:if
+				<td width="25%"><font size="4">맛 ${review.getStar_taste()} <c:if
 							test="${review.getStar_taste().equals(2)} ">
 							<img
 								src="${pageContext.request.contextPath}/resources/assets/css/images/oneStar.jpg"
@@ -81,7 +81,7 @@ ol, ul {
 								width="100px" height="20px">
 						</c:if>
 				</font></td>
-				<td width="25%"><font size="4">청결 <c:if
+				<td width="25%"><font size="4">청결  <c:if
 							test="${review.getStar_clean() == 1} ">
 							<img
 								src="${pageContext.request.contextPath}/resources/assets/css/images/oneStar.jpg"
@@ -104,7 +104,7 @@ ol, ul {
 								width="100px" height="20px">
 						</c:if>
 				</font></td>
-				<td width="25%"><font size="4">서비스<c:if
+				<td width="25%"><font size="4">서비스 <c:if
 							test="${review.getStar_service() == 1} ">
 							<img
 								src="${pageContext.request.contextPath}/resources/assets/css/images/oneStar.jpg"
@@ -126,7 +126,7 @@ ol, ul {
 								src="${pageContext.request.contextPath}/resources/assets/css/images/fiveStar.jpg"
 								width="100px" height="20px">
 						</c:if></font></td>
-				<td width="25%"><font size="4">분위기<c:if
+				<td width="25%"><font size="4">분위기 <c:if
 							test="${review.getStar_mood() == 1} ">
 							<img
 								src="${pageContext.request.contextPath}/resources/assets/css/images/oneStar.jpg"
