@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
 
 <style>
 
@@ -44,8 +40,6 @@
 }
 </style>
 
-</head>
-<body>
 <div class="d1">
 <br><br>
   <form class="form1" action="/cafe/search">
@@ -54,5 +48,3 @@
   </form>
   <br><br>
 </div>
-</body>
-</html>

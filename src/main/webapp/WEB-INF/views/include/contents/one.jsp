@@ -1,46 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<!-- One -->
-	<section id="one" class="wrapper style2">
-		<div class="inner">
-			<div class="grid-style">
-	
-				<div>
-					<div class="box">
-						<div class="image fit">
-							<img src="${pageContext.request.contextPath}/resources/assets/css/images/pic02.jpg" alt="" />
-						</div>
-						<div class="content">
-							<header class="align-center">
-								<p>maecenas sapien feugiat ex purus</p>
-								<h2>Lorem ipsum dolor</h2>
-							</header>
-							<p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
-							<footer class="align-center">
-								<a href="#" class="button alt">Learn More</a>
-							</footer>
-						</div>
-					</div>
-				</div>
-	
-				<div>
-					<div class="box">
-						<div class="image fit">
-							<img src="${pageContext.request.contextPath}/resources/assets/css/images/pic03.jpg" alt="" />
-						</div>
-						<div class="content">
-							<header class="align-center">
-								<p>mattis elementum sapien pretium tellus</p>
-								<h2>Vestibulum sit amet</h2>
-							</header>
-							<p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
-							<footer class="align-center">
-								<a href="#" class="button alt">Learn More</a>
-							</footer>
-						</div>
-					</div>
-				</div>
-	
-			</div>
-		</div>
-	</section>
+   pageEncoding="UTF-8"%>
+   <style>
+  
+   
+  .main_1{
+  width:1200px;
+  margin: 0 auto;
+  margin-top:-90px;
+    
+  height:850px;
+  }
+  
+  
+   .prices{
+   display:flex;
+   
+   }
+   
+   
+   .price-item{
+   width: 1000px;
+   height:200px;
+   margin-top:-60px;
+   margin:60px;
+   margin-left:-30px;
+   margin-bottom:-20px;
+   }
+   
+   .subtitle{
+     margin-bottom:-140px;
+     font-size: 30px;
+   font-weight: bold;
+   color:orange;
+   }
+   
+   </style>
+
+   <!-- Three -->
+   
+   <div class="main_1">
+   <div class="title">
+   
+   </div>
+   <div class="subtitle">
+    카페로드 추천 리스트
+   </div>
+   
+   <div class="prices">
+   <div class="price-item">
+  <img alt="" img src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+  
+   </div>
+   <div class="price-item">
+   <img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+  
+   </div>
+   <div class="price-item">
+<img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+  
+   </div>
+   </div>
+    <div class="prices">
+   <div class="price-item">
+  <img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+  
+   </div>
+   <div class="price-item">
+   <img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+  
+   </div>
+   <div class="price-item">
+<img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+  
+   </div>
+   </div>
+   
+     
+   </div>
+ 
