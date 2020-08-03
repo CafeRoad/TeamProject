@@ -28,11 +28,11 @@
 		<table>
 			<tr>
 				<td width="80%"><b>제목</b>
-			<sf:input path="review_name" size="50" maxlength="50"/>
+			<sf:input path="review_name" size="50" maxlength="50" placeholder="제목은 3~20자 이내로 입력해 주세요."/>
 			<sf:errors path="review_name" cssClass="error"/> </td>
 
 				<td width="20%"><b>비밀번호</b>
-			<sf:input type="password" path="password" size="50" maxlength="50"/>
+			<sf:input type="password" path="password" size="50" maxlength="50" placeholder="비밀번호는 4~10자 이내"/>
 			<sf:errors path="password" cssClass="error"/></td>
 			</tr>
 		</table>
@@ -78,7 +78,7 @@
 
 		</table>
 		<div class="box">
-			<div id="reviewContent"><sf:textarea path="content" size="2000" maxlength="2000"/>
+			<div id="reviewContent"><sf:textarea path="content" size="2000" maxlength="2000" placeholder="내용은 5~2000자 까지 입력 할 수 있습니다." />
 			<sf:errors path="content" cssClass="error"/></div>
 		</div>
 	
