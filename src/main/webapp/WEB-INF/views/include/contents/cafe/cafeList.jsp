@@ -40,7 +40,7 @@ ol, ul {
 	<c:forEach var="cafe" items="${CafeList}">
 	<table id="info">
 		<div class="example">
-			<a href="${pageContext.request.contextPath}/resources/assets/cafeimg/${cafe.getCafe_id() }/${cafe.getImg_main() }.jpg" data-lightbox="image-1" title="${cafe.getCafe_name() }"><img width="400" height="400" src="${pageContext.request.contextPath}/resources/assets/cafeimg/${cafe.getCafe_id() }/${cafe.getImg_main() }.jpg" /></a>
+			<a href="${pageContext.request.contextPath}/resources/assets/cafeimg/${cafe.getCafe_id() }/${cafe.getImg_main() }" data-lightbox="image-1" title="${cafe.getCafe_name() }"><img width="400" height="400" src="${pageContext.request.contextPath}/resources/assets/cafeimg/${cafe.getCafe_id() }/${cafe.getImg_main() }" /></a>
 		</div>
 		<tr>
 			<td id="title">카페 아이디</td>

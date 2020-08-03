@@ -84,4 +84,10 @@ public class CafeService {
 		return cafeMapper.searchByCafe(search);
 		
 	}
+	
+	// cafe_id의 최대값 얻어오기.
+	public int selectMaxCafeId() {
+		return cafeMapper.selectMaxCafeId();
+		
+	}
 }

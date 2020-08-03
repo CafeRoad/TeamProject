@@ -1,11 +1,8 @@
 package com.sql.cafe.controller;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Handles requests for the application home page.
@@ -89,58 +85,5 @@ model.addAttribute("content","test3");
 		return "main";
 	}
 
-	// 파일 업로드 테스트를 위해 만듦.
-	@RequestMapping(value = "/filetest", method = RequestMethod.GET)
-	public String filetest(Model model) {
-		logger.info("Welcome filetest!");
-
-		return "filetest";
-	}
-
-	// 파일 업로드 테스트///////이거 망했ㅇ어어ㅓ어어어ㅓㅇ어어어어어ㅓㅓㅓㅓㅓㅓㅓㅓ
-	@RequestMapping(value = "/fileupload", method = RequestMethod.POST)
-	public String upload(MultipartFile uploadfile, Model model, HttpServletRequest request, String dir) {
-		logger.info("upload() POST 호출");
-		logger.info("파일 이름: {}", uploadfile.getOriginalFilename());
-		logger.info("파일 크기: {}", uploadfile.getSize());
-
-		System.out.println(
-				"경로 테스트 : " + request.getSession().getServletContext().getRealPath("\\resources\\assets\\imgtest"));
-		System.out.println("다은 dir" + dir);
-		String filename = saveFile(uploadfile, dir);
-
-		System.out.println("자바 절대 경로" + this.getClass().getResource("").getPath());
-
-//		File file = new File(arg0, arg1)
-		System.err.println(filename);
-		if (filename != null) { // 파일 저장 성공
-			model.addAttribute("filename", filename);
-			model.addAttribute("result", "success");
-		} else { // 파일 저장 실패
-			model.addAttribute("result", "fail");
-		}
-
-		return "filetest";
-	}
-
-	private String saveFile(MultipartFile file, String dir) {
-		// 파일 이름 변경
-		UUID uuid = UUID.randomUUID();
-		String saveName = uuid + "_" + file.getOriginalFilename();
-
-		logger.info("saveName: {}", saveName);
-
-		// 저장할 File 객체를 생성(껍데기 파일)
-		File saveFile = new File(dir, saveName); // 저장할 폴더 이름, 저장할 파일 이름
-
-		try {
-			file.transferTo(saveFile); // 업로드 파일에 saveFile이라는 껍데기 입힘
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		}
-
-		return saveName;
-	}
 
 }

@@ -2,6 +2,7 @@ package com.sql.cafe.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sql.cafe.service.CafeService;
@@ -23,13 +25,14 @@ import com.sql.cafe.service.ReviewService;
 import com.sql.cafe.vo.CafeVO;
 import com.sql.cafe.vo.MemberVO;
 import com.sql.cafe.vo.ReviewVO;
+import com.sql.cafe.helper.FileUploader;
 
 @Controller
 public class CafeController {
 
 	@Autowired
 	private CafeService cafeService;
-	
+
 	@Autowired
 	private ReviewService reviewService;
 
@@ -50,9 +53,27 @@ public class CafeController {
 	// 카페 등록 동작.
 	@RequestMapping(value = "/cafe/signUpAction", method = RequestMethod.POST)
 	public String signUpAction(@ModelAttribute("waitingCafeVO") @Valid CafeVO waitingCafeVO, BindingResult bidingResult,
-			Model model, @SessionAttribute MemberVO signedMember, RedirectAttributes rttr) throws Exception {
+			Model model, @SessionAttribute MemberVO signedMember, RedirectAttributes rttr, MultipartFile main,
+			HttpServletRequest request, MultipartFile image1, MultipartFile image2, MultipartFile image3,
+			MultipartFile image4, MultipartFile image5, MultipartFile image6) throws Exception {
 
-		logger.info(" cafe/signUpAction called!");
+		logger.info("cafe/signUpAction called!");
+
+		logger.info("파일 이름: {}", main.getOriginalFilename());
+
+		int newCafeId = cafeService.selectMaxCafeId() + 1;
+
+		String newFolder = request.getSession().getServletContext()
+				.getRealPath("\\resources\\assets\\cafeimg\\" + newCafeId);
+
+		// 파일을 해당 경로에 업로드하고 반환된 파일이름을 VO의 칼럼값에 세팅.
+		waitingCafeVO.setImg_main(FileUploader.saveFileAtNewFolder(main, newFolder));
+		waitingCafeVO.setImg01(FileUploader.saveFile(image1, newFolder));
+		waitingCafeVO.setImg02(FileUploader.saveFile(image2, newFolder));
+		waitingCafeVO.setImg03(FileUploader.saveFile(image3, newFolder));
+		waitingCafeVO.setImg04(FileUploader.saveFile(image4, newFolder));
+		waitingCafeVO.setImg05(FileUploader.saveFile(image5, newFolder));
+		waitingCafeVO.setImg06(FileUploader.saveFile(image6, newFolder));
 
 		if (bidingResult.hasErrors()) {
 			System.out.println("----------------------------error----------------------------");
@@ -75,7 +96,7 @@ public class CafeController {
 			return "redirect:/searchMyWaitingCafes";
 
 		}
-		return "/cafe/signUp";
+		return "main";
 	}
 
 	// 오너가 자신의 승인 대기중인 카페 리스트를 뽑음.
@@ -201,20 +222,21 @@ public class CafeController {
 
 	// 즐겨찾기 추가하기 버튼.
 	@RequestMapping(value = "/cafe/toggleFavorite", method = RequestMethod.GET)
-	public String toggleFavorite(Model model, @RequestParam("cafe_id") String cafe_id, @SessionAttribute MemberVO signedMember) {
-		
+	public String toggleFavorite(Model model, @RequestParam("cafe_id") String cafe_id,
+			@SessionAttribute MemberVO signedMember) {
+
 		// 즐겨찾기 주차됨.
-		if(cafeService.toFavorite(signedMember.getId(), cafe_id) == 1) {
-			model.addAttribute("msg","즐겨찾기에 추가되었습니다.");
-			
-		} else if(cafeService.toFavorite(signedMember.getId(), cafe_id) == 0) {
+		if (cafeService.toFavorite(signedMember.getId(), cafe_id) == 1) {
+			model.addAttribute("msg", "즐겨찾기에 추가되었습니다.");
+
+		} else if (cafeService.toFavorite(signedMember.getId(), cafe_id) == 0) {
 			cafeService.deleteFavorite(signedMember.getId(), cafe_id);
-			model.addAttribute("msg","즐겨찾기에서 제외되었습니다.");
+			model.addAttribute("msg", "즐겨찾기에서 제외되었습니다.");
 		}
 		// 리스폰즈 바디 사용해서 history.go(1)?
 		return null;
 	}
-	
+
 	// 이름이나 지역으로 검색하기.
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String search(Model model, @RequestParam("search") String search) {
@@ -225,5 +247,5 @@ public class CafeController {
 		model.addAttribute("cafeListTitle", "검색 카페");
 		return "main";
 	}
-	
+
 }

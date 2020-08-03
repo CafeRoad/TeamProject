@@ -23,7 +23,7 @@
 
 
 <c:url var="addCafeUrl" value="/cafe/signUpAction"/>
-<sf:form modelAttribute="waitingCafeVO" method="POST" action="${addCafeUrl }">
+<sf:form modelAttribute="waitingCafeVO" method="POST" action="${addCafeUrl }" enctype="multipart/form-data">
 	<center>
 	<br> <b><font size="6" color="gray">카페 등록</font></b> <br><br>
 	<table id="addCafe" width=400 border=1 cellpadding=5>
@@ -159,6 +159,43 @@
 			<sf:errors path="toilet" cssClass="error"/>
 			</td>	
 		</tr>
+		
+		<tr>
+			<td id="title"><b>메인 이미지</b></td>
+			<td><input type="file" name="main" placeholder="이미지 파일 선택" /> <br/>
+			</td>
+		</tr>
+		<tr>
+			<td id="title"><b>이미지</b></td>
+			<td><input type="file" name="image1" placeholder="이미지 파일 선택" /> <br/>
+			</td>
+		</tr>
+		<tr>
+			<td id="title"><b>이미지</b></td>
+			<td><input type="file" name="image2" placeholder="이미지 파일 선택" /> <br/>
+			</td>
+		</tr>
+		<tr>
+			<td id="title"><b>이미지</b></td>
+			<td><input type="file" name="image3" placeholder="이미지 파일 선택" /> <br/>
+			</td>
+		</tr>
+		<tr>
+			<td id="title"><b>이미지</b></td>
+			<td><input type="file" name="image4" placeholder="이미지 파일 선택" /> <br/>
+			</td>
+		</tr>
+		<tr>
+			<td id="title"><b>이미지</b></td>
+			<td><input type="file" name="image5" placeholder="이미지 파일 선택" /> <br/>
+			</td>
+		</tr>
+		<tr>
+			<td id="title"><b>이미지</b></td>
+			<td><input type="file" name=image6 placeholder="이미지 파일 선택" /> <br/>
+			</td>
+		</tr>
+		
 
 	</table>
 	<input type="submit" value="등록">

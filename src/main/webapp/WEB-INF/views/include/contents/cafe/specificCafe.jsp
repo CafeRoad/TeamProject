@@ -120,10 +120,10 @@ height:400px;
 
 	<tr>
 		<th rowspan="3"><a
-			href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg_main() }.jpg"
+			href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg_main() }"
 			data-lightbox="${thisCafe.getCafe_id() }"
 			title="${thisCafe.getCafe_name() }"><img width="300" height="300"
-				src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg_main() }.jpg" /></a></th>
+				src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg_main() }" /></a></th>
 		<td height="30px"><br />
 			<h2>${thisCafe.getCafe_name() }</h2></td>
 	</tr>
@@ -140,61 +140,61 @@ height:400px;
 					<c:if test="${thisCafe.getImg01() != null}">
 						<td>
 							<li><a
-								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg01() }.jpg"
+								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg01() }"
 								data-lightbox="${thisCafe.getCafe_id() }"
 								title="${thisCafe.getCafe_name() }"><img width="200"
 									height="200"
-									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg01() }.jpg" /></a></li>
+									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg01() }" /></a></li>
 						</td>
 					</c:if>
 					<c:if test="${thisCafe.getImg02() != null}">
 						<td>
 							<li><a
-								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg02() }.jpg"
+								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg02() }"
 								data-lightbox="${thisCafe.getCafe_id() }"
 								title="${thisCafe.getCafe_name() }"><img width="200"
 									height="200"
-									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg02() }.jpg" /></a></li>
+									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg02() }" /></a></li>
 						</td>
 					</c:if>
 					<c:if test="${thisCafe.getImg03() != null}">
 						<td>
 							<li><a
-								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg03() }.jpg"
+								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg03() }"
 								data-lightbox="${thisCafe.getCafe_id() }"
 								title="${thisCafe.getCafe_name() }"><img width="200"
 									height="200"
-									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg03() }.jpg" /></a></li>
+									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg03() }" /></a></li>
 						</td>
 					</c:if>
 					<c:if test="${thisCafe.getImg04() != null}">
 						<td>
 							<li><a
-								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg04() }.jpg"
+								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg04() }"
 								data-lightbox="${thisCafe.getCafe_id() }"
 								title="${thisCafe.getCafe_name() }"><img width="200"
 									height="200"
-									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg04() }.jpg" /></a></li>
+									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg04() }" /></a></li>
 						</td>
 					</c:if>
 					<c:if test="${thisCafe.getImg05() != null}">
 						<td>
 							<li><a
-								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg05() }.jpg"
+								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg05() }"
 								data-lightbox="${thisCafe.getCafe_id() }"
 								title="${thisCafe.getCafe_name() }"><img width="200"
 									height="200"
-									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg05() }.jpg" /></a></li>
+									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg05() }" /></a></li>
 						</td>
 					</c:if>
 					<c:if test="${thisCafe.getImg06() != null}">
 						<td>
 							<li><a
-								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg06() }.jpg"
+								href="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg06() }"
 								data-lightbox="${thisCafe.getCafe_id() }"
 								title="${thisCafe.getCafe_name() }"><img width="200"
 									height="200"
-									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg06() }.jpg" /></a></li>
+									src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg06() }" /></a></li>
 						</td>
 					</c:if>
 				</ul>
@@ -297,7 +297,7 @@ geocoder.addressSearch('${thisCafe.getGu() }, ${thisCafe.getAddress() }', functi
 </script>
 
 
-
+<center>
 
 <br>
 <c:if test="${approveCafe != null}">

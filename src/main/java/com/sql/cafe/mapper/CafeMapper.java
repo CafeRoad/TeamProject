@@ -222,4 +222,10 @@ public interface CafeMapper {
 			@Result(property = "approval", column = "approval"), @Result(property = "cafe_tel", column = "cafe_tel") })
 	ArrayList<CafeVO> searchByCafe(@Param("search") String search);
 
+	// 새로 들어가는 카페의 사진을 넣을 폴더id를 얻기 위해.
+	final String SELECT_MAX_CAFE_ID = "select max(cafe_id) from cafe";
+	
+	@Select(SELECT_MAX_CAFE_ID)
+	int selectMaxCafeId();
+	
 }
