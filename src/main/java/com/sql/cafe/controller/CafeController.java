@@ -75,7 +75,7 @@ public class CafeController {
 			return "redirect:/searchMyWaitingCafes";
 
 		}
-		return "/cafe/signUp";
+		return "main";
 	}
 
 	// 오너가 자신의 승인 대기중인 카페 리스트를 뽑음.

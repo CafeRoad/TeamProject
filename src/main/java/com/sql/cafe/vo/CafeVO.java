@@ -2,14 +2,28 @@ package com.sql.cafe.vo;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class CafeVO {
 
 	// Cafe Table column
+	
+
 	private String cafe_id;
+	
 	private String owner_id;
+	
+	@NotBlank(message="카페명을 입력 해주세요.")
+	@Size(min=2,max=16,message = "카페명은 2~15자 이내로 입력해 주세요.")
 	private String cafe_name;
+	
 	private String gu;
+	
+	@NotBlank(message="주소를 입력해 주세요.")
+	@Size(min=3,max=20,message = "주소는 3~20자 이내로 입력해 주세요.")
 	private String address;
+	
 	private boolean event;
 	private String homepage;
 	private String intro;

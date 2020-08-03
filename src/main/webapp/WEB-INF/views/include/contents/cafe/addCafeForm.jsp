@@ -29,7 +29,7 @@
 	<table id="addCafe" width=400 border=1 cellpadding=5>
 		<tr>
 			<td id="title"><b>이름</b></td>
-			<td><sf:input path="cafe_name" size="50" maxlength="50"/> <br/>
+			<td><sf:input path="cafe_name" size="50" maxlength="50" placeholder="카페명은 2~15자 이내로 입력해주세요."/> <br/>
 			<sf:errors path="cafe_name" cssClass="error"/>
 			</td>
 		</tr>
@@ -70,28 +70,28 @@
 	
 		<tr>
 			<td id="title"><b>주소</b></td>
-			<td><sf:input path="address" size="50" maxlength="50"/> <br/>
+			<td><sf:input path="address" size="50" maxlength="50" placeholder="주소는 3~20자 이내로 입력해 주세요."/> <br/>
 			<sf:errors path="address" cssClass="error"/>
 			</td>
 		</tr>
 		
 		<tr>
 			<td id="title"><b>소개</b></td>
-			<td><sf:input path="intro" size="200" maxlength="200"/> <br/>
+			<td><sf:input path="intro" size="200" maxlength="200" placeholder="카페 소개글을 입력해주세요."/> <br/>
 			<sf:errors path="intro" cssClass="error"/>
 			</td>
 		</tr>
 		
 		<tr>
 			<td id="title"><b>영업시간</b></td>
-			<td><sf:input path="operating_time" size="50" maxlength="50"/> <br/>
+			<td><sf:input path="operating_time" size="50" maxlength="50" placeholder="영업시간을 입력해주세요. ex)07:30~20:00"/> <br/>
 			<sf:errors path="operating_time" cssClass="error"/>
 			</td>
 		</tr>
 	
 		<tr>
 			<td id="title"><b>카페 연락처</b></td>
-			<td><sf:input path="cafe_tel" size="50" maxlength="50"/> <br/>
+			<td><sf:input path="cafe_tel" size="50" maxlength="50" placeholder="전화번호를 입력해 주세요."/> <br/>
 			<sf:errors path="cafe_tel" cssClass="error"/>
 			</td>
 		</tr>
