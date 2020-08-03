@@ -2,17 +2,32 @@ package com.sql.cafe.vo;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class ReviewVO {
 	private int review_id;
+	
+	@NotBlank(message="제목을 입력해주세요.")
+	@Size(min=3,max=20,message = "제목은 3~20자 이내로 입력해 주세요.")
 	private String review_name;
+	
 	private String user_id;
 	private int cafe_id;
+	
+	@NotBlank(message="비밀번호를 입력해 주세요.")
+	@Size(min=4,max=10,message = "비밀번호는 4~10자로 입력해 주세요.")
 	private String password;
+	
 	private Date create_time;
+	
+	@NotBlank(message="내용을 입력해 주세요.")
+	@Size(min=5,max=2000,message = "내용은 5~2000자 까지 입력 할 수 있습니다.")
 	private String content;
+	
 	private double stars;
 	private double star_taste;
 	private double star_mood;
