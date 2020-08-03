@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
-Built-By: idvan
+Built-By: copy1
+>>>>>>> origin/sik1
 Build-Jdk: 1.8.0_251
 Created-By: Maven Integration for Eclipse
 
