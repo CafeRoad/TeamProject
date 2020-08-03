@@ -1,5 +1,6 @@
 package com.sql.cafe.controller;
 
+import javax.jws.WebParam.Mode;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -22,13 +23,27 @@ public class NoticeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
 
+	
+	
+	// 공지사항으로 이동.
+	@RequestMapping(value = "/noticeList", method = RequestMethod.GET)
+	public String noticeList(Model model) {
+
+		logger.info("noticeList called!");
+
+		model.addAttribute("content", "notice/noticeListForm");
+		return "main";
+	}
+	
+	
 	@RequestMapping(value = "/showNoticeForm", method = RequestMethod.GET)
 	public String showNoticeForm(Model model) {
 		logger.info("noticeForm");
 		model.addAttribute("noticeVOWrite", new NoticeVO());
-		return "/noticeWriteForm";
+		return "/noticeListForm";
 
 	}
+
 
 //	@RequestMapping(value = "/notice/noticeWriteAction", method = RequestMethod.POST)
 //	public String noticeAction(@ModelAttribute("newNoticeVO") @Valid) {
