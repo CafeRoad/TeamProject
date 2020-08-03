@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<!-- Three -->
+	<!-- Three 
 	<section id="three" class="wrapper style2">
 		<div class="inner">
 			<header class="align-center">
@@ -30,4 +30,4 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section>-->
