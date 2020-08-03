@@ -202,7 +202,7 @@ public interface CafeMapper {
 	int deleteFromAddedCafe(@Param("cafe_id") String cafe_id);
 
 	// 지역이나 이름으로 카페 검색.
-	final String SEARCH_BY_CAFE_NAME = "select * from cafe where cafe_name like concat('%',#{search},'%')";
+	final String SEARCH_BY_CAFE_NAME = "select * from cafe where cafe_name like concat('%',#{search},'%') or gu like concat('%',#{search},'%') or address like concat('%',#{search},'%')";
 
 	@Select(SEARCH_BY_CAFE_NAME)
 	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),

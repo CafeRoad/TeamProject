@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	<c:url var="owner" value="OWNER"/>
-	<c:url var="admin" value="ADMIN"/>
-    <style type="text/css">
+<c:url var="owner" value="OWNER" />
+<c:url var="admin" value="ADMIN" />
+<link
+	href="${pageContext.request.contextPath}/resources/assets/css/test.css?ver=3"
+	rel="stylesheet" type="text/css" />
+<style type="text/css">
 #info {
 	width: 700px;
 	margin-left: 150;
@@ -15,10 +18,10 @@
 #title {
 	vertical-align: middle;
 	text-align: center;
-	height : 50px;
-	width : 150px;
-	
+	height: 50px;
+	width: 150px;
 }
+
 ol, ul {
 	list-style: none;
 	margin: 0;
@@ -28,88 +31,89 @@ ol, ul {
 	font: inherit;
 	vertical-align: baseline;
 }
+
+hr {
+	width: 80%;
+}
+
+#introNone{
+text-align : left;
+}
+
+#etc{
+margin-bottom : px;
+}
 </style>
 
 <center>
-	<br> <br> <b><font size="6" color="gray">${cafeListTitle}</font></b>
-	<br><br> <br>
-		<c:if test="${CafeList.size() == 0}">
+	<br><br><br><br> <br> <b><font size="6" color="gray">${cafeListTitle}</font></b>
+	<br> 
+	<c:if test="${CafeList.size() == 0}">
 		카페가 없습니다.
 		</c:if>
-	
+
 	<c:forEach var="cafe" items="${CafeList}">
-	<table id="info">
-		<div class="example">
-			<a href="${pageContext.request.contextPath}/resources/assets/cafeimg/${cafe.getCafe_id() }/${cafe.getImg_main() }" data-lightbox="image-1" title="${cafe.getCafe_name() }"><img width="400" height="400" src="${pageContext.request.contextPath}/resources/assets/cafeimg/${cafe.getCafe_id() }/${cafe.getImg_main() }" /></a>
-		</div>
-		<tr>
-			<td id="title">카페 아이디</td>
-			<td>${cafe.getCafe_id() }</td>
-		</tr>
 
-		<tr>
-			<td id="title">오너 아이디</td>
-			<td>${cafe.getOwner_id() }</td>
-		</tr>
-		<tr>
-			<td id="title">카페 이름</td>
-			<td><button type="button" class="btn btn-warning" onclick="location.href='/cafe/cafe/getSpecificCafe?cafe_id=${cafe.getCafe_id() }'">${cafe.getCafe_name() }</button></td>
-		</tr>
-		<tr>
-			<td id="title">카페 위지</td>
-			<td>${cafe.getGu() }, ${cafe.getAddress() }</td>
-		</tr>
+		<main class="mn-toplist pg-toplist" data-restaurant_count="15">
+			<article class="contents">
 
-		<tr>
-			<td id="title">카페 행사여부</td>
-			<td>${cafe.isEvent() }</td>
-		</tr>
+				<div class="container-list" id="contents_width">
+					<div class="inner">
+						<div class="ad_placeholder" data-platform="web_desktop"
+							data-page="toplist" data-inventory="right_space"></div>
 
-		<tr>
-			<td id="title">카페 홈페이지 주소</td>
-			<td>${cafe.getHomepage() }</td>
-		</tr>
-		<tr>
-			<td id="title">카페 소개글</td>
-			<td>${cafe.getIntro() }</td>
-		</tr>
-		<tr>
-			<td id="title">콘센트</td>
-			<td>${cafe.isConcent() }</td>
-		</tr>
-		<tr>
-			<td id="title">반려동물 허용</td>
-			<td>${cafe.isPet() }</td>
-		</tr>
-		<tr>
-			<td id="title">와이파이</td>
-			<td>${cafe.isWifi() }</td>
-		</tr>
-		<tr>
-			<td id="title">주차장 여부</td>
-			<td>${cafe.isParking_zone() }</td>
-		</tr>
-		<tr>
-			<td id="title">흠연실 여부</td>
-			<td>${cafe.isSmoking_room() }</td>
-		</tr>
-		<tr>
-			<td id="title">화장실</td>
-			<td>${cafe.isToilet() }</td>
-		</tr>
-		<tr>
-			<td id="title">카페 등록일</td>
-			<td>${cafe.getCreate_time() }</td>
-		</tr>
+						<!-- 해당 레스토랑 목록 -->
+						<section id="contents_list">
 
-	</table>
-	<button type="button" class="btn btn-warning" onclick="location.href='/cafe/cafe/toggleFavorite?cafe_id=${cafe.getCafe_id() }'">즐겨찾기</button>
+							<ul
+								class="list-restaurants type-single-big top_list_restaurant_list">
+								<li class="toplist_list">
+									<div class="with-review">
 
-	<hr/>
+
+										<figure class="restaurant-item">
+											<a href="/cafe/cafe/getSpecificCafe?cafe_id="
+												${cafe.getCafe_id() }>
+												<div class="thumb">
+													<img class="center-croping lazy"
+														src="${pageContext.request.contextPath}/resources/assets/cafeimg/${cafe.getCafe_id() }/${cafe.getImg_main() }" />
+												</div>
+											</a>
+											<figcaption>
+												<div class="info">
+													<span class="title "> <a href="/cafeimg/im1.jpg">
+															<h3>${cafe.getCafe_name() }</h3>
+													</a>
+													</span> <strong class="point  "> <span>평점란</span>
+													</strong>
+													<p id="etc">${cafe.getGu() },${cafe.getAddress() }</p>
+												</div>
+											</figcaption>
+										</figure>
+
+
+										<div class="review-content no-bottom">
+
+											<figure class="users">
+												<figcaption id="introNone">${cafe.getIntro() }</figcaption>
+											</figure>
+
+										</div>
+
+									</div>
+								</li>
+							</ul>
+						</section>
+					</div>
+				</div>
+			</article>
+		</main>
+		<hr />
 	</c:forEach>
 	<br>
 	<c:if test="${signUpCafe != null}">
-		<input type="button" class="btn btn-warning" value="카페 등록하기" onClick="location.href='/cafe/cafe/signUp'">
+		<input type="button" class="btn btn-warning" value="카페 등록하기"
+			onClick="location.href='/cafe/cafe/signUp'">
 	</c:if>
 </center>
 <br>

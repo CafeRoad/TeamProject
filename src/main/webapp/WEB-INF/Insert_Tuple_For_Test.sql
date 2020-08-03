@@ -20,7 +20,7 @@ delete from member where id like '?%';
 delete from favorite;
 delete from review;
 
-update cafe set img_main = "main", img01 = "01", img02 = "02", img03 = "03", img04 = "04", img05 = "05", img06 = "06";
+update cafe set img_main = "main.jpg", img01 = "01.jpg", img02 = "02.jpg", img03 = "03.jpg", img04 = "04.jpg", img05 = "05.jpg", img06 = "06.jpg";
 
 select * from cafe;
 	

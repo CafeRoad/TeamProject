@@ -193,10 +193,7 @@ select, input {
 	vertical-align: top
 }
 
-hr {
-	display: none;
-	border: 0 none
-}
+
 
 ol, ul, ul li {
 	list-style: none
@@ -6741,7 +6738,7 @@ background-position
 	width: 70px;
 	font-size: 0.625rem;
 	color: #cbcbcb;
-	text-align: center
+	/*text-align: center;*/
 }
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
@@ -10329,7 +10326,7 @@ background-position
 .mn-toplist .facebook_comments .fb_comment_write_wrap {
 	overflow: hidden;
 	display: flex;
-	margin: 20px auto 10px;
+	margin: 10px auto;
 	padding-bottom: 15px;
 	border-bottom: 1px solid rgba(51, 51, 51, 0.2)
 }
