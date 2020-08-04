@@ -13,7 +13,7 @@
 		<li><a href="/cafe/login">로그인</a></li>
 		<li><a href="/cafe/joinChoice">회원가입</a></li>
 	</c:if>
-		
+		<li><a href="/cafe/noticeList">공지사항</a></li>
 	<c:if test="${signedMember.getId() != null}">
 		<li>[<c:out value="${signedMember.getAuthority() }" />] <c:out value="${signedMember.getId() }" />님 환영합니다.</li>
 		<li><a href="/cafe/myPage">마이페이지</a></li>
@@ -34,7 +34,6 @@
 		<li><a href="/cafe/searchWaitingCafes">승인 대기중인 카페</a></li>
 	</c:if>
 	
-		<li><a href="/cafe/컨트롤러 미구현, 리스트로.">공지사항</a></li>
 		<li><a href="/cafe/logout">로그아웃</a></li>
 		<li><a href="/cafe/deleteForm">회원 탈퇴</a></li>
 	</c:if>
