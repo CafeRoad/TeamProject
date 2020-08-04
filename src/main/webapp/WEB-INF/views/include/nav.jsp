@@ -34,7 +34,7 @@
 		<li><a href="/cafe/searchWaitingCafes">승인 대기중인 카페</a></li>
 	</c:if>
 	
-		<li><a href="/cafe/컨트롤러 미구현">공지사항</a></li>
+		<li><a href="/cafe/컨트롤러 미구현, 리스트로.">공지사항</a></li>
 		<li><a href="/cafe/logout">로그아웃</a></li>
 		<li><a href="/cafe/deleteForm">회원 탈퇴</a></li>
 	</c:if>

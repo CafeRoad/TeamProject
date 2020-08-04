@@ -110,6 +110,76 @@ margin-bottom : px;
 		<hr />
 	</c:forEach>
 	<br>
+	<!-- 페이징 -->
+	<table cellspacing=1 width=700 border=1>
+	<tr>
+		<td>
+		<center>
+		<c:if test="${serachPage }">
+			<c:forEach var="i" begin="1" end="${t_pages }">
+				<a href="/cafe/search?search=${search }&nowPage=${i }">[
+					<c:if test="${i == nowPage }"><b></c:if>		
+					${i }	
+					<c:if test="${i == nowPage }"></b></c:if>			
+			]	</a>
+			</c:forEach>
+		</c:if>
+		
+		<c:if test="${AllAddedCafe }">
+			<c:forEach var="i" begin="1" end="${t_pages }">
+				<a href="/cafe/searchAddedCafes?nowPage=${i }">[
+					<c:if test="${i == nowPage }"><b></c:if>		
+					${i }	
+					<c:if test="${i == nowPage }"></b></c:if>			
+			]	</a>
+			</c:forEach>
+		</c:if>
+		
+		<c:if test="${AllWaitingCafe }">
+			<c:forEach var="i" begin="1" end="${t_pages }">
+				<a href="/cafe/searchWaitingCafes?nowPage=${i }">[
+					<c:if test="${i == nowPage }"><b></c:if>		
+					${i }	
+					<c:if test="${i == nowPage }"></b></c:if>			
+			]	</a>
+			</c:forEach>
+		</c:if>
+		
+		<c:if test="${ownerAddedCafe }">
+			<c:forEach var="i" begin="1" end="${t_pages }">
+				<a href="/cafe/searchMyAddedCafes?nowPage=${i }">[
+					<c:if test="${i == nowPage }"><b></c:if>		
+					${i }	
+					<c:if test="${i == nowPage }"></b></c:if>			
+			]	</a>
+			</c:forEach>
+		</c:if>
+		
+		<c:if test="${ownerWaitingCafe}">
+			<c:forEach var="i" begin="1" end="${t_pages }">
+				<a href="/cafe/searchMyWaitingCafes?nowPage=${i }">[
+					<c:if test="${i == nowPage }"><b></c:if>		
+					${i }	
+					<c:if test="${i == nowPage }"></b></c:if>			
+			]	</a>
+			</c:forEach>
+		</c:if>
+		
+		<c:if test="${MyFavoriteCafe}">
+			<c:forEach var="i" begin="1" end="${t_pages }">
+				<a href="/cafe/myPavoriteCafe?nowPage=${i }">[
+					<c:if test="${i == nowPage }"><b></c:if>		
+					${i }	
+					<c:if test="${i == nowPage }"></b></c:if>			
+			]	</a>
+			</c:forEach>
+		</c:if>
+		</center>
+		</td>
+	</tr>
+</table>
+	
+	
 	<c:if test="${signUpCafe != null}">
 		<input type="button" class="btn btn-warning" value="카페 등록하기"
 			onClick="location.href='/cafe/cafe/signUp'">

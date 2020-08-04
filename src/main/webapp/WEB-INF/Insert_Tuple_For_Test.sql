@@ -22,7 +22,7 @@ delete from review;
 
 update cafe set img_main = "main.jpg", img01 = "01.jpg", img02 = "02.jpg", img03 = "03.jpg", img04 = "04.jpg", img05 = "05.jpg", img06 = "06.jpg";
 
-select * from cafe;
+select * from cafe limit 0, 10;
 	
 select * from cafe where cafe_name like '%이디%';
 select * from cafe where cafe_name like '%용%' or gu like '%용%' ;
