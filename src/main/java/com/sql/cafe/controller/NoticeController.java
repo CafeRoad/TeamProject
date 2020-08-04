@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -35,14 +34,18 @@ public class NoticeController {
 		return "main";
 	}
 	
-	
-	@RequestMapping(value = "/showNoticeForm", method = RequestMethod.GET)
-	public String showNoticeForm(Model model) {
-		logger.info("noticeForm");
-		model.addAttribute("noticeVOWrite", new NoticeVO());
-		return "/noticeListForm";
+	// 공지사항 글쓰기 폼 으로 이동.
+	@RequestMapping(value = "/noticeWriteForm", method = RequestMethod.GET)
+	public String noticeWirteForm(Model model) {
 
+		logger.info("noticeWirteForm called!");
+		model.addAttribute("noticeVOWrite", new NoticeVO());
+
+		model.addAttribute("content", "notice/noticeWriteForm");
+		return "main";
 	}
+	
+
 
 
 //	@RequestMapping(value = "/notice/noticeWriteAction", method = RequestMethod.POST)
