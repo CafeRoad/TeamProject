@@ -18,6 +18,7 @@
 	text-align: center;
 	height: 50px;
 	width: 150px;
+	margin: 0px auto;
 }
 </style>
 
@@ -27,7 +28,7 @@
 	<center>
 		<br> <b><font size="6" color="gray">아이디 찾기</font></b> <br> <br>
 		<table id="login">
-
+		
 			<tr>
 				<td id="title"><b>이름</b></td>
 				<td><sf:input id="loname" autofocus="autofocus" path="id"
