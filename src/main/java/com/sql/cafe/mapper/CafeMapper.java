@@ -25,7 +25,7 @@ public interface CafeMapper {
 	String getNowCafeId();
 
 	// 오너 아이디로 오너의 등록 대기중인 카페 정보 검색.
-	final String SELECT_WAITING_CAFES_BY_OWNER_ID = "select * from cafe where owner_id = #{owner_id} and approval = 0";
+	final String SELECT_WAITING_CAFES_BY_OWNER_ID = "select * from (select * from cafe where owner_id = #{owner_id} and approval = 0) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id";
 
 	@Select(SELECT_WAITING_CAFES_BY_OWNER_ID)
 	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
@@ -41,12 +41,12 @@ public interface CafeMapper {
 			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
 			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
 			@Result(property = "lat", column = "lat"), @Result(property = "lin", column = "lin"),
-			@Result(property = "operating_time", column = "operating_time"),
+			@Result(property = "operating_time", column = "operating_time"),@Result(property = "avg_star", column = "avg_star"),
 			@Result(property = "approval", column = "approval"), @Result(property = "cafe_tel", column = "cafe_tel") })
 	ArrayList<CafeVO> selectWaitingCafesByOwnerId(@Param("owner_id") String owner_id);
 
 	// 오너 아이디로 오너의 등록된 카페 정보 검색.
-	final String SELECT_ADDED_CAFES_BY_OWNER_ID = "select * from cafe where owner_id = #{owner_id} and approval = 1";
+	final String SELECT_ADDED_CAFES_BY_OWNER_ID = "select * from (select * from cafe where owner_id = #{owner_id} and approval = 1) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id";
 
 	@Select(SELECT_ADDED_CAFES_BY_OWNER_ID)
 	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
@@ -62,12 +62,12 @@ public interface CafeMapper {
 			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
 			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
 			@Result(property = "lat", column = "lat"), @Result(property = "lin", column = "lin"),
-			@Result(property = "operating_time", column = "operating_time"),
+			@Result(property = "operating_time", column = "operating_time"),@Result(property = "avg_star", column = "avg_star"),
 			@Result(property = "approval", column = "approval"), @Result(property = "cafe_tel", column = "cafe_tel") })
 	ArrayList<CafeVO> selectAddedCafesByOwnerId(@Param("owner_id") String owner_id);
 
 	// 승인을 위해 승인 대기중인 모든 카페 리스트 검색.
-	final String SELECT_ALL_FROM_WAITING_CAFE = "select * from cafe where approval = 0";
+	final String SELECT_ALL_FROM_WAITING_CAFE = "select * from (select * from cafe where approval = 0) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id";
 
 	@Select(SELECT_ALL_FROM_WAITING_CAFE)
 	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
@@ -83,12 +83,12 @@ public interface CafeMapper {
 			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
 			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
 			@Result(property = "lat", column = "lat"), @Result(property = "lin", column = "lin"),
-			@Result(property = "operating_time", column = "operating_time"),
+			@Result(property = "operating_time", column = "operating_time"),@Result(property = "avg_star", column = "avg_star"),
 			@Result(property = "approval", column = "approval"), @Result(property = "cafe_tel", column = "cafe_tel") })
 	ArrayList<CafeVO> selectAllFromWaitingCafe();
 
 	// 검색을 위해 승인된 모든 카페 리스트 검색.
-	final String SELECT_ALL_FROM_ADDED_CAFE = "select * from cafe where approval = 1";
+	final String SELECT_ALL_FROM_ADDED_CAFE = "select * from (select * from cafe where approval = 1) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id";
 
 	@Select(SELECT_ALL_FROM_ADDED_CAFE)
 	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
@@ -104,12 +104,12 @@ public interface CafeMapper {
 			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
 			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
 			@Result(property = "lat", column = "lat"), @Result(property = "lin", column = "lin"),
-			@Result(property = "operating_time", column = "operating_time"),
+			@Result(property = "operating_time", column = "operating_time"),@Result(property = "avg_star", column = "avg_star"),
 			@Result(property = "approval", column = "approval"), @Result(property = "cafe_tel", column = "cafe_tel") })
 	ArrayList<CafeVO> selectAllFromAddedCafe();
 
 	// 승인을 위해 카페를 선택하여 해당 카페아이디로 카페 정보 검색.
-	final String SELECT_WAITING_CAFES_BY_CAFE_ID = "select * from cafe where cafe_id = #{cafe_id} and approval = 0";
+	final String SELECT_WAITING_CAFES_BY_CAFE_ID = "select * from (select * from cafe where cafe_id = #{cafe_id} and approval = 0) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id";
 
 	@Select(SELECT_WAITING_CAFES_BY_CAFE_ID)
 	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
@@ -125,12 +125,12 @@ public interface CafeMapper {
 			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
 			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
 			@Result(property = "lat", column = "lat"), @Result(property = "lin", column = "lin"),
-			@Result(property = "operating_time", column = "operating_time"),
+			@Result(property = "operating_time", column = "operating_time"),@Result(property = "avg_star", column = "avg_star"),
 			@Result(property = "approval", column = "approval"), @Result(property = "cafe_tel", column = "cafe_tel") })
 	CafeVO selectWaitingCafeByCafeId(@Param("cafe_id") String cafe_id);
 
 	// 특정 카페 선택시 카페 아이디로 등록된 특정 카페 정보 검색.
-	final String SELECT_ADDED_CAFES_BY_CAFE_ID = "select * from cafe where cafe_id = #{cafe_id} and approval = 1";
+	final String SELECT_ADDED_CAFES_BY_CAFE_ID = "select * from (select * from cafe where cafe_id = #{cafe_id} and approval = 1) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id";
 
 	@Select(SELECT_ADDED_CAFES_BY_CAFE_ID)
 	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
@@ -146,7 +146,7 @@ public interface CafeMapper {
 			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
 			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
 			@Result(property = "lat", column = "lat"), @Result(property = "lin", column = "lin"),
-			@Result(property = "operating_time", column = "operating_time"),
+			@Result(property = "operating_time", column = "operating_time"),@Result(property = "avg_star", column = "avg_star"),
 			@Result(property = "approval", column = "approval"), @Result(property = "cafe_tel", column = "cafe_tel") })
 	CafeVO selectAddedCafeByCafeId(@Param("cafe_id") String cafe_id);
 
@@ -163,7 +163,7 @@ public interface CafeMapper {
 	int deleteFavorite(@Param("user_id") String user_id, @Param("cafe_id") String cafe_id);
 
 	// 즐겨찾기한 카페들의 정보를 검색.
-	final String MY_FAVORITE_CAFES = "seletct * from cafe where cafe_id in (select cafe_id from favorite where user_id = #{user_id})";
+	final String MY_FAVORITE_CAFES = "select * from (seletct * from cafe where cafe_id in (select cafe_id from favorite where user_id = #{user_id})) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id";
 
 	@Select(MY_FAVORITE_CAFES)
 	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
@@ -179,7 +179,7 @@ public interface CafeMapper {
 			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
 			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
 			@Result(property = "lat", column = "lat"), @Result(property = "lin", column = "lin"),
-			@Result(property = "operating_time", column = "operating_time"),
+			@Result(property = "operating_time", column = "operating_time"),@Result(property = "avg_star", column = "avg_star"),
 			@Result(property = "approval", column = "approval"), @Result(property = "cafe_tel", column = "cafe_tel") })
 	ArrayList<CafeVO> myFavoriteCafes(@Param("user_id") String user_id);
 
@@ -202,7 +202,7 @@ public interface CafeMapper {
 	int deleteFromAddedCafe(@Param("cafe_id") String cafe_id);
 
 	// 지역이나 이름으로 카페 검색.
-	final String SEARCH_BY_CAFE_NAME = "select * from cafe where cafe_name like concat('%',#{search},'%') or gu like concat('%',#{search},'%') or address like concat('%',#{search},'%')";
+	final String SEARCH_BY_CAFE_NAME = "select * from (select * from cafe where cafe_name like concat('%',#{search},'%') or gu like concat('%',#{search},'%') or address like concat('%',#{search},'%')) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id";
 
 	@Select(SEARCH_BY_CAFE_NAME)
 	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
@@ -218,7 +218,7 @@ public interface CafeMapper {
 			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
 			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
 			@Result(property = "lat", column = "lat"), @Result(property = "lin", column = "lin"),
-			@Result(property = "operating_time", column = "operating_time"),
+			@Result(property = "operating_time", column = "operating_time"),@Result(property = "avg_star", column = "avg_star"),
 			@Result(property = "approval", column = "approval"), @Result(property = "cafe_tel", column = "cafe_tel") })
 	ArrayList<CafeVO> searchByCafe(@Param("search") String search);
 

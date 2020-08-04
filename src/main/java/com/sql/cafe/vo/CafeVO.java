@@ -51,6 +51,9 @@ public class CafeVO {
 	//즐겨찾기용 유저 아이디
 	private String user_id;
 	
+	//별점 평균을 출력하기 위한 변수.
+	private double avg_star;
+	
 	public String getCafe_id() {
 		return cafe_id;
 	}
@@ -274,6 +277,16 @@ public class CafeVO {
 	public void setCafe_tel(String cafe_tel) {
 		this.cafe_tel = cafe_tel;
 	}
+
+	public double getAvg_star() {
+		return avg_star;
+	}
+
+	public void setAvg_star(double avg_star) {
+		this.avg_star = avg_star;
+	}
+	
+	
 	
 	
 

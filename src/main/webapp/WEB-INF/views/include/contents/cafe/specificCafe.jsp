@@ -4,10 +4,18 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:url var="owner" value="OWNER" />
 <c:url var="admin" value="ADMIN" />
+<c:url var="user" value="USER"/>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+<style type="text/css">
+strong {
+	font-weight: normal;
+	color : #ed7d31;
+}
+</style>
 
 <script text="javascript/text">
 	$(document)
@@ -125,7 +133,7 @@ height:400px;
 			title="${thisCafe.getCafe_name() }"><img width="300" height="300"
 				src="${pageContext.request.contextPath}/resources/assets/cafeimg/${thisCafe.getCafe_id() }/${thisCafe.getImg_main() }" /></a></th>
 		<td height="30px"><br />
-			<h2>${thisCafe.getCafe_name() }</h2></td>
+			<h2>${thisCafe.getCafe_name() } <strong class="point  "> <span>${thisCafe.getAvg_star() }</span></strong></h2></td>
 	</tr>
 	<tr>
 		<td>카페소개<br>${thisCafe.getIntro() }</td>
@@ -250,11 +258,12 @@ height:400px;
 	page="/WEB-INF/views/include/contents/review/reviewsList.jsp"></jsp:include>
 
 <!-- 리뷰 쓰는 폼 . include -->
+<c:if test="${signedMember.getAuthority().equals(user)}">
 <c:if test="${newReviewVO != null }">
 	<jsp:include
 		page="/WEB-INF/views/include/contents/review/newReviewForm.jsp"></jsp:include>
 </c:if>
-
+</c:if>
 <hr/>
  
 <div id="map"></div>

@@ -72,8 +72,7 @@ margin-bottom : px;
 
 
 										<figure class="restaurant-item">
-											<a href="/cafe/cafe/getSpecificCafe?cafe_id="
-												${cafe.getCafe_id() }>
+											<a href="/cafe/cafe/getSpecificCafe?cafe_id=${cafe.getCafe_id() }">
 												<div class="thumb">
 													<img class="center-croping lazy"
 														src="${pageContext.request.contextPath}/resources/assets/cafeimg/${cafe.getCafe_id() }/${cafe.getImg_main() }" />
@@ -81,10 +80,10 @@ margin-bottom : px;
 											</a>
 											<figcaption>
 												<div class="info">
-													<span class="title "> <a href="/cafeimg/im1.jpg">
+													<span class="title "> <a href="/cafe/cafe/getSpecificCafe?cafe_id=${cafe.getCafe_id() }">
 															<h3>${cafe.getCafe_name() }</h3>
 													</a>
-													</span> <strong class="point  "> <span>평점란</span>
+													</span> <strong class="point  "> <span>${cafe.getAvg_star() }</span>
 													</strong>
 													<p id="etc">${cafe.getGu() },${cafe.getAddress() }</p>
 												</div>

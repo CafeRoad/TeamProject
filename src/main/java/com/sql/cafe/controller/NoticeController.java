@@ -26,7 +26,7 @@ public class NoticeController {
 	public String showNoticeForm(Model model) {
 		logger.info("noticeForm");
 		model.addAttribute("noticeVOWrite", new NoticeVO());
-		return "/noticeWriteForm";
+		return "notice/noticeWriteForm";
 
 	}
 

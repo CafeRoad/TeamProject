@@ -34,3 +34,5 @@ select * from (select * from review where user_id = 'test11') a, (select cafe_id
 select * from cafe where cafe_name like concat('%',#{search},'%')
 select * from cafe where cafe_name like concat('%','이','%')
 select * from cafe where cafe_name like '%디%'
+
+select * from (select * from cafe where cafe_id = 1) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id;
