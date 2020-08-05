@@ -15,6 +15,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -81,6 +82,16 @@ public class NoticeController {
 			model.addAttribute("content", "notice/noticeListForm");
 			return "main";
 		}
+		return "main";
+	}
+	
+	//공지사항 상세보기.
+	@RequestMapping(value = "/notice/noticeRead", method = RequestMethod.GET)
+	public String noticeRead(Model model, @RequestParam("notice_id") String notice_id) {
+		
+		logger.info("noticeRead called!");	
+		model.addAttribute("noticeread", noticeService.readNotice(notice_id));
+		model.addAttribute("content", "notice/noticeReadForm");
 		return "main";
 	}
 

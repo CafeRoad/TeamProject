@@ -24,6 +24,11 @@ public class NoticeService {
 
 	}
 	
+	public NoticeVO readNotice(String notice_id) {
+		return noticeMapper.selecttnoticeread(notice_id);
+		
+	}
+	
 //	public int deletenotice(String admin_id, String password) {
 //		return noticeMapper.deleteFromNotice(admin_id, password);
 //		
