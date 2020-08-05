@@ -88,7 +88,7 @@ public class NoticeController {
 
 			rttr.addFlashAttribute("msg", "공지가 등록되었습니다.");
 			model.addAttribute("content", "notice/noticeListForm");
-			return "main";
+			return "redirect:/noticeList";
 		}
 		return "main";
 	}
