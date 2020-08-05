@@ -25,9 +25,12 @@ public class NoticeService {
 
 	}
 	
-	public int deletenotice(String admin_id, String password) {
-		return noticeMapper.deleteFromNotice(admin_id, password);
+	public int delete(String notice_id) {
+		return noticeMapper.delete(notice_id);
 		
 	}
+
+
+
 
 }

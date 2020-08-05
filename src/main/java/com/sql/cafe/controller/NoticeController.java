@@ -53,6 +53,15 @@ public class NoticeController {
 		return "main";
 	}
 
+	@RequestMapping(value = "/deleteFromNotice", method = RequestMethod.GET)
+	public String delete(Model model, String notice_id) {
+		noticeService.delete(notice_id);
+		model.addAttribute("content", "notice/noticeListForm");
+		
+		return "main";
+
+	}
+
 	@RequestMapping(value = "/notice/noticeWriteAction", method = RequestMethod.POST)
 	public String noticeWriteAction(@ModelAttribute("newNoticeVO") @Valid NoticeVO newNoticeVO,
 			BindingResult bidingResult, Model model, String notice_id, @SessionAttribute MemberVO signedMember,

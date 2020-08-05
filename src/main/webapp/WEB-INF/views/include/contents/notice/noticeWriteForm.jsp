@@ -15,6 +15,13 @@
             font-size : 12;
             text-align :center;
         }
+   
+ .wb{
+ 
+  margin-left:100px;
+ }
+   
+   
     </style>
     
 </head>
@@ -23,10 +30,10 @@
     <br>
     <b><font size="6" color="gray">글쓰기</font></b>
     <br>
-    
+  
     <form method="post" action="BoardWriteAction.bo" name="boardForm" enctype="multipart/form-data">
     <input type="hidden" name="board_id" value="${sessionScope.sessionID}">
-    <table width="700" border="3" bordercolor="lightgray" align="center">
+    <table class = "wb" border="1" bordercolor="lightgray" align="center">
         <tr>
             <td id="title">작성자</td>
             <td>${sessionScope.sessionID}</td>
@@ -36,7 +43,7 @@
                 제 목
             </td>
             <td>
-                <input name="board_subject" type="text" size="70" maxlength="100" value=""/>
+                <input name="board_subject" type="text" size="10" maxlength="100" value=""/>
             </td>        
         </tr>
         <tr>
