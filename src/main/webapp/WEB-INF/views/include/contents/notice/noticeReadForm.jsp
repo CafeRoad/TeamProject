@@ -51,7 +51,7 @@
 				onclick="location.href='/cafe/noticedelete?notice_id=${noticeread.getNotice_id()}'">
 			</c:if>
 			
-			<input type="button" value="목록" onclick="history.back()">
+			<input type="button" value="목록" onclick="location.href='/cafe/noticeList'">
 			</td>
 		</tr>
 	</table>
