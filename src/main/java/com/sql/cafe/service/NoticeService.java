@@ -1,5 +1,7 @@
 package com.sql.cafe.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +19,11 @@ public class NoticeService {
 		noticeMapper.insertToNotice(noticeVO);
 	}
 	
-//	public ArrayList<NoticeVO> selectByNoticeId(String notice_id) {
-//		return noticeMapper.selectByNoticeID(notice_id);
-//
-//	}
-//	
+	public ArrayList<NoticeVO> selectByNotice() {
+		return noticeMapper.selecttnoticelist();
+
+	}
+	
 //	public int deletenotice(String admin_id, String password) {
 //		return noticeMapper.deleteFromNotice(admin_id, password);
 //		

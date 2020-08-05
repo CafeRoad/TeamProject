@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:url var="admin" value="ADMIN" />
 <style type="text/css">
@@ -45,13 +46,14 @@
 				<td>작성자</td>
 				<td>작성일</td>
 			</tr>
-
-			<tr>
-				<td>1</td>
-				<td>리스트 테스트</td>
-				<td>관리자</td>
-				<td>2020.08.10</td>
-			</tr>
+			<c:forEach items="${noticelist}" var="notice">
+				<tr>
+					<td>${notice.getNotice_id() }</td>
+					<td>${notice.getContent() }</td>
+					<td>관리자</td>
+					<td><fmt:formatDate pattern="yyyy-mm-dd" value="${notice.getCreate_time()}"/></td>
+				</tr>
+			</c:forEach>
 		</table>
 	</div>
 </div>

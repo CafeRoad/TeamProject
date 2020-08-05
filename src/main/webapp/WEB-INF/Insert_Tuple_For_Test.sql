@@ -8,7 +8,7 @@ insert into member values("test22","aa1234","nobita@naver.com","테스터","실�
 
   
 
-select * from member;
+select * from notice;
 
 update member set password="doraemonn" where id="nobita";
 

@@ -36,7 +36,10 @@ public class NoticeController {
 	public String noticeList(Model model) {
 
 		logger.info("noticeList called!");
-
+		// 매퍼에 셀렉트 올 작성.
+		// 서비스가 매퍼의 메서드 실행.
+		// 여기 컨트롤러에서 
+		model.addAttribute("noticelist",noticeService.selectByNotice());
 		model.addAttribute("content", "notice/noticeListForm");
 		return "main";
 	}
