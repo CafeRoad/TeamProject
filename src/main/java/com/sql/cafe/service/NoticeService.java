@@ -15,19 +15,19 @@ public class NoticeService {
 	@Autowired
 	private NoticeMapper noticeMapper;
 
-//	public void insertNotice(NoticeVO noticeVO) {
-//		// TODO Auto-generated method stub
-//		noticeMapper.insertNotice(noticeVO);
+	public void insertNotice(NoticeVO noticeVO) {
+		// TODO Auto-generated method stub
+		noticeMapper.insertNotice(noticeVO);
+	}
+	
+//	public ArrayList<NoticeVO> selectByNoticeId(String notice_id) {
+//		return noticeMapper.selectByNoticeID(notice_id);
+//
 //	}
-	
-	public ArrayList<NoticeVO> selectByNoticeId(String notice_id) {
-		return noticeMapper.selectByNoticeID(notice_id);
-
-	}
-	
-	public int deletenotice(String admin_id, String password) {
-		return noticeMapper.deleteFromNotice(admin_id, password);
-		
-	}
+//	
+//	public int deletenotice(String admin_id, String password) {
+//		return noticeMapper.deleteFromNotice(admin_id, password);
+//		
+//	}
 
 }
