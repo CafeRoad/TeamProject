@@ -53,16 +53,14 @@ public class NoticeController {
 		model.addAttribute("content", "notice/noticeWriteForm");
 		return "main";
 	}
-	
+	// 노티스 글 쓰는 동작.
 	@RequestMapping(value = "/notice/noticeWriteAction", method = RequestMethod.POST)
 	public String noticeWriteAction(@ModelAttribute("newNoticeVO") @Valid NoticeVO newNoticeVO, BindingResult bidingResult,
-			Model model, String notice_id, @SessionAttribute MemberVO signedMember, RedirectAttributes rttr)
+			Model model, @SessionAttribute MemberVO signedMember, RedirectAttributes rttr)
 			throws Exception {
 
-		logger.info("/review/noticeWriteAction called!");
+		logger.info("/notice/noticeWriteAction called!");
 
-		System.out.println("notice_id" + notice_id);
-		System.out.println("NoticeVO.getNotice_id" + newNoticeVO.getNotice_id());
 
 		if (bidingResult.hasErrors()) {
 			System.out.println("----------------------------error----------------------------");
@@ -72,18 +70,17 @@ public class NoticeController {
 			}
 			// 에러가 있으면 돌려보냄.
 			model.addAttribute("newNoticeVO", newNoticeVO);
+			model.addAttribute("content", "notice/noticeWriteForm");
 		} else {
 			newNoticeVO.setAdmin_id(signedMember.getId());
+			newNoticeVO.setPassword("12312");
+			noticeService.insertNotice(newNoticeVO);
 
-			newNoticeVO.setNotice_id(Integer.parseInt(notice_id));
-//			noticeService.insertNotice(newNoticeVO);
-
-			rttr.addFlashAttribute("msg", "리뷰가 등록되었습니다.");
-			// 마이페이지로..? 신청충인 카페 보는 뷰도 만들어야 함.
-			return "redirect:/cafe/getSpecificCafe?notice_id=" + notice_id;
-
+			rttr.addFlashAttribute("msg", "공지가 등록되었습니다.");
+			model.addAttribute("content", "notice/noticeListForm");
+			return "main";
 		}
-		return "redirect:/cafe/getSpecificCafe?notice_id=" + notice_id;
+		return "main";
 	}
 	
 

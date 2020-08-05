@@ -1,13 +1,10 @@
 package com.sql.cafe.service;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sql.cafe.mapper.NoticeMapper;
 import com.sql.cafe.vo.NoticeVO;
-import com.sql.cafe.vo.ReviewVO;
 
 @Service
 public class NoticeService {
@@ -17,7 +14,7 @@ public class NoticeService {
 
 	public void insertNotice(NoticeVO noticeVO) {
 		// TODO Auto-generated method stub
-		noticeMapper.insertNotice(noticeVO);
+		noticeMapper.insertToNotice(noticeVO);
 	}
 	
 //	public ArrayList<NoticeVO> selectByNoticeId(String notice_id) {
