@@ -1,6 +1,7 @@
 package com.sql.cafe.mapper;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -18,7 +19,7 @@ public interface  NoticeMapper {
 	@Insert(INSERT_TO_NOTICE)
 	int insertToNotice(NoticeVO noticeVO);
 	
-	final String SELECT_BY_NOTICE ="select * from notice";
+	final String SELECT_BY_NOTICE ="select * from notice order by notice_id desc";
 	@Select(SELECT_BY_NOTICE)
 	@Results(value = { @Result(property = "notice_id", column = "notice_id"),
 			@Result(property = "notice_name", column = "notice_name"), @Result(property = "user_id", column = "user_id"),
@@ -26,6 +27,15 @@ public interface  NoticeMapper {
 			@Result(property = "create_time", column = "create_time"), @Result(property = "admin_id", column = "admin_id"),
 			@Result(property = "content", column = "content")})
 	ArrayList<NoticeVO> selecttnoticelist();
+	
+	final String SELECT_BY_NOTICEREAD ="select * from notice where notice_id = #{notice_id}";
+	@Select(SELECT_BY_NOTICEREAD)
+	@Results(value = { @Result(property = "notice_id", column = "notice_id"),
+			@Result(property = "notice_name", column = "notice_name"), @Result(property = "user_id", column = "user_id"),
+			@Result(property = "cafe_id", column = "cafe_id"), @Result(property = "password", column = "password"),
+			@Result(property = "create_time", column = "create_time"), @Result(property = "admin_id", column = "admin_id"),
+			@Result(property = "content", column = "content")})
+	NoticeVO selecttnoticeread(@Param("notice_id") String notice_id);
 	
 	
 }

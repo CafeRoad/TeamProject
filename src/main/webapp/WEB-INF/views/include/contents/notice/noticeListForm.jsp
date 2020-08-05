@@ -49,9 +49,9 @@
 			<c:forEach items="${noticelist}" var="notice">
 				<tr>
 					<td>${notice.getNotice_id() }</td>
-					<td>${notice.getContent() }</td>
+					<td><a href="/cafe/notice/noticeRead?notice_id=${notice.getNotice_id() }">${notice.getNotice_name() }</a></td>
 					<td>관리자</td>
-					<td><fmt:formatDate pattern="yyyy-mm-dd" value="${notice.getCreate_time()}"/></td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.getCreate_time()}"/></td>
 				</tr>
 			</c:forEach>
 		</table>
