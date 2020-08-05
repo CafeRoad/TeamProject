@@ -39,8 +39,8 @@ public class NoticeController {
 		logger.info("noticeList called!");
 		// 매퍼에 셀렉트 올 작성.
 		// 서비스가 매퍼의 메서드 실행.
-		// 여기 컨트롤러에서 
-		model.addAttribute("noticelist",noticeService.selectByNotice());
+		// 여기 컨트롤러에서
+		model.addAttribute("noticelist", noticeService.selectByNotice());
 		model.addAttribute("content", "notice/noticeListForm");
 		return "main";
 	}
@@ -56,14 +56,22 @@ public class NoticeController {
 		model.addAttribute("content", "notice/noticeWriteForm");
 		return "main";
 	}
-	// 노티스 글 쓰는 동작.
+
+	@RequestMapping(value = "/noticedelete", method = RequestMethod.GET)
+	public String delete(Model model, @RequestParam("notice_id") String notice_id,RedirectAttributes rttr) {
+		
+		noticeService.delete(notice_id);
+		rttr.addFlashAttribute("msg", "공지사항이 삭제되었습니다.");
+		return "redirect:/noticeList";
+
+	}
+
 	@RequestMapping(value = "/notice/noticeWriteAction", method = RequestMethod.POST)
-	public String noticeWriteAction(@ModelAttribute("newNoticeVO") @Valid NoticeVO newNoticeVO, BindingResult bidingResult,
-			Model model, @SessionAttribute MemberVO signedMember, RedirectAttributes rttr)
+	public String noticeWriteAction(@ModelAttribute("newNoticeVO") @Valid NoticeVO newNoticeVO,
+			BindingResult bidingResult, Model model, @SessionAttribute MemberVO signedMember, RedirectAttributes rttr)
 			throws Exception {
 
 		logger.info("/notice/noticeWriteAction called!");
-
 
 		if (bidingResult.hasErrors()) {
 			System.out.println("----------------------------error----------------------------");
@@ -84,12 +92,12 @@ public class NoticeController {
 		}
 		return "main";
 	}
-	
-	//공지사항 상세보기.
+
+	// 공지사항 상세보기.
 	@RequestMapping(value = "/notice/noticeRead", method = RequestMethod.GET)
 	public String noticeRead(Model model, @RequestParam("notice_id") String notice_id) {
-		
-		logger.info("noticeRead called!");	
+
+		logger.info("noticeRead called!");
 		model.addAttribute("noticeread", noticeService.readNotice(notice_id));
 		model.addAttribute("content", "notice/noticeReadForm");
 		return "main";

@@ -47,8 +47,8 @@
    </div>
    
    <div class="prices">
-   <div class="price-item">
-  <img alt="" img src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+   <div class="price-item"><a href="/cafe/article?article_name=article01">
+  <img alt="" img src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> </a>
   
    </div>
    <div class="price-item">

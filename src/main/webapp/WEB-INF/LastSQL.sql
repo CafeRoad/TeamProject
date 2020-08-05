@@ -138,17 +138,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   `article_id` INT NOT NULL auto_increment,
   `article_name` VARCHAR(100) NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `content` VARCHAR(20000) NOT NULL,
-  `cafe01` VARCHAR(45) NULL,
-  `cafe02` VARCHAR(45) NULL,
-  `cafe03` VARCHAR(45) NULL,
-  `cafe04` VARCHAR(45) NULL,
-  `cafe05` VARCHAR(45) NULL,
-  `cafe06` VARCHAR(45) NULL,
-  `cafe07` VARCHAR(45) NULL,
-  `cafe08` VARCHAR(45) NULL,
-  `cafe09` VARCHAR(45) NULL,
-  `cafe10` VARCHAR(45) NULL,
+  `cafe` INT NULL,
   PRIMARY KEY (`article_id`))engine=innodb default charset=utf8;
 
 -- -----------------------------------------------------

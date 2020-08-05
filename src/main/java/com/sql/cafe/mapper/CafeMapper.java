@@ -275,5 +275,25 @@ public interface CafeMapper {
 	int selectCountSearch(@Param("search") String search);
 	
 	//아티클로 검색하여 카페 정보를 겟.
-	final String GET_ARTICLE_CAFES = "";
+	final String GET_ARTICLE_CAFES = "select * from cafe where cafe_id in (select cafe from article where article_name = #{article_name})";
+	@Select(GET_ARTICLE_CAFES)
+	@Results(value = { @Result(property = "cafe_id", column = "cafe_id"),
+			@Result(property = "owner_id", column = "owner_id"), @Result(property = "cafe_name", column = "cafe_name"),
+			@Result(property = "gu", column = "gu"), @Result(property = "address", column = "address"),
+			@Result(property = "event", column = "event"), @Result(property = "homepage", column = "homepage"),
+			@Result(property = "intro", column = "intro"), @Result(property = "create_time", column = "create_time"),
+			@Result(property = "concent", column = "concent"), @Result(property = "pet", column = "pet"),
+			@Result(property = "wifi", column = "wifi"), @Result(property = "smoking_room", column = "smoking_room"),
+			@Result(property = "parking_zone", column = "parking_zone"),
+			@Result(property = "toilet", column = "toilet"), @Result(property = "img_main", column = "img_main"),
+			@Result(property = "img01", column = "img01"), @Result(property = "img02", column = "img02"),
+			@Result(property = "img03", column = "img03"), @Result(property = "img04", column = "img04"),
+			@Result(property = "img05", column = "img05"), @Result(property = "img06", column = "img06"),
+			@Result(property = "lat", column = "lat"), @Result(property = "lin", column = "lin"),
+			@Result(property = "operating_time", column = "operating_time"),
+			@Result(property = "avg_star", column = "avg_star"), @Result(property = "approval", column = "approval"),
+			@Result(property = "cafe_tel", column = "cafe_tel") })
+	ArrayList<CafeVO> getArticleCafes(@Param("article_name") String article_name);
+	
+	
 }

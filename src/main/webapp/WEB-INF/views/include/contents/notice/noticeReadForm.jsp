@@ -23,7 +23,7 @@
 
 
 <br>
-<b><center><font size="6" color="gray">공　지　사　항</font></center></b>
+<b><center><font size="6" color="gray">공지사항</font></center></b>
 <br>
 
 <sf:form method="get" action="/cafe/notice/noticeRead">
@@ -41,14 +41,14 @@
 			<td>${noticeread.getContent()}</td>
 		<tr>
 			<td id="date">작성일</td>
-			<td><fmt:formatDate pattern="yyyy-mm-dd" value="${noticeread.getCreate_time()}"/></td>
+			<td><fmt:formatDate pattern="yyyy-MM-dd" value="${noticeread.getCreate_time()}"/></td>
 		</tr>
 		<tr align="center" valign="middle">
 			<td colspan="5">		
 			
 			<c:if test="${signedMember.getAuthority().equals(admin)}">
 			<input type="button" value="글삭제"
-				onclick="location.href='/cafe/noticedelete'">
+				onclick="location.href='/cafe/noticedelete?notice_id=${noticeread.getNotice_id()}'">
 			</c:if>
 			
 			<input type="button" value="목록" onclick="history.back()">

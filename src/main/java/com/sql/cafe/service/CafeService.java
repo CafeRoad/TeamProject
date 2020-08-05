@@ -122,5 +122,11 @@ public class CafeService {
 		return cafeMapper.selectMaxCafeId();
 
 	}
+	// 아티클을 클릭해서 얻어오기.
+	public ArrayList<CafeVO> getArticleCafes(String article_name) {
+		return cafeMapper.getArticleCafes(article_name);
+
+	}
+	
 
 }

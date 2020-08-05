@@ -10,7 +10,7 @@ import com.sql.cafe.vo.NoticeVO;
 
 @Service
 public class NoticeService {
-	
+
 	@Autowired
 	private NoticeMapper noticeMapper;
 
@@ -18,20 +18,20 @@ public class NoticeService {
 		// TODO Auto-generated method stub
 		noticeMapper.insertToNotice(noticeVO);
 	}
-	
+
 	public ArrayList<NoticeVO> selectByNotice() {
 		return noticeMapper.selecttnoticelist();
 
 	}
-	
+
+	public int delete(String notice_id) {
+		return noticeMapper.delete(notice_id);
+
+	}
+
 	public NoticeVO readNotice(String notice_id) {
 		return noticeMapper.selecttnoticeread(notice_id);
-		
+
 	}
-	
-//	public int deletenotice(String admin_id, String password) {
-//		return noticeMapper.deleteFromNotice(admin_id, password);
-//		
-//	}
 
 }

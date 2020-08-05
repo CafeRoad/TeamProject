@@ -348,4 +348,16 @@ public class CafeController {
 		return "main";
 	}
 
+	// 어드민이 승인된 모든 카페의 리스트를 겟.
+	@RequestMapping(value = "/article", method = RequestMethod.GET)
+	public String article(Model model, String article_name) {
+
+		model.addAttribute("CafeList", cafeService.getArticleCafes(article_name));
+
+
+		model.addAttribute("cafeListTitle", "카페로드 추천 카페");
+		model.addAttribute("content", "cafe/cafeList");
+		return "main";
+	}
+
 }

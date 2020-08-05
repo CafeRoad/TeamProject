@@ -54,10 +54,6 @@ public class CafeVO {
 	//별점 평균을 출력하기 위한 변수.
 	private double avg_star;
 	
-	// 아티클에서 쓰기 위한 변수.
-	private String article_name;
-	private String content;
-	
 	public String getCafe_id() {
 		return cafe_id;
 	}
@@ -290,24 +286,5 @@ public class CafeVO {
 		this.avg_star = avg_star;
 	}
 
-	public String getArticle_name() {
-		return article_name;
-	}
-
-	public void setArticle_name(String article_name) {
-		this.article_name = article_name;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-	
-	
-	
-	
 
 }

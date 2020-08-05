@@ -37,6 +37,15 @@ select * from cafe where cafe_name like '%디%'
 
 select * from (select * from cafe where cafe_id = 1) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id;
 
-insert into article (article_name, create_time, content, cafe01, cafe02, cafe03, cafe04, cafe05, cafe06, cafe07, cafe08, cafe09, cafe10) values ("인기카페10",now(),"아티클 테스트입니다.","1","2","3","4","6","7","8","10","12","11");
+insert into article (article_name, create_time, cafe) values ("article01",now(),1);
+insert into article (article_name, create_time, cafe) values ("article01",now(),4);
+insert into article (article_name, create_time, cafe) values ("article01",now(),7);
+insert into article (article_name, create_time, cafe) values ("article01",now(),8);
+insert into article (article_name, create_time, cafe) values ("article01",now(),11);
+insert into article (article_name, create_time, cafe) values ("article01",now(),16);
+insert into article (article_name, create_time, cafe) values ("article01",now(),19);
+insert into article (article_name, create_time, cafe) values ("article01",now(),22);
+insert into article (article_name, create_time, cafe) values ("article01",now(),25);
+select * from article;
 
-select * from cafe where cafe_id in (select cafe01, cafe02, cafe03, cafe04, cafe05, cafe06, cafe07, cafe08, cafe09, cafe10 from article where article_id = 1)
+select * from cafe where cafe_id in (select cafe from article where article_name = "article01")
