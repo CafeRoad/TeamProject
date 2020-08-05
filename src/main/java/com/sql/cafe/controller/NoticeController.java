@@ -1,6 +1,5 @@
+
 package com.sql.cafe.controller;
-
-
 
 import java.util.List;
 
@@ -31,9 +30,8 @@ public class NoticeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
 
-	
-	
 	// 공지사항으로 이동.
+
 	@RequestMapping(value = "/noticeList", method = RequestMethod.GET)
 	public String noticeList(Model model) {
 
@@ -42,22 +40,23 @@ public class NoticeController {
 		model.addAttribute("content", "notice/noticeListForm");
 		return "main";
 	}
-	
+
 	// 공지사항 글쓰기 폼 으로 이동.
+
 	@RequestMapping(value = "/noticeWriteForm", method = RequestMethod.GET)
 	public String noticeWirteForm(Model model) {
 
 		logger.info("noticeWirteForm called!");
-		
+
 		model.addAttribute("newNoticeVO", new NoticeVO());
 		model.addAttribute("content", "notice/noticeWriteForm");
 		return "main";
 	}
-	
+
 	@RequestMapping(value = "/notice/noticeWriteAction", method = RequestMethod.POST)
-	public String noticeWriteAction(@ModelAttribute("newNoticeVO") @Valid NoticeVO newNoticeVO, BindingResult bidingResult,
-			Model model, String notice_id, @SessionAttribute MemberVO signedMember, RedirectAttributes rttr)
-			throws Exception {
+	public String noticeWriteAction(@ModelAttribute("newNoticeVO") @Valid NoticeVO newNoticeVO,
+			BindingResult bidingResult, Model model, String notice_id, @SessionAttribute MemberVO signedMember,
+			RedirectAttributes rttr) throws Exception {
 
 		logger.info("/review/noticeWriteAction called!");
 
@@ -69,24 +68,20 @@ public class NoticeController {
 			List<ObjectError> list = bidingResult.getAllErrors();
 			for (ObjectError e : list) {
 				logger.error("ObjectError : " + e.toString() + "\n");
-			}
-			// 에러가 있으면 돌려보냄.
+			} // 에러가 있으면돌려보냄.
 			model.addAttribute("newNoticeVO", newNoticeVO);
 		} else {
 			newNoticeVO.setAdmin_id(signedMember.getId());
 
-			newNoticeVO.setNotice_id(Integer.parseInt(notice_id));
-//			noticeService.insertNotice(newNoticeVO);
+			newNoticeVO.setNotice_id(Integer.parseInt(notice_id)); //
+			// noticeService.insertNotice(newNoticeVO);
 
 			rttr.addFlashAttribute("msg", "리뷰가 등록되었습니다.");
-			// 마이페이지로..? 신청충인 카페 보는 뷰도 만들어야 함.
+			// 마이페이지로..? 신청충인 카페 보는 뷰도만들어야 함.
 			return "redirect:/cafe/getSpecificCafe?notice_id=" + notice_id;
 
 		}
 		return "redirect:/cafe/getSpecificCafe?notice_id=" + notice_id;
 	}
-	
-
-
 
 }
