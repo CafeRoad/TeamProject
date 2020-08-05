@@ -15,13 +15,13 @@ public class CafeVO {
 	private String owner_id;
 	
 	@NotBlank(message="카페명을 입력 해주세요.")
-	@Size(min=2,max=16,message = "카페명은 2~15자 이내로 입력해 주세요.")
+	@Size(min=2,max=45,message = "카페명은 2~15자 이내로 입력해 주세요.")
 	private String cafe_name;
 	
 	private String gu;
 	
 	@NotBlank(message="주소를 입력해 주세요.")
-	@Size(min=3,max=20,message = "주소는 3~20자 이내로 입력해 주세요.")
+	@Size(min=3,max=45,message = "주소는 3~20자 이내로 입력해 주세요.")
 	private String address;
 	
 	private boolean event;
