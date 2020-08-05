@@ -182,7 +182,7 @@ public class CafeController {
 		model.addAttribute("nowPage", Integer.parseInt(nowPage));
 		model.addAttribute("AllWaitingCafe", "True");
 
-		model.addAttribute("cafeListTitle", "승인해야 할 카페");
+		model.addAttribute("cafeListTitle", "승인 대기중인 카페");
 		model.addAttribute("content", "cafe/cafeList");
 		return "main";
 	}

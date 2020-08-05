@@ -36,3 +36,7 @@ select * from cafe where cafe_name like concat('%','이','%')
 select * from cafe where cafe_name like '%디%'
 
 select * from (select * from cafe where cafe_id = 1) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id;
+
+insert into article (article_name, create_time, content, cafe01, cafe02, cafe03, cafe04, cafe05, cafe06, cafe07, cafe08, cafe09, cafe10) values ("인기카페10",now(),"아티클 테스트입니다.","1","2","3","4","6","7","8","10","12","11");
+
+select * from cafe where cafe_id in (select cafe01, cafe02, cafe03, cafe04, cafe05, cafe06, cafe07, cafe08, cafe09, cafe10 from article where article_id = 1)

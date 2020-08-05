@@ -273,4 +273,7 @@ public interface CafeMapper {
 
 	@Select(SELECT_COUNT_SEARCH_BY_CAFE_NAME)
 	int selectCountSearch(@Param("search") String search);
+	
+	//아티클로 검색하여 카페 정보를 겟.
+	final String GET_ARTICLE_CAFES = "";
 }

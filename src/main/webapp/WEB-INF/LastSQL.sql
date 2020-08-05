@@ -137,18 +137,19 @@ CREATE TABLE IF NOT EXISTS `like` (
 CREATE TABLE IF NOT EXISTS `article` (
   `article_id` INT NOT NULL auto_increment,
   `article_name` VARCHAR(100) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `admin_id` VARCHAR(16) NOT NULL,
   `content` VARCHAR(20000) NOT NULL,
-  PRIMARY KEY (`article_id`),
-  INDEX `fk_article_member1_idx` (`admin_id` ASC),
-  CONSTRAINT `fk_article_member1`
-    FOREIGN KEY (`admin_id`)
-    REFERENCES `member` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)engine=innodb default charset=utf8;
-
+  `cafe01` VARCHAR(45) NULL,
+  `cafe02` VARCHAR(45) NULL,
+  `cafe03` VARCHAR(45) NULL,
+  `cafe04` VARCHAR(45) NULL,
+  `cafe05` VARCHAR(45) NULL,
+  `cafe06` VARCHAR(45) NULL,
+  `cafe07` VARCHAR(45) NULL,
+  `cafe08` VARCHAR(45) NULL,
+  `cafe09` VARCHAR(45) NULL,
+  `cafe10` VARCHAR(45) NULL,
+  PRIMARY KEY (`article_id`))engine=innodb default charset=utf8;
 
 -- -----------------------------------------------------
 -- Table `notice`
