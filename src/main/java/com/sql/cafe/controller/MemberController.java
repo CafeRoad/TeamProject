@@ -219,13 +219,23 @@ public class MemberController {
 			@RequestParam("password") String password, Model model, RedirectAttributes rttr) {
 
 		logger.info("Welcome loginAction!");
+		MemberVO signedMember = memberService.login(id, password);
+		// 사인드멤버가 널인 경우. 일치하지 않은 계쩡.
+		if (signedMember == null) {
+			rttr.addFlashAttribute("msg", "아이디 혹은 비밀번호가 일치하지 않습니다.");
+			
+		// 아이디 비밀번호가 일치하고 이메일 인증이 된 계쩡.
+		} else if (signedMember.getAuthority().equals("USER") || signedMember.getAuthority().equals("OWNER")
+				|| signedMember.getAuthority().equals("ADMIN")) {
+			model.addAttribute("signedMember", memberService.login(id, password));
+			rttr.addFlashAttribute("msg", id + "님 로그인 되었습니다.");
+			
+		} else { // 일치는 하지만 인증이 되지 않은 계정.
+			rttr.addFlashAttribute("msg", "이메일 인증이 되지 않은 계정입니다. 이메일 인증 후 로그인하여 주십시오.");
+		}
 
-		// 정보를 페이지 단위가 아닌 세션으로 넣어야 함.
-		model.addAttribute("signedMember", memberService.login(id, password));
 		// redirect를 해야 주소창도 바뀜.
-		rttr.addFlashAttribute("msg", id + "님 로그인 되었습니다.");
 		return "redirect:/main";
-
 	}
 
 	// 로그아웃.

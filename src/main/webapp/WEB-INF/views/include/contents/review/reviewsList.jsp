@@ -58,97 +58,10 @@ ol, ul {
 		</table>
 		<table>
 			<tr>
-				<td width="25%"><font size="4">맛 ${review.getStar_taste()} <c:if
-							test="${review.getStar_taste().equals(2)} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/oneStar.jpg"
-								width="20px" height="20px">
-						</c:if> <c:if test="${review.getStar_taste() > 1} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/twoStar.jpg"
-								width="40px" height="20px">
-						</c:if> <c:if test="${review.getStar_taste() == 2} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/threeStar.jpg"
-								width="60px" height="20px">
-						</c:if> <c:if test="${review.getStar_taste() == 4} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/fourStar.jpg"
-								width="80px" height="20px">
-						</c:if> <c:if test="${review.getStar_taste() == 5} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/fiveStar.jpg"
-								width="100px" height="20px">
-						</c:if>
-				</font></td>
-				<td width="25%"><font size="4">청결  <c:if
-							test="${review.getStar_clean() == 1} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/oneStar.jpg"
-								width="20px" height="20px">
-						</c:if> <c:if test="${review.getStar_clean() == 2} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/twoStar.jpg"
-								width="40px" height="20px">
-						</c:if> <c:if test="${review.getStar_clean() == 3} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/threeStar.jpg"
-								width="60px" height="20px">
-						</c:if> <c:if test="${review.getStar_clean() == 4} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/fourStar.jpg"
-								width="80px" height="20px">
-						</c:if> <c:if test="${review.getStar_clean() == 5} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/fiveStar.jpg"
-								width="100px" height="20px">
-						</c:if>
-				</font></td>
-				<td width="25%"><font size="4">서비스 <c:if
-							test="${review.getStar_service() == 1} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/oneStar.jpg"
-								width="20px" height="20px">
-						</c:if> <c:if test="${review.getStar_service() == 2} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/twoStar.jpg"
-								width="40px" height="20px">
-						</c:if> <c:if test="${review.getStar_service() == 3} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/threeStar.jpg"
-								width="60px" height="20px">
-						</c:if> <c:if test="${review.getStar_service() == 4} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/fourStar.jpg"
-								width="80px" height="20px">
-						</c:if> <c:if test="${review.getStar_service() == 5} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/fiveStar.jpg"
-								width="100px" height="20px">
-						</c:if></font></td>
-				<td width="25%"><font size="4">분위기 <c:if
-							test="${review.getStar_mood() == 1} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/oneStar.jpg"
-								width="20px" height="20px">
-						</c:if> <c:if test="${review.getStar_mood() == 2} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/twoStar.jpg"
-								width="40px" height="20px">
-						</c:if> <c:if test="${review.getStar_mood() == 3} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/threeStar.jpg"
-								width="60px" height="20px">
-						</c:if> <c:if test="${review.getStar_mood() == 4} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/fourStar.jpg"
-								width="80px" height="20px">
-						</c:if> <c:if test="${review.getStar_mood() == 5} ">
-							<img
-								src="${pageContext.request.contextPath}/resources/assets/css/images/fiveStar.jpg"
-								width="100px" height="20px">
-						</c:if>
-				</font></td>
+				<td width="25%"><font size="4">맛 ${review.getStar_taste()} 	</font></td>
+				<td width="25%"><font size="4">청결 ${review.getStar_clean()} </font></td>
+				<td width="25%"><font size="4">서비스 ${review.getStar_service()} </font></td>
+				<td width="25%"><font size="4">분위기${review.getStar_mood()}  </font></td>
 			</tr>
 
 

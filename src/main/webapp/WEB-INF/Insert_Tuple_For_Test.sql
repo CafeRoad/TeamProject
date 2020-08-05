@@ -22,7 +22,7 @@ delete from review;
 
 update cafe set img_main = "main.jpg", img01 = "01.jpg", img02 = "02.jpg", img03 = "03.jpg", img04 = "04.jpg", img05 = "05.jpg", img06 = "06.jpg";
 
-select * from cafe;
+select * from cafe limit 0, 10;
 	
 select * from cafe where cafe_name like '%이디%';
 select * from cafe where cafe_name like '%용%' or gu like '%용%' ;
@@ -34,3 +34,5 @@ select * from (select * from review where user_id = 'test11') a, (select cafe_id
 select * from cafe where cafe_name like concat('%',#{search},'%')
 select * from cafe where cafe_name like concat('%','이','%')
 select * from cafe where cafe_name like '%디%'
+
+select * from (select * from cafe where cafe_id = 1) a left outer join (select cafe_id, avg(stars) as avg_star from review) b on a.cafe_id = b.cafe_id;

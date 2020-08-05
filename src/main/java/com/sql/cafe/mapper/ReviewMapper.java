@@ -49,8 +49,7 @@ public interface ReviewMapper {
 	// 내가 쓴 리뷰 지우기. 수정은 미구현.
 	final String DELETE_FROM_REVIEW = "delete from review where user_id = #{user_id} and password = #{password}";
 	@Delete(DELETE_FROM_REVIEW)
-	int deleteFromReview(@Param("user_id") String user_id, @Param("password") String password);
-	
+	int deleteFromReview(@Param("user_id") String user_id, @Param("password") String password);	
 	
 	
 	

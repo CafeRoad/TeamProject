@@ -50,6 +50,7 @@
 <br><br>
   <form class="form1" >
   <input type="text" placeholder="search...">
+  <input type="hidden" name="nowPage" value="1">
   <button type="submit" onClick="location.href='/cafe/search'"></button>
   </form>
   <br><br>

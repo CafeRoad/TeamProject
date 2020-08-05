@@ -36,7 +36,7 @@ public class CafeController {
 	@Autowired
 	private ReviewService reviewService;
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CafeController.class);
 
 	// 카페 등록 폼으로 이동.
 	@RequestMapping(value = "/cafe/signUp", method = RequestMethod.GET)
@@ -101,10 +101,27 @@ public class CafeController {
 
 	// 오너가 자신의 승인 대기중인 카페 리스트를 뽑음.
 	@RequestMapping(value = "/searchMyWaitingCafes", method = RequestMethod.GET)
-	public String searchMyWatingCafes(Model model, @SessionAttribute MemberVO signedMember) {
+	public String searchMyWatingCafes(Model model, @SessionAttribute MemberVO signedMember, String nowPage) {
 
 		String owner_id = signedMember.getId();
-		model.addAttribute("CafeList", cafeService.selectWaitingCafesByOwnerId(owner_id));
+		if (nowPage == null) {
+			nowPage = "1";
+		}
+		if (nowPage.equals("1")) {
+			int selectPage = (Integer.parseInt(nowPage) - 1);
+			model.addAttribute("CafeList", cafeService.selectWaitingCafesByOwnerId(owner_id, selectPage));
+
+		} else {
+			int selectPage = (Integer.parseInt(nowPage) - 1) * 10;
+			model.addAttribute("CafeList", cafeService.selectWaitingCafesByOwnerId(owner_id, selectPage));
+		}
+
+		System.out.println("검색된 갯수" + cafeService.countWaitingCafeByOwnerId());
+
+		// count(*) 얻어와서 t_pages라는 이름으로 10개 단위로.
+		model.addAttribute("t_pages", ((int) ((cafeService.countWaitingCafeByOwnerId() - 1) / 10)) + 1);
+		model.addAttribute("nowPage", Integer.parseInt(nowPage));
+		model.addAttribute("ownerWaitingCafe", "True");
 
 		// 어드민이 특정 미승인 카페를 선택하는 창으로 옮겨야 함.
 		model.addAttribute("signUpCafe", "카페 등록버튼 활성화");
@@ -116,10 +133,27 @@ public class CafeController {
 
 	// 오너가 자신의 승인된 카페의 리스트를 뽑음.
 	@RequestMapping(value = "/searchMyAddedCafes", method = RequestMethod.GET)
-	public String searchMyAddedCafes(Model model, @SessionAttribute MemberVO signedMember) {
-
+	public String searchMyAddedCafes(Model model, @SessionAttribute MemberVO signedMember, String nowPage) {
 		String owner_id = signedMember.getId();
-		model.addAttribute("CafeList", cafeService.selectAddedCafesByOwnerId(owner_id));
+		if (nowPage == null) {
+			nowPage = "1";
+		}
+		if (nowPage.equals("1")) {
+			int selectPage = (Integer.parseInt(nowPage) - 1);
+			model.addAttribute("CafeList", cafeService.selectAddedCafesByOwnerId(owner_id, selectPage));
+
+		} else {
+			int selectPage = (Integer.parseInt(nowPage) - 1) * 10;
+			model.addAttribute("CafeList", cafeService.selectAddedCafesByOwnerId(owner_id, selectPage));
+		}
+
+		System.out.println("검색된 갯수" + cafeService.countAddedCafeByOwnerId());
+
+		// count(*) 얻어와서 t_pages라는 이름으로 10개 단위로.
+		model.addAttribute("t_pages", ((int) ((cafeService.countAddedCafeByOwnerId() - 1) / 10)) + 1);
+		model.addAttribute("nowPage", Integer.parseInt(nowPage));
+		model.addAttribute("ownerAddedCafe", "True");
+
 		model.addAttribute("cafeListTitle", "내 승인된 카페");
 		model.addAttribute("content", "cafe/cafeList");
 		return "main";
@@ -127,9 +161,26 @@ public class CafeController {
 
 	// 어드민이 승인을 위해 승인 대기중인 모든 카페의 리스트를 겟.
 	@RequestMapping(value = "/searchWaitingCafes", method = RequestMethod.GET)
-	public String searchWaitingCafes(Model model) {
+	public String searchWaitingCafes(Model model, String nowPage) {
 
-		model.addAttribute("CafeList", cafeService.selectWaitingCafes());
+		if (nowPage == null) {
+			nowPage = "1";
+		}
+		if (nowPage.equals("1")) {
+			int selectPage = (Integer.parseInt(nowPage) - 1);
+			model.addAttribute("CafeList", cafeService.selectWaitingCafes(selectPage));
+
+		} else {
+			int selectPage = (Integer.parseInt(nowPage) - 1) * 10;
+			model.addAttribute("CafeList", cafeService.selectWaitingCafes(selectPage));
+		}
+
+		System.out.println("검색된 갯수" + cafeService.countWaitingCafe());
+
+		// count(*) 얻어와서 t_pages라는 이름으로 10개 단위로.
+		model.addAttribute("t_pages", ((int) ((cafeService.countWaitingCafe() - 1) / 10)) + 1);
+		model.addAttribute("nowPage", Integer.parseInt(nowPage));
+		model.addAttribute("AllWaitingCafe", "True");
 
 		model.addAttribute("cafeListTitle", "승인해야 할 카페");
 		model.addAttribute("content", "cafe/cafeList");
@@ -147,10 +198,26 @@ public class CafeController {
 
 	// 어드민이 승인된 모든 카페의 리스트를 겟.
 	@RequestMapping(value = "/searchAddedCafes", method = RequestMethod.GET)
-	public String searchAddedCafes(Model model) {
+	public String searchAddedCafes(Model model, String nowPage) {
 
-		// 결국엔 모든 카페 리스트.
-		model.addAttribute("CafeList", cafeService.selectAddedCafes());
+		if (nowPage == null) {
+			nowPage = "1";
+		}
+		if (nowPage.equals("1")) {
+			int selectPage = (Integer.parseInt(nowPage) - 1);
+			model.addAttribute("CafeList", cafeService.selectAddedCafes(selectPage));
+
+		} else {
+			int selectPage = (Integer.parseInt(nowPage) - 1) * 10;
+			model.addAttribute("CafeList", cafeService.selectAddedCafes(selectPage));
+		}
+
+		System.out.println("검색된 갯수" + cafeService.countAddedCafe());
+
+		// count(*) 얻어와서 t_pages라는 이름으로 10개 단위로.
+		model.addAttribute("t_pages", ((int) ((cafeService.countAddedCafe() - 1) / 10)) + 1);
+		model.addAttribute("nowPage", Integer.parseInt(nowPage));
+		model.addAttribute("AllAddedCafe", "True");
 
 		model.addAttribute("cafeListTitle", "승인된 카페");
 		model.addAttribute("content", "cafe/cafeList");
@@ -159,11 +226,26 @@ public class CafeController {
 
 	// 접속한 유저의 아이디로 즐겨찾기한 카페 리스트 반환.
 	@RequestMapping(value = "/myPavoriteCafe", method = RequestMethod.GET)
-	public String myPavoriteCafe(Model model, @SessionAttribute MemberVO signedMember) {
-
+	public String myPavoriteCafe(Model model, @SessionAttribute MemberVO signedMember, String nowPage) {
 		String user_id = signedMember.getId();
 
-		model.addAttribute("CafeList", cafeService.myFavoriteCafes(user_id));
+		if (nowPage == null) {
+			nowPage = "1";
+		}
+		if (nowPage.equals("1")) {
+			int selectPage = (Integer.parseInt(nowPage) - 1);
+			model.addAttribute("CafeList", cafeService.myFavoriteCafes(user_id, selectPage));
+		} else {
+			int selectPage = (Integer.parseInt(nowPage) - 1) * 10;
+			model.addAttribute("CafeList", cafeService.myFavoriteCafes(user_id, selectPage));
+		}
+
+		System.out.println("검색된 갯수" + cafeService.countFavoriteCafe());
+
+		// count(*) 얻어와서 t_pages라는 이름으로 10개 단위로.
+		model.addAttribute("t_pages", ((int) ((cafeService.countFavoriteCafe() - 1) / 10)) + 1);
+		model.addAttribute("nowPage", Integer.parseInt(nowPage));
+		model.addAttribute("MyFavoriteCafe", "True");
 		model.addAttribute("content", "cafe/cafeList");
 
 		return "main";
@@ -239,10 +321,28 @@ public class CafeController {
 
 	// 이름이나 지역으로 검색하기.
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String search(Model model, @RequestParam("search") String search) {
+	public String search(Model model, @RequestParam("search") String search, String nowPage) {
 		System.out.println(search);
-		model.addAttribute("CafeList", cafeService.searchByCafe(search));
-		System.out.println(cafeService.searchByCafe(search).toString());
+
+		if (nowPage == null) {
+			nowPage = "1";
+		}
+		if (nowPage.equals("1")) {
+			int selectPage = (Integer.parseInt(nowPage) - 1);
+			model.addAttribute("CafeList", cafeService.searchByCafe(search, selectPage));
+
+		} else {
+			int selectPage = (Integer.parseInt(nowPage) - 1) * 10;
+			model.addAttribute("CafeList", cafeService.searchByCafe(search, selectPage));
+		}
+
+		System.out.println("검색된 갯수" + cafeService.selectCountSearch(search));
+
+		// count(*) 얻어와서 t_pages라는 이름으로 10개 단위로.
+		model.addAttribute("t_pages", ((int) ((cafeService.selectCountSearch(search) - 1) / 10)) + 1);
+		model.addAttribute("search", search);
+		model.addAttribute("nowPage", Integer.parseInt(nowPage));
+		model.addAttribute("serachPage", "True");
 		model.addAttribute("content", "cafe/cafeList");
 		model.addAttribute("cafeListTitle", "검색 카페");
 		return "main";
