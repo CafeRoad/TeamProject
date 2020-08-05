@@ -36,7 +36,7 @@ public class CafeController {
 	@Autowired
 	private ReviewService reviewService;
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CafeController.class);
 
 	// 카페 등록 폼으로 이동.
 	@RequestMapping(value = "/cafe/signUp", method = RequestMethod.GET)

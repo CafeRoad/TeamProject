@@ -1,6 +1,7 @@
 package com.sql.cafe.controller;
 
 
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -47,10 +48,12 @@ public class NoticeController {
 	public String noticeWirteForm(Model model) {
 
 		logger.info("noticeWirteForm called!");
-		model.addAttribute("noticeVOWrite", new NoticeVO());
+		
+		model.addAttribute("newNoticeVO", new NoticeVO());
 		model.addAttribute("content", "notice/noticeWriteForm");
 		return "main";
 	}
+	
 	@RequestMapping(value = "/notice/noticeWriteAction", method = RequestMethod.POST)
 	public String noticeWriteAction(@ModelAttribute("newNoticeVO") @Valid NoticeVO newNoticeVO, BindingResult bidingResult,
 			Model model, String notice_id, @SessionAttribute MemberVO signedMember, RedirectAttributes rttr)
@@ -73,7 +76,7 @@ public class NoticeController {
 			newNoticeVO.setAdmin_id(signedMember.getId());
 
 			newNoticeVO.setNotice_id(Integer.parseInt(notice_id));
-			noticeService.insertNotice(newNoticeVO);
+//			noticeService.insertNotice(newNoticeVO);
 
 			rttr.addFlashAttribute("msg", "리뷰가 등록되었습니다.");
 			// 마이페이지로..? 신청충인 카페 보는 뷰도 만들어야 함.
@@ -85,12 +88,5 @@ public class NoticeController {
 	
 
 
-
-//	@RequestMapping(value = "/notice/noticeWriteAction", method = RequestMethod.POST)
-//	public String noticeAction(@ModelAttribute("newNoticeVO") @Valid) {
-//		logger.info("noticeWriteAction");
-//		noticeService.insertNotice(noticeVOWrite);
-//		return "/noticeListForm";
-//	}
 
 }
