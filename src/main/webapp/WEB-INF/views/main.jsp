@@ -67,10 +67,6 @@
 		<jsp:include page="/WEB-INF/views/include/contents/one.jsp"></jsp:include>
 	</c:if>
 
-	
-
-	<!-- Three
-	<jsp:include page="/WEB-INF/views/include/contents/three.jsp"></jsp:include> -->
 
 	<!-- Footer -->
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
