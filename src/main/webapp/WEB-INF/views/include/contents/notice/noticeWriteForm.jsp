@@ -4,18 +4,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+.writeform_1 {
+width: 700px;
+height: 700px;
+margin: auto;
+border: 3px;
+}
 
+</style>
 
 </head>
 <body>
  
     <br>
-    <b><font size="6" color="gray">글쓰기</font></b>
-    <br>
+    <center>
+    <b><font class="formfont" size="6" color="gray">글쓰기</font></b>
+    </center>
     
     <sf:form method="post" action="noticeWriteAction" name="noticeWriteAction"/>
     
-    <table width="700" border="3" bordercolor="lightgray" align="center">
+    <table class="writeform_1">
         <tr>
             <td id="title">작성자</td>
             <td>관리자</td>
