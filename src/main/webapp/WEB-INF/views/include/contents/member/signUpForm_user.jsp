@@ -113,8 +113,8 @@ color: red;
 		</tr>
 		
 		<tr>
-			<td id="title"><b>구</b></td>
-			<td><sf:input path="gu" size="50" maxlength="50" placeholder="XX시,XX구 까지 입력해 주세요."/> <br/>
+			<td id="title"><b>지역구</b></td>
+			<td><sf:input path="gu" size="50" maxlength="50" placeholder="○○구 까지만입력해 주세요."/> <br/>
 			<sf:errors path="gu" cssClass="error"/>
 			</td>
 		</tr>
