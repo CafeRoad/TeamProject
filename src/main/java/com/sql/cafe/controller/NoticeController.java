@@ -53,35 +53,13 @@ public class NoticeController {
 		return "main";
 	}
 
-	@RequestMapping(value = "/notice/noticeWriteAction", method = RequestMethod.POST)
-	public String noticeWriteAction(@ModelAttribute("newNoticeVO") @Valid NoticeVO newNoticeVO,
-			BindingResult bidingResult, Model model, String notice_id, @SessionAttribute MemberVO signedMember,
-			RedirectAttributes rttr) throws Exception {
+	@RequestMapping(value = "/noticeWriteAction", method = RequestMethod.POST)
+	public String noticeWriteAction(NoticeVO newNoticeVO, Model model) {
+		logger.info("noticeAction");
+		noticeService.insertNotice(newNoticeVO);
 
-		logger.info("/review/noticeWriteAction called!");
+		return "/cafe/noticelist";
 
-		System.out.println("notice_id" + notice_id);
-		System.out.println("NoticeVO.getNotice_id" + newNoticeVO.getNotice_id());
-
-		if (bidingResult.hasErrors()) {
-			System.out.println("----------------------------error----------------------------");
-			List<ObjectError> list = bidingResult.getAllErrors();
-			for (ObjectError e : list) {
-				logger.error("ObjectError : " + e.toString() + "\n");
-			} // 에러가 있으면돌려보냄.
-			model.addAttribute("newNoticeVO", newNoticeVO);
-		} else {
-			newNoticeVO.setAdmin_id(signedMember.getId());
-
-			newNoticeVO.setNotice_id(Integer.parseInt(notice_id)); //
-			// noticeService.insertNotice(newNoticeVO);
-
-			rttr.addFlashAttribute("msg", "리뷰가 등록되었습니다.");
-			// 마이페이지로..? 신청충인 카페 보는 뷰도만들어야 함.
-			return "redirect:/cafe/getSpecificCafe?notice_id=" + notice_id;
-
-		}
-		return "redirect:/cafe/getSpecificCafe?notice_id=" + notice_id;
 	}
 
 }

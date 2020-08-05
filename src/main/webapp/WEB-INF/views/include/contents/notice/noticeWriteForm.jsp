@@ -24,12 +24,12 @@
     <b><font size="6" color="gray">글쓰기</font></b>
     <br>
     
-    <form method="post" action="BoardWriteAction.bo" name="boardForm" enctype="multipart/form-data">
-    <input type="hidden" name="board_id" value="${sessionScope.sessionID}">
+    <form method="post" action="/noticeWriteAction" name="noticeActionFormasd" enctype="multipart/form-data">
+    <input type="hidden" name="board_id">
     <table width="700" border="3" bordercolor="lightgray" align="center">
         <tr>
             <td id="title">작성자</td>
-            <td>${sessionScope.sessionID}</td>
+            <td></td>
         </tr>
             <tr>
             <td id="title">
