@@ -22,8 +22,8 @@
 }
 </style>
 
-<c:url var="loginUrl" value="/loginAction" />
-<sf:form modelAttribute="memberVO" method="POST" action="${loginUrl }"
+<c:url var="findid" value="/idfindAction" />
+<sf:form modelAttribute="memberVO" method="POST" action="${findid }"
 	onsubmit="submitloginForm(this); return false;">
 	<center>
 		<br> <b><font size="6" color="gray">아이디 찾기</font></b> <br> <br>
@@ -31,7 +31,7 @@
 		
 			<tr>
 				<td id="title"><b>이름</b></td>
-				<td><sf:input id="loname" autofocus="autofocus" path="id"
+				<td><sf:input id="loname" autofocus="autofocus" path="name"
 						size="40" maxlength="40" placeholder="이름을 입력해 주세요." /> <br /> <sf:errors
 						path="name" cssClass="error" /></td>
 				<td id="title"><b>이메일</b></td>
@@ -41,9 +41,12 @@
 			</tr>
 
 		</table>
-		<input type="button" value="확인" onclick="">
+		<input type="submit" value="확인">
 	</center>
-
+	</sf:form>
+<c:url var="findpw" value="/pwfindAction" />
+<sf:form modelAttribute="memberVO" method="POST" action="${findpw }"
+	onsubmit="submitloginForm(this); return false;">
 	<center>
 		<br> <b><font size="6" color="gray">비밀번호 찾기</font></b> <br>
 		<br>
@@ -63,6 +66,6 @@
 			</tr>
 
 		</table>
-		<input type="button" value="확인" onclick="">
+		<input type="submit" value="확인">
 	</center>
 </sf:form>

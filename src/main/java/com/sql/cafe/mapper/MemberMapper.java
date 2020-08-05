@@ -76,5 +76,12 @@ public interface MemberMapper {
 	
 	@Select(ID_CHECK)
 	int idcheck(MemberVO memberVo);
-
+	//아이디 찾기
+	final String FIND_ID = "select id from member where name = #{name} and email = #{email}";
+	@Select(FIND_ID)
+	String findid(@Param("name") String name ,@Param("email") String email);
+	//비밀번호찾기
+	final String FIND_PW = "select password from member where id = #{id} and email = #{email}";
+	@Select(FIND_PW)
+	String findpw(@Param("id") String id ,@Param("email") String email);
 }
