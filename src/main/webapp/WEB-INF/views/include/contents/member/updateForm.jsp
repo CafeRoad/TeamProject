@@ -104,7 +104,7 @@ color: red;
 		</tr>
 		
 		<tr>
-			<td id="title"><b>구</b></td>
+			<td id="title"><b>지역구</b></td>
 			<td><sf:input path="gu" size="50" maxlength="50" placeholder="${updateMemberVO.getGu() }"/> <br/>
 			<sf:errors path="gu" cssClass="error"/>
 			</td>

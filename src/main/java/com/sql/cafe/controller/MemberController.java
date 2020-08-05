@@ -340,5 +340,22 @@ public class MemberController {
 
 		return "idcheck";
 	}
-
+	@RequestMapping(value = "/idfindAction", method = RequestMethod.POST)
+	public String idfindAction(Model model, @ModelAttribute("memberVO") MemberVO memberVO) {
+		if(memberService.findId(memberVO.getName(), memberVO.getEmail()) !=null) {
+			model.addAttribute("msg","아이디는 "+memberService.findId(memberVO.getName(), memberVO.getEmail())+"입니다.");
+		}else {
+			model.addAttribute("msg","일치하는 아이디또는 정보가 일치하지 않습니다.");
+		}model.addAttribute("content", "member/idpwForm");
+		return "main";
+	}
+	@RequestMapping(value = "/pwfindAction", method = RequestMethod.POST)
+	public String pwfindAction(Model model, @ModelAttribute("memberVO") MemberVO memberVO) {
+		if(memberService.findPw(memberVO.getId(), memberVO.getEmail()) !=null) {
+			model.addAttribute("msg","비밀번호는 "+memberService.findPw(memberVO.getId(), memberVO.getEmail())+"입니다.");
+		}else {
+			model.addAttribute("msg","정보가 일치하지 않습니다.");
+		}model.addAttribute("content", "member/idpwForm");
+		return "main";
+	}
 }

@@ -39,7 +39,7 @@ color: red;
 	
 		<tr>
 			<td id="title"><b>비밀번호</b></td>
-			<td><sf:input path="password" size="50" maxlength="50" placeholder="비밀번호는 영문,숫자를 포함한  6~15자 이내로 설정해주세요."/> <br/>
+			<td><sf:input type="password" path="password" size="50" maxlength="50" placeholder="비밀번호는 영문,숫자를 포함한  6~15자 이내로 설정해주세요."/> <br/>
 			<sf:errors path="password" cssClass="error"/>
 			</td>
 		</tr>
@@ -79,8 +79,8 @@ color: red;
 		</tr>
 		
 		<tr>
-			<td id="title"><b>구</b></td>
-			<td><sf:input path="gu" size="50" maxlength="50" placeholder="XX시,XX구 까지 입력해 주세요."/> <br/>
+			<td id="title"><b>지역구</b></td>
+			<td><sf:input path="gu" size="50" maxlength="50" placeholder="○○구 까지만입력해 주세요."/> <br/>
 			<sf:errors path="gu" cssClass="error"/>
 			</td>
 		</tr>

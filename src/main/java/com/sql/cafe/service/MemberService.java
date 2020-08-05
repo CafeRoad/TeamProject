@@ -132,4 +132,12 @@ public class MemberService {
 	public int idcheck(MemberVO memberVo) {
 		return memberMapper.idcheck(memberVo);
 	}
+	//아이디찾기
+	public String findId(String name,String email) {
+		return memberMapper.findid(name, email);
+	}
+	//비밀번호찾기
+	public String findPw(String id,String email) {
+		return memberMapper.findpw(id, email);
+	}
 }
