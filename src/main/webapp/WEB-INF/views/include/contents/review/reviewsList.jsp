@@ -53,7 +53,7 @@ ol, ul {
 				<td width="80%"><font size="5" color="ed7d31">${review.getStars() }</font> ${review.getCafe_name() }
 					/ ${review.getReview_name() }</td>
 
-				<td width="20%"><font size="3">작성자 ${review.getUser_id() }</font></td>
+				<td width="20%"><font size="3">작성자 ${review.getNickname() }</font></td>
 			</tr>
 		</table>
 		<table>
