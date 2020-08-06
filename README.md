@@ -21,10 +21,10 @@ DB : MySQL 5.6.47
 ORM : mybatis 3.2.2   
 
 ## 팀원
-선주호(팀장)   
-반광수(팀원)   
-유동희(팀원)   
-강민성(팀원)   
-장영운(팀원)   
-이가영(팀원)   
+>#### [선주호](https://github.com/sunjuho)   
+>#### [반광수](https://github.com/ban5915)   
+>#### [유동희](https://github.com/chbr101)   
+>#### [강민성](https://github.com/MINSUNG-KANG1)   
+>#### [장영운](https://github.com/YoungWoon-Jang)   
+>#### [이가영](https://github.com/gayoung0712)   
 
