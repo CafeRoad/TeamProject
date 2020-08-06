@@ -40,7 +40,7 @@ public class MemberService {
 		sendMail.setSubject("서비스 이메일 인증");
 		sendMail.setText(new StringBuffer().append("<h1>메일인증</h1>")
 				.append(memberVO.getId()).append("님 가입을 환영합니다.<br/>")
-				.append("<a href='http://172.16.81.141:8080/cafe/userEmailConfirm?authKey=").append(key)
+				.append("<a href='http://localhost:8080/cafe/userEmailConfirm?authKey=").append(key)
 				.append("' target='_blank'>이메일 인증 확인</a>").toString());
 
 		sendMail.setFrom("caferoadteam@gmail.com", "팀 카페로드.");
