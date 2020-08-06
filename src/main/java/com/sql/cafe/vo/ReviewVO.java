@@ -35,6 +35,7 @@ public class ReviewVO {
 	private double star_clean;
 	
 	private String cafe_name;
+	private String nickname;
 	
 	public int getReview_id() {
 		return review_id;
@@ -113,6 +114,12 @@ public class ReviewVO {
 	}
 	public void setCafe_name(String cafe_name) {
 		this.cafe_name = cafe_name;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	
 	

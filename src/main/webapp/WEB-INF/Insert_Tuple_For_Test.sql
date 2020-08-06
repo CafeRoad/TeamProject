@@ -35,7 +35,7 @@ select * from cafe where cafe_name like concat('%',#{search},'%')
 select * from cafe where cafe_name like concat('%','이','%')
 select * from cafe where cafe_name like '%디%'
 
-select * from (select * from cafe where cafe_id = 5) a left outer join (select cafe_id, avg(stars) as avg_star from review group by cafe_id) b on a.cafe_id = b.cafe_id;
+select * from (select * from cafe where cafe_id = 5) a left outer join (select cafe_id, format(avg(stars),2) as avg_star from review group by cafe_id) b on a.cafe_id = b.cafe_id;
 
 insert into article (article_name, create_time, cafe) values ("article01",now(),1);
 insert into article (article_name, create_time, cafe) values ("article01",now(),4);
@@ -49,3 +49,9 @@ insert into article (article_name, create_time, cafe) values ("article01",now(),
 select * from article;
 
 select * from cafe where cafe_id in (select cafe from article where article_name = "article01")
+select * from (select * from review where cafe_id = #{cafe_id}) a, (select cafe_id, cafe_name from cafe) b, (select id, nickname from member) c where a.cafe_id = b.cafe_id and a.user_id = c.id order by create_time
+select * from (select * from review where cafe_id = 5) a, (select cafe_id, cafe_name from cafe) b, (select id, nickname from member) c where a.cafe_id = b.cafe_id and a.user_id = c.id order by create_time;
+
+
+
+select * from (select * from cafe where approval = 1) a left outer join (select cafe_id, format(avg(stars),2) as avg_star from review group by cafe_id) b on a.cafe_id = b.cafe_id where a.cafe_id in (select cafe from article where article_name = #{article_name})
