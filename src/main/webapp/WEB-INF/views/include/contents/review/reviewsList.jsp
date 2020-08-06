@@ -29,11 +29,55 @@ ol, ul {
 	font: inherit;
 	vertical-align: baseline;
 }
+table {
+	margin: 0px auto;
+	width: 1100px;
+}
+
+th {
+	width: 300px;
+	vertical-align: top;
+}
+
+td {
+	
+}
+
+ul, li, td {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+#tst {
+	width: 95%;
+	margin-left: 0px;
+}
+
+#cell tr td {
+	padding: 20px;
+}
+
+.box {
+	margin: 0px auto;
+	width: 1100px;
+}
+
+.content {
+	width: 1100px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	font: 400 1rem/1.5rem 'NotoSansKR';
+}
 </style>
 
 <center>
 	<c:if test="${myReview != null}">
-		<b><font size="6" color="gray">내가 쓴 리뷰</font></b>
+		<br><br><b><font size="6" color="gray">내가 쓴 리뷰</font></b>
 	</c:if>
 
 	<c:if test="${myReview == null}">
@@ -58,10 +102,10 @@ ol, ul {
 		</table>
 		<table>
 			<tr>
-				<td width="25%"><font size="4">맛 ${review.getStar_taste()} 	</font></td>
-				<td width="25%"><font size="4">청결 ${review.getStar_clean()} </font></td>
-				<td width="25%"><font size="4">서비스 ${review.getStar_service()} </font></td>
-				<td width="25%"><font size="4">분위기${review.getStar_mood()}  </font></td>
+				<td width="25%"><font size="4">맛  ${review.getStar_taste()} 	</font></td>
+				<td width="25%"><font size="4">청결  ${review.getStar_clean()} </font></td>
+				<td width="25%"><font size="4">서비스  ${review.getStar_service()} </font></td>
+				<td width="25%"><font size="4">분위기  ${review.getStar_mood()}  </font></td>
 			</tr>
 
 
@@ -72,7 +116,7 @@ ol, ul {
 		</div>
 
 
-		<button type="button" class="btn btn-warning">좋아요(기능 미구현)</button>
+		<button type="button" class="btn btn-warning">좋아요</button>
 
 	</c:forEach>
 	<br>
