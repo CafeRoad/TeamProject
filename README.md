@@ -17,7 +17,7 @@
 
 ## 개발환경
 Server OS : Windows10   
-Language : JAVA 1.8   
+Language : JAVA 1.8 / JSP   
 Framework : Spring 5.1.4   
 Server : Apache Tomcat 9.0   
 build tool : maven   
