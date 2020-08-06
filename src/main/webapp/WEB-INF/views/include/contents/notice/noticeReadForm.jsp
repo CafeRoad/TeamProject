@@ -26,7 +26,7 @@
 }
 
 .price-guest-title {
-	font-size: 60px;
+	font-size: 30px;
 	background: rgba(0, 0, 0, .03);
 	text-align: center;
 	height: 53px;
@@ -48,7 +48,7 @@
 }
 
 .price-guest-info {
-	font-size: 40px;
+	font-size: 20px;
 	padding: 15px;
 	text-align: left;
 }

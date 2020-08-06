@@ -70,7 +70,7 @@
   
    </div>
    <div class="price-item">
-<img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/bestMood.jpg"> 
+<img alt="" src="${pageContext.request.contextPath}/resources/assets/css/images/best01.jpg"> 
   
    </div>
    </div>
