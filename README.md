@@ -2,7 +2,8 @@
 ![CafeRoadMain](https://user-images.githubusercontent.com/68097516/89489664-f8361d00-d7e5-11ea-8dd3-2e2b9e6b3731.jpg)
 ![CafeList](https://user-images.githubusercontent.com/68097516/89489755-29165200-d7e6-11ea-9814-bd50d92e6e06.jpg)
 ![SpecificCafe](https://user-images.githubusercontent.com/68097516/89489776-36334100-d7e6-11ea-852c-e34343a72529.jpg)
-![Reviews](https://user-images.githubusercontent.com/68097516/89497453-5b7c7b00-d7f7-11ea-8b95-179db7ee1974.jpg)    
+![Reviews2](https://user-images.githubusercontent.com/68097516/89501423-49520b00-d7fe-11ea-9d1a-252b6e16dac3.jpg)   
+    
 
 
 #### 솔데스크 801호. 팀 프로젝트입니다.   
