@@ -311,9 +311,8 @@ geocoder.addressSearch('${thisCafe.getGu() }, ${thisCafe.getAddress() }', functi
 <br>
 <c:if test="${approveCafe != null}">
 	<c:if test="${signedMember.getAuthority().equals(admin)}">
-		<button type="button" class="btn btn-warning"
-			onclick="location.href='/cafe/approveCafeAction?cafe_id=${thisCafe.getCafe_id() }'">카페
-			승인하기</button>
+		<input type="button" class="btn btn-warning"
+			onclick="location.href='/cafe/approveCafeAction?cafe_id=${thisCafe.getCafe_id() }'" value="카페 승인하기"/>
 	</c:if>
 
 </c:if>
@@ -321,7 +320,7 @@ geocoder.addressSearch('${thisCafe.getGu() }, ${thisCafe.getAddress() }', functi
 <c:if
 	test="${signedMember.getId().equals(thisCafe.getOwner_id()) || signedMember.getAuthority().equals(admin)}">
 	<input type="button" class="btn btn-warning"
-		value="카페 삭제하기(아직 컨트롤러 미구현)"
+		value="카페 삭제하기"
 		onClick="location.href='/cafe/cafe/deleteCafeAction?cafe_id${cafe.getCafe_id() }'">
 </c:if>
 
